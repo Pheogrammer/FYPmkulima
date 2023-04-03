@@ -1,132 +1,1485 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
 
-        <title>Laravel</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="An impressive and flawless site template that includes various UI elements and countless features, attractive ready-made blocks and rich pages, basically everything you need to create a unique and professional website.">
+    <meta name="keywords"
+        content="bootstrap 5, business, corporate, creative, gulp, marketing, minimal, modern, multipurpose, one page, responsive, saas, sass, seo, startup, html5 template, site template">
+    <meta name="author" content="elemis">
+    <title>Sandbox - Modern & Multipurpose Bootstrap 5 Template</title>
+    <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}">
+    <link rel="stylesheet" href="{{ asset('css/plugins.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/colors/orange.css') }}">
+</head>
 
-        <!-- Styles -->
-        <style>
-            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-t{border-top-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.dark\:text-gray-500{--tw-text-opacity:1;color:#6b7280;color:rgba(107,114,128,var(--tw-text-opacity))}}
-        </style>
-
-        <style>
-            body {
-                font-family: 'Nunito', sans-serif;
-            }
-        </style>
-    </head>
-    <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                    <svg viewBox="0 0 651 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto text-gray-700 sm:h-20">
-                        <g clip-path="url(#clip0)" fill="#EF3B2D">
-                            <path d="M248.032 44.676h-16.466v100.23h47.394v-14.748h-30.928V44.676zM337.091 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.431 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162-.001 2.863-.479 5.584-1.432 8.161zM463.954 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.432 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162 0 2.863-.479 5.584-1.432 8.161zM650.772 44.676h-15.606v100.23h15.606V44.676zM365.013 144.906h15.607V93.538h26.776V78.182h-42.383v66.724zM542.133 78.182l-19.616 51.096-19.616-51.096h-15.808l25.617 66.724h19.614l25.617-66.724h-15.808zM591.98 76.466c-19.112 0-34.239 15.706-34.239 35.079 0 21.416 14.641 35.079 36.239 35.079 12.088 0 19.806-4.622 29.234-14.688l-10.544-8.158c-.006.008-7.958 10.449-19.832 10.449-13.802 0-19.612-11.127-19.612-16.884h51.777c2.72-22.043-11.772-40.877-33.023-40.877zm-18.713 29.28c.12-1.284 1.917-16.884 18.589-16.884 16.671 0 18.697 15.598 18.813 16.884h-37.402zM184.068 43.892c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002-35.648-20.524a2.971 2.971 0 00-2.964 0l-35.647 20.522-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v38.979l-29.706 17.103V24.493a3 3 0 00-.103-.776c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002L40.098 1.396a2.971 2.971 0 00-2.964 0L1.487 21.919l-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v122.09c0 1.063.568 2.044 1.489 2.575l71.293 41.045c.156.089.324.143.49.202.078.028.15.074.23.095a2.98 2.98 0 001.524 0c.069-.018.132-.059.2-.083.176-.061.354-.119.519-.214l71.293-41.045a2.971 2.971 0 001.489-2.575v-38.979l34.158-19.666a2.971 2.971 0 001.489-2.575V44.666a3.075 3.075 0 00-.106-.774zM74.255 143.167l-29.648-16.779 31.136-17.926.001-.001 34.164-19.669 29.674 17.084-21.772 12.428-43.555 24.863zm68.329-76.259v33.841l-12.475-7.182-17.231-9.92V49.806l12.475 7.182 17.231 9.92zm2.97-39.335l29.693 17.095-29.693 17.095-29.693-17.095 29.693-17.095zM54.06 114.089l-12.475 7.182V46.733l17.231-9.92 12.475-7.182v74.537l-17.231 9.921zM38.614 7.398l29.693 17.095-29.693 17.095L8.921 24.493 38.614 7.398zM5.938 29.632l12.475 7.182 17.231 9.92v79.676l.001.005-.001.006c0 .114.032.221.045.333.017.146.021.294.059.434l.002.007c.032.117.094.222.14.334.051.124.088.255.156.371a.036.036 0 00.004.009c.061.105.149.191.222.288.081.105.149.22.244.314l.008.01c.084.083.19.142.284.215.106.083.202.178.32.247l.013.005.011.008 34.139 19.321v34.175L5.939 144.867V29.632h-.001zm136.646 115.235l-65.352 37.625V148.31l48.399-27.628 16.953-9.677v33.862zm35.646-61.22l-29.706 17.102V66.908l17.231-9.92 12.475-7.182v33.841z"/>
-                        </g>
-                    </svg>
-                </div>
-
-                <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                    <div class="grid grid-cols-1 md:grid-cols-2">
-                        <div class="p-6">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel.com/docs" class="underline text-gray-900 dark:text-white">Documentation</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel has wonderful, thorough documentation covering every aspect of the framework. Whether you are new to the framework or have previous experience with Laravel, we recommend reading all of the documentation from beginning to end.
-                                </div>
-                            </div>
+<body>
+    <div class="content-wrapper">
+        <header class="wrapper bg-soft-primary">
+            <nav class="navbar navbar-expand-lg extended navbar-light navbar-bg-light caret-none">
+                <div class="container flex-lg-column">
+                    <div class="topbar d-flex flex-row w-100 justify-content-between align-items-center">
+                        <div class="navbar-brand"><a href="index.html"><img src="{{ asset('img/logo-dark.png') }}"  alt="" /></a></div>
+                        <div class="navbar-other ms-auto">
+                            <ul class="navbar-nav flex-row align-items-center">
+                                <li class="nav-item"><a class="nav-link" data-bs-toggle="offcanvas"
+                                        data-bs-target="#offcanvas-info"><i class="uil uil-info-circle"></i></a></li>
+                                <li class="nav-item dropdown language-select text-uppercase">
+                                    <a class="nav-link dropdown-item dropdown-toggle" href="#" role="button"
+                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">En</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item"><a class="dropdown-item" href="#">En</a></li>
+                                        <li class="nav-item"><a class="dropdown-item" href="#">De</a></li>
+                                        <li class="nav-item"><a class="dropdown-item" href="#">Es</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item d-lg-none">
+                                    <button class="hamburger offcanvas-nav-btn"><span></span></button>
+                                </li>
+                            </ul>
+                            <!-- /.navbar-nav -->
                         </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laracasts.com" class="underline text-gray-900 dark:text-white">Laracasts</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel-news.com/" class="underline text-gray-900 dark:text-white">Laravel News</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white">Vibrant Ecosystem</div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel's robust library of first-party tools and libraries, such as <a href="https://forge.laravel.com" class="underline">Forge</a>, <a href="https://vapor.laravel.com" class="underline">Vapor</a>, <a href="https://nova.laravel.com" class="underline">Nova</a>, and <a href="https://envoyer.io" class="underline">Envoyer</a> help you take your projects to the next level. Pair them with powerful open source libraries like <a href="https://laravel.com/docs/billing" class="underline">Cashier</a>, <a href="https://laravel.com/docs/dusk" class="underline">Dusk</a>, <a href="https://laravel.com/docs/broadcasting" class="underline">Echo</a>, <a href="https://laravel.com/docs/horizon" class="underline">Horizon</a>, <a href="https://laravel.com/docs/sanctum" class="underline">Sanctum</a>, <a href="https://laravel.com/docs/telescope" class="underline">Telescope</a>, and more.
-                                </div>
-                            </div>
-                        </div>
+                        <!-- /.navbar-other -->
                     </div>
-                </div>
+                    <!-- /.d-flex -->
+                    <div class="navbar-collapse-wrapper bg-white d-flex flex-row align-items-center">
+                        <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
+                            <div class="offcanvas-header d-lg-none">
+                                <h3 class="text-white fs-30 mb-0">Sandbox</h3>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body d-flex flex-column h-100">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item dropdown dropdown-mega">
+                                        <a class="nav-link dropdown-toggle" href="#"
+                                            data-bs-toggle="dropdown">Demos</a>
+                                        <ul class="dropdown-menu mega-menu mega-menu-dark mega-menu-img">
+                                            <li class="mega-menu-content mega-menu-scroll">
+                                                <ul
+                                                    class="row row-cols-1 row-cols-lg-6 gx-0 gx-lg-4 gy-lg-2 list-unstyled">
+                                                    <li class="col">
+                                                        <a class="dropdown-item" href="demo1.html">
+                                                            <figure class="rounded lift d-none d-lg-block"><img
+                                                                    src="{{ asset('img/demos/mi1.jpg') }}"
+                                                                    alt=""></figure>
+                                                            <span class="d-lg-none">Demo 1</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col">
+                                                        <a class="dropdown-item" href="demo2.html">
+                                                            <figure class="rounded lift d-none d-lg-block"><img
+                                                                    src="{{ asset('img/demos/mi2.jpg') }}"
+                                                                    alt=""></figure>
+                                                            <span class="d-lg-none">Demo 2</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col">
+                                                        <a class="dropdown-item" href="demo3.html">
+                                                            <figure class="rounded lift d-none d-lg-block"><img
+                                                                    src="{{ asset('img/demos/mi3.jpg') }}"
+                                                                    alt=""></figure>
+                                                            <span class="d-lg-none">Demo 3</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col">
+                                                        <a class="dropdown-item" href="demo4.html">
+                                                            <figure class="rounded lift d-none d-lg-block"><img
+                                                                    src="{{ asset('img/demos/mi4.jpg') }}"
+                                                                    alt=""></figure>
+                                                            <span class="d-lg-none">Demo 4</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col">
+                                                        <a class="dropdown-item" href="demo5.html">
+                                                            <figure class="rounded lift d-none d-lg-block"><img
+                                                                    src="{{ asset('img/demos/mi5.jpg') }}"
+                                                                    alt=""></figure>
+                                                            <span class="d-lg-none">Demo 5</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col">
+                                                        <a class="dropdown-item" href="demo6.html">
+                                                            <figure class="rounded lift d-none d-lg-block"><img
+                                                                    src="{{ asset('img/demos/mi6.jpg') }}"
+                                                                    alt=""></figure>
+                                                            <span class="d-lg-none">Demo 6</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col">
+                                                        <a class="dropdown-item" href="demo7.html">
+                                                            <figure class="rounded lift d-none d-lg-block"><img
+                                                                    src="{{ asset('img/demos/mi7.jpg') }}"
+                                                                    alt=""></figure>
+                                                            <span class="d-lg-none">Demo 7</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col">
+                                                        <a class="dropdown-item" href="demo8.html">
+                                                            <figure class="rounded lift d-none d-lg-block"><img
+                                                                    src="{{ asset('img/demos/mi8.jpg') }}"
+                                                                    alt=""></figure>
+                                                            <span class="d-lg-none">Demo 8</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col">
+                                                        <a class="dropdown-item" href="demo9.html">
+                                                            <figure class="rounded lift d-none d-lg-block"><img
+                                                                    src="{{ asset('img/demos/mi9.jpg') }}"
+                                                                    alt=""></figure>
+                                                            <span class="d-lg-none">Demo 9</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col">
+                                                        <a class="dropdown-item" href="demo10.html">
+                                                            <figure class="rounded lift d-none d-lg-block"><img
+                                                                    src="{{ asset('img/demos/mi10.jpg') }}"
+                                                                    alt=""></figure>
+                                                            <span class="d-lg-none">Demo 10</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col">
+                                                        <a class="dropdown-item" href="demo11.html">
+                                                            <figure class="rounded lift d-none d-lg-block"><img
+                                                                    src="{{ asset('img/demos/mi11.jpg') }}"
+                                                                    alt=""></figure>
+                                                            <span class="d-lg-none">Demo 11</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col">
+                                                        <a class="dropdown-item" href="demo12.html">
+                                                            <figure class="rounded lift d-none d-lg-block"><img
+                                                                    src="{{ asset('img/demos/mi12.jpg') }}"
+                                                                    alt=""></figure>
+                                                            <span class="d-lg-none">Demo 12</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col">
+                                                        <a class="dropdown-item" href="demo13.html">
+                                                            <figure class="rounded lift d-none d-lg-block"><img
+                                                                    src="{{ asset('img/demos/mi13.jpg') }}"
+                                                                    alt=""></figure>
+                                                            <span class="d-lg-none">Demo 13</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col">
+                                                        <a class="dropdown-item" href="demo14.html">
+                                                            <figure class="rounded lift d-none d-lg-block"><img
+                                                                    src="{{ asset('img/demos/mi14.jpg') }}"
+                                                                    alt=""></figure>
+                                                            <span class="d-lg-none">Demo 14</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col">
+                                                        <a class="dropdown-item" href="demo15.html">
+                                                            <figure class="rounded lift d-none d-lg-block"><img
+                                                                    src="{{ asset('img/demos/mi15.jpg') }}"
+                                                                    alt=""></figure>
+                                                            <span class="d-lg-none">Demo 15</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col">
+                                                        <a class="dropdown-item" href="demo16.html">
+                                                            <figure class="rounded lift d-none d-lg-block"><img
+                                                                    src="{{ asset('img/demos/mi16.jpg') }}"
+                                                                    alt=""></figure>
+                                                            <span class="d-lg-none">Demo 16</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col">
+                                                        <a class="dropdown-item" href="demo17.html">
+                                                            <figure class="rounded lift d-none d-lg-block"><img
+                                                                    src="{{ asset('img/demos/mi17.jpg') }}"
+                                                                    alt=""></figure>
+                                                            <span class="d-lg-none">Demo 17</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col">
+                                                        <a class="dropdown-item" href="demo18.html">
+                                                            <figure class="rounded lift d-none d-lg-block"><img
+                                                                    src="{{ asset('img/demos/mi18.jpg') }}"
+                                                                    alt=""></figure>
+                                                            <span class="d-lg-none">Demo 18</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col">
+                                                        <a class="dropdown-item" href="demo19.html">
+                                                            <figure class="rounded lift d-none d-lg-block"><img
+                                                                    src="{{ asset('img/demos/mi19.jpg') }}"
+                                                                    alt=""></figure>
+                                                            <span class="d-lg-none">Demo 19</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col">
+                                                        <a class="dropdown-item" href="demo20.html">
+                                                            <figure class="rounded lift d-none d-lg-block"><img
+                                                                    src="{{ asset('img/demos/mi20.jpg') }}"
+                                                                    alt=""></figure>
+                                                            <span class="d-lg-none">Demo 20</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col">
+                                                        <a class="dropdown-item" href="demo21.html">
+                                                            <figure class="rounded lift d-none d-lg-block"><img
+                                                                    src="{{ asset('img/demos/mi21.jpg') }}"
+                                                                    alt=""></figure>
+                                                            <span class="d-lg-none">Demo 21</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col">
+                                                        <a class="dropdown-item" href="demo22.html">
+                                                            <figure class="rounded lift d-none d-lg-block"><img
+                                                                    src="{{ asset('img/demos/mi22.jpg') }}"
+                                                                    alt=""></figure>
+                                                            <span class="d-lg-none">Demo 22</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col">
+                                                        <a class="dropdown-item" href="demo23.html">
+                                                            <figure class="rounded lift d-none d-lg-block"><img
+                                                                    src="{{ asset('img/demos/mi23.jpg') }}"
 
-                <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
-                    <div class="text-center text-sm text-gray-500 sm:text-left">
-                        <div class="flex items-center">
-                            <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" class="-mt-px w-5 h-5 text-gray-400">
-                                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                            </svg>
-
-                            <a href="https://laravel.bigcartel.com" class="ml-1 underline">
-                                Shop
-                            </a>
-
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="ml-4 -mt-px w-5 h-5 text-gray-400">
-                                <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                            </svg>
-
-                            <a href="https://github.com/sponsors/taylorotwell" class="ml-1 underline">
-                                Sponsor
-                            </a>
+                                                                    alt=""></figure>
+                                                            <span class="d-lg-none">Demo 23</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col">
+                                                        <a class="dropdown-item" href="demo24.html">
+                                                            <figure class="rounded lift d-none d-lg-block"><img
+                                                                    src="{{ asset('img/demos/mi24.jpg') }}"
+                                                                    alt=""></figure>
+                                                            <span class="d-lg-none">Demo 24</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col">
+                                                        <a class="dropdown-item" href="demo25.html">
+                                                            <figure class="rounded lift d-none d-lg-block"><img
+                                                                    src="{{ asset('img/demos/mi25.jpg') }}"
+                                                                    alt=""></figure>
+                                                            <span class="d-lg-none">Demo 25</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col">
+                                                        <a class="dropdown-item" href="demo26.html">
+                                                            <figure class="rounded lift d-none d-lg-block"><img
+                                                                    src="{{ asset('img/demos/mi26.jpg') }}"
+                                                                    alt=""></figure>
+                                                            <span class="d-lg-none">Demo 26</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col">
+                                                        <a class="dropdown-item" href="demo27.html">
+                                                            <figure class="rounded lift d-none d-lg-block"><img
+                                                                    src="{{ asset('img/demos/mi27.jpg') }}"
+                                                                    alt=""></figure>
+                                                            <span class="d-lg-none">Demo 27</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col">
+                                                        <a class="dropdown-item" href="demo28.html">
+                                                            <figure class="rounded lift d-none d-lg-block"><img
+                                                                    src="{{ asset('img/demos/mi28.jpg') }}"
+                                                                    alt=""></figure>
+                                                            <span class="d-lg-none">Demo 28</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col">
+                                                        <a class="dropdown-item" href="demo29.html">
+                                                            <figure class="rounded lift d-none d-lg-block"><img
+                                                                    src="{{ asset('img/demos/mi29.jpg') }}"
+                                                                    alt=""></figure>
+                                                            <span class="d-lg-none">Demo 29</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col">
+                                                        <a class="dropdown-item" href="demo30.html">
+                                                            <figure class="rounded lift d-none d-lg-block"><img
+                                                                    src="{{ asset('img/demos/mi30.jpg') }}"
+                                                                    alt=""></figure>
+                                                            <span class="d-lg-none">Demo 30</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col">
+                                                        <a class="dropdown-item" href="demo31.html">
+                                                            <figure class="rounded lift d-none d-lg-block"><img
+                                                                    src="{{ asset('img/demos/mi31.jpg') }}"
+                                                                    alt=""></figure>
+                                                            <span class="d-lg-none">Demo 31</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col">
+                                                        <a class="dropdown-item" href="demo32.html">
+                                                            <figure class="rounded lift d-none d-lg-block"><img
+                                                                    src="{{ asset('img/demos/mi32.jpg') }}"
+                                                                    alt=""></figure>
+                                                            <span class="d-lg-none">Demo 32</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col">
+                                                        <a class="dropdown-item" href="demo33.html">
+                                                            <figure class="rounded lift d-none d-lg-block"><img
+                                                                    src="{{ asset('img/demos/mi33.jpg') }}"
+                                                                    alt=""></figure>
+                                                            <span class="d-lg-none">Demo 33</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col">
+                                                        <a class="dropdown-item" href="demo34.html">
+                                                            <figure class="rounded lift d-none d-lg-block"><img
+                                                                    src="{{ asset('img/demos/mi34.jpg') }}"
+                                                                    alt=""></figure>
+                                                            <span class="d-lg-none">Demo 34</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                                <!--/.row -->
+                                                <span class="d-none d-lg-flex"><i
+                                                        class="uil uil-direction"></i><strong>Scroll to view
+                                                        more</strong></span>
+                                            </li>
+                                            <!--/.mega-menu-content-->
+                                        </ul>
+                                        <!--/.dropdown-menu -->
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#"
+                                            data-bs-toggle="dropdown">Pages</a>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown dropdown-submenu dropend"><a
+                                                    class="dropdown-item dropdown-toggle" href="#"
+                                                    data-bs-toggle="dropdown">Services</a>
+                                                <ul class="dropdown-menu">
+                                                    <li class="nav-item"><a class="dropdown-item"
+                                                            href="services.html">Services I</a></li>
+                                                    <li class="nav-item"><a class="dropdown-item"
+                                                            href="services2.html">Services II</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown dropdown-submenu dropend"><a
+                                                    class="dropdown-item dropdown-toggle" href="#"
+                                                    data-bs-toggle="dropdown">About</a>
+                                                <ul class="dropdown-menu">
+                                                    <li class="nav-item"><a class="dropdown-item"
+                                                            href="about.html">About I</a></li>
+                                                    <li class="nav-item"><a class="dropdown-item"
+                                                            href="about2.html">About II</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown dropdown-submenu dropend"><a
+                                                    class="dropdown-item dropdown-toggle" href="#"
+                                                    data-bs-toggle="dropdown">Shop</a>
+                                                <ul class="dropdown-menu">
+                                                    <li class="nav-item"><a class="dropdown-item"
+                                                            href="shop.html">Shop I</a></li>
+                                                    <li class="nav-item"><a class="dropdown-item"
+                                                            href="shop2.html">Shop II</a></li>
+                                                    <li class="nav-item"><a class="dropdown-item"
+                                                            href="shop-product.html">Product Page</a></li>
+                                                    <li class="nav-item"><a class="dropdown-item"
+                                                            href="shop-cart.html">Shopping Cart</a></li>
+                                                    <li class="nav-item"><a class="dropdown-item"
+                                                            href="shop-checkout.html">Checkout</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown dropdown-submenu dropend"><a
+                                                    class="dropdown-item dropdown-toggle" href="#"
+                                                    data-bs-toggle="dropdown">Contact</a>
+                                                <ul class="dropdown-menu">
+                                                    <li class="nav-item"><a class="dropdown-item"
+                                                            href="contact.html">Contact I</a></li>
+                                                    <li class="nav-item"><a class="dropdown-item"
+                                                            href="contact2.html">Contact II</a></li>
+                                                    <li class="nav-item"><a class="dropdown-item"
+                                                            href="contact3.html">Contact III</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown dropdown-submenu dropend"><a
+                                                    class="dropdown-item dropdown-toggle" href="#"
+                                                    data-bs-toggle="dropdown">Career</a>
+                                                <ul class="dropdown-menu">
+                                                    <li class="nav-item"><a class="dropdown-item"
+                                                            href="career.html">Job Listing I</a></li>
+                                                    <li class="nav-item"><a class="dropdown-item"
+                                                            href="career2.html">Job Listing II</a></li>
+                                                    <li class="nav-item"><a class="dropdown-item"
+                                                            href="career-job.html">Job Description</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown dropdown-submenu dropend"><a
+                                                    class="dropdown-item dropdown-toggle" href="#"
+                                                    data-bs-toggle="dropdown">Utility</a>
+                                                <ul class="dropdown-menu">
+                                                    <li class="nav-item"><a class="dropdown-item" href="404.html">404
+                                                            Not Found</a></li>
+                                                    <li class="nav-item"><a class="dropdown-item"
+                                                            href="page-loader.html">Page Loader</a></li>
+                                                    <li class="nav-item"><a class="dropdown-item"
+                                                            href="signin.html">Sign In I</a></li>
+                                                    <li class="nav-item"><a class="dropdown-item"
+                                                            href="signin2.html">Sign In II</a></li>
+                                                    <li class="nav-item"><a class="dropdown-item"
+                                                            href="signup.html">Sign Up I</a></li>
+                                                    <li class="nav-item"><a class="dropdown-item"
+                                                            href="signup2.html">Sign Up II</a></li>
+                                                    <li class="nav-item"><a class="dropdown-item"
+                                                            href="terms.html">Terms</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="nav-item"><a class="dropdown-item"
+                                                    href="pricing.html">Pricing</a></li>
+                                            <li class="nav-item"><a class="dropdown-item" href="onepage.html">One
+                                                    Page</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#"
+                                            data-bs-toggle="dropdown">Projects</a>
+                                        <div class="dropdown-menu dropdown-lg">
+                                            <div class="dropdown-lg-content">
+                                                <div>
+                                                    <h6 class="dropdown-header">Project Pages</h6>
+                                                    <ul class="list-unstyled">
+                                                        <li><a class="dropdown-item" href="projects.html">Projects
+                                                                I</a></li>
+                                                        <li><a class="dropdown-item" href="projects2.html">Projects
+                                                                II</a></li>
+                                                        <li><a class="dropdown-item" href="projects3.html">Projects
+                                                                III</a></li>
+                                                        <li><a class="dropdown-item" href="projects4.html">Projects
+                                                                IV</a></li>
+                                                    </ul>
+                                                </div>
+                                                <!-- /.column -->
+                                                <div>
+                                                    <h6 class="dropdown-header">Single Projects</h6>
+                                                    <ul class="list-unstyled">
+                                                        <li><a class="dropdown-item" href="single-project.html">Single
+                                                                Project I</a></li>
+                                                        <li><a class="dropdown-item"
+                                                                href="single-project2.html">Single Project II</a></li>
+                                                        <li><a class="dropdown-item"
+                                                                href="single-project3.html">Single Project III</a></li>
+                                                        <li><a class="dropdown-item"
+                                                                href="single-project4.html">Single Project IV</a></li>
+                                                    </ul>
+                                                </div>
+                                                <!-- /.column -->
+                                            </div>
+                                            <!-- /auto-column -->
+                                        </div>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#"
+                                            data-bs-toggle="dropdown">Blog</a>
+                                        <ul class="dropdown-menu">
+                                            <li class="nav-item"><a class="dropdown-item" href="blog.html">Blog
+                                                    without Sidebar</a></li>
+                                            <li class="nav-item"><a class="dropdown-item" href="blog2.html">Blog with
+                                                    Sidebar</a></li>
+                                            <li class="nav-item"><a class="dropdown-item" href="blog3.html">Blog with
+                                                    Left Sidebar</a></li>
+                                            <li class="dropdown dropdown-submenu dropend"><a
+                                                    class="dropdown-item dropdown-toggle" href="#"
+                                                    data-bs-toggle="dropdown">Blog Posts</a>
+                                                <ul class="dropdown-menu">
+                                                    <li class="nav-item"><a class="dropdown-item"
+                                                            href="blog-post.html">Post without Sidebar</a></li>
+                                                    <li class="nav-item"><a class="dropdown-item"
+                                                            href="blog-post2.html">Post with Sidebar</a></li>
+                                                    <li class="nav-item"><a class="dropdown-item"
+                                                            href="blog-post3.html">Post with Left Sidebar</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown dropdown-mega">
+                                        <a class="nav-link dropdown-toggle" href="#"
+                                            data-bs-toggle="dropdown">Blocks</a>
+                                        <ul class="dropdown-menu mega-menu mega-menu-dark mega-menu-img">
+                                            <li class="mega-menu-content">
+                                                <ul
+                                                    class="row row-cols-1 row-cols-lg-6 gx-0 gx-lg-6 gy-lg-4 list-unstyled">
+                                                    <li class="col"><a class="dropdown-item"
+                                                            href="docs/blocks/about.html">
+                                                            <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2">
+                                                                <img class="rounded-0"
+                                                                    src="{{ asset('img/demos/block1.svg') }}"
+                                                                    alt=""></div>
+                                                            <span>About</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col"><a class="dropdown-item"
+                                                            href="docs/blocks/blog.html">
+                                                            <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2">
+                                                                <img class="rounded-0"
+                                                                    src="{{ asset('img/demos/block2.svg') }}"
+                                                                    alt=""></div>
+                                                            <span>Blog</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col"><a class="dropdown-item"
+                                                            href="docs/blocks/call-to-action.html">
+                                                            <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2">
+                                                                <img class="rounded-0"
+                                                                    src="{{ asset('img/demos/block3.svg') }}"
+                                                                    alt=""></div>
+                                                            <span>Call to Action</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col"><a class="dropdown-item"
+                                                            href="docs/blocks/clients.html">
+                                                            <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2">
+                                                                <img class="rounded-0"
+                                                                    src="{{ asset('img/demos/block4.svg') }}"
+                                                                    alt=""></div>
+                                                            <span>Clients</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col"><a class="dropdown-item"
+                                                            href="docs/blocks/contact.html">
+                                                            <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2">
+                                                                <img class="rounded-0"
+                                                                    src="{{ asset('img/demos/block5.svg') }}"
+                                                                    alt=""></div>
+                                                            <span>Contact</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col"><a class="dropdown-item"
+                                                            href="docs/blocks/facts.html">
+                                                            <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2">
+                                                                <img class="rounded-0"
+                                                                    src="{{ asset('img/demos/block6.svg') }}"
+                                                                    alt=""></div>
+                                                            <span>Facts</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col"><a class="dropdown-item"
+                                                            href="docs/blocks/faq.html">
+                                                            <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2">
+                                                                <img class="rounded-0"
+                                                                    src="{{ asset('img/demos/block7.svg') }}"
+                                                                    alt=""></div>
+                                                            <span>FAQ</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col"><a class="dropdown-item"
+                                                            href="docs/blocks/features.html">
+                                                            <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2">
+                                                                <img class="rounded-0"
+                                                                    src="{{ asset('img/demos/block8.svg') }}"
+                                                                    alt=""></div>
+                                                            <span>Features</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col"><a class="dropdown-item"
+                                                            href="docs/blocks/footer.html">
+                                                            <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2">
+                                                                <img class="rounded-0"
+                                                                    src="{{ asset('img/demos/block9.svg') }}"
+                                                                    alt=""></div>
+                                                            <span>Footer</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col"><a class="dropdown-item"
+                                                            href="docs/blocks/hero.html">
+                                                            <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2">
+                                                                <img class="rounded-0"
+                                                                    src="{{ asset('img/demos/block10.svg') }}"
+                                                                    alt=""></div>
+                                                            <span>Hero</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col"><a class="dropdown-item"
+                                                            href="docs/blocks/misc.html">
+                                                            <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2">
+                                                                <img class="rounded-0"
+                                                                    src="{{ asset('img/demos/block17.svg') }}"
+                                                                    alt=""></div>
+                                                            <span>Misc</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col"><a class="dropdown-item"
+                                                            href="docs/blocks/navbar.html">
+                                                            <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2">
+                                                                <img class="rounded-0"
+                                                                    src="{{ asset('img/demos/block11.svg') }}"
+                                                                    alt=""></div>
+                                                            <span>Navbar</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col"><a class="dropdown-item"
+                                                            href="docs/blocks/portfolio.html">
+                                                            <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2">
+                                                                <img class="rounded-0"
+                                                                    src="{{ asset('img/demos/block12.svg') }}"
+                                                                    alt=""></div>
+                                                            <span>Portfolio</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col"><a class="dropdown-item"
+                                                            href="docs/blocks/pricing.html">
+                                                            <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2">
+                                                                <img class="rounded-0"
+                                                                    src="{{ asset('img/demos/block13.svg') }}"
+                                                                    alt=""></div>
+                                                            <span>Pricing</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col"><a class="dropdown-item"
+                                                            href="docs/blocks/process.html">
+                                                            <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2">
+                                                                <img class="rounded-0"
+                                                                    src="{{ asset('img/demos/block14.svg') }}"
+                                                                    alt=""></div>
+                                                            <span>Process</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col"><a class="dropdown-item"
+                                                            href="docs/blocks/team.html">
+                                                            <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2">
+                                                                <img class="rounded-0"
+                                                                    src="{{ asset('img/demos/block15.svg') }}"
+                                                                    alt=""></div>
+                                                            <span>Team</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col"><a class="dropdown-item"
+                                                            href="docs/blocks/testimonials.html">
+                                                            <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2">
+                                                                <img class="rounded-0"
+                                                                    src="{{ asset('img/demos/block16.svg') }}"
+                                                                    alt=""></div>
+                                                            <span>Testimonials</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                                <!--/.row -->
+                                            </li>
+                                            <!--/.mega-menu-content-->
+                                        </ul>
+                                        <!--/.dropdown-menu -->
+                                    </li>
+                                    <li class="nav-item dropdown dropdown-mega">
+                                        <a class="nav-link dropdown-toggle" href="#"
+                                            data-bs-toggle="dropdown">Documentation</a>
+                                        <ul class="dropdown-menu mega-menu">
+                                            <li class="mega-menu-content">
+                                                <div class="row gx-0 gx-lg-3">
+                                                    <div class="col-lg-4">
+                                                        <h6 class="dropdown-header">Usage</h6>
+                                                        <ul class="list-unstyled cc-2 pb-lg-1">
+                                                            <li><a class="dropdown-item" href="docs/index.html">Get
+                                                                    Started</a></li>
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/forms.html">Forms</a></li>
+                                                            <li><a class="dropdown-item" href="docs/faq.html">FAQ</a>
+                                                            </li>
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/changelog.html">Changelog</a></li>
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/credits.html">Credits</a></li>
+                                                        </ul>
+                                                        <h6 class="dropdown-header mt-lg-6">Styleguide</h6>
+                                                        <ul class="list-unstyled cc-2">
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/styleguide/colors.html">Colors</a></li>
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/styleguide/fonts.html">Fonts</a></li>
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/styleguide/icons-svg.html">SVG Icons</a>
+                                                            </li>
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/styleguide/icons-font.html">Font
+                                                                    Icons</a></li>
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/styleguide/illustrations.html">Illustrations</a>
+                                                            </li>
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/styleguide/backgrounds.html">Backgrounds</a>
+                                                            </li>
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/styleguide/misc.html">Misc</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <!--/column -->
+                                                    <div class="col-lg-8">
+                                                        <h6 class="dropdown-header">Elements</h6>
+                                                        <ul class="list-unstyled cc-3">
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/elements/accordion.html">Accordion</a>
+                                                            </li>
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/elements/alerts.html">Alerts</a></li>
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/elements/animations.html">Animations</a>
+                                                            </li>
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/elements/avatars.html">Avatars</a></li>
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/elements/background.html">Background</a>
+                                                            </li>
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/elements/badges.html">Badges</a></li>
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/elements/buttons.html">Buttons</a></li>
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/elements/card.html">Card</a></li>
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/elements/carousel.html">Carousel</a>
+                                                            </li>
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/elements/dividers.html">Dividers</a>
+                                                            </li>
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/elements/form-elements.html">Form
+                                                                    Elements</a></li>
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/elements/image-hover.html">Image
+                                                                    Hover</a></li>
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/elements/image-mask.html">Image Mask</a>
+                                                            </li>
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/elements/lightbox.html">Lightbox</a>
+                                                            </li>
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/elements/player.html">Media Player</a>
+                                                            </li>
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/elements/modal.html">Modal</a></li>
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/elements/pagination.html">Pagination</a>
+                                                            </li>
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/elements/progressbar.html">Progressbar</a>
+                                                            </li>
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/elements/shadows.html">Shadows</a></li>
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/elements/shapes.html">Shapes</a></li>
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/elements/tables.html">Tables</a></li>
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/elements/tabs.html">Tabs</a></li>
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/elements/text-animations.html">Text
+                                                                    Animations</a></li>
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/elements/text-highlight.html">Text
+                                                                    Highlight</a></li>
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/elements/tiles.html">Tiles</a></li>
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/elements/tooltips-popovers.html">Tooltips
+                                                                    & Popovers</a></li>
+                                                            <li><a class="dropdown-item"
+                                                                    href="docs/elements/typography.html">Typography</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <!--/column -->
+                                                </div>
+                                                <!--/.row -->
+                                            </li>
+                                            <!--/.mega-menu-content-->
+                                        </ul>
+                                        <!--/.dropdown-menu -->
+                                    </li>
+                                </ul>
+                                <!-- /.navbar-nav -->
+                                <div class="offcanvas-footer d-lg-none">
+                                    <div>
+                                        <a href="/l/email-protection.html#e08689929394ce8c819394a0858d81898cce838f8d"
+                                            class="link-inverse"><span class="__cf_email__"
+                                                data-cfemail="533a3d353c13363e323a3f7d303c3e">[email&#160;protected]</span></a>
+                                        <br /> 00 (123) 456 78 90 <br />
+                                        <nav class="nav social social-white mt-4">
+                                            <a href="#"><i class="uil uil-twitter"></i></a>
+                                            <a href="#"><i class="uil uil-facebook-f"></i></a>
+                                            <a href="#"><i class="uil uil-dribbble"></i></a>
+                                            <a href="#"><i class="uil uil-instagram"></i></a>
+                                            <a href="#"><i class="uil uil-youtube"></i></a>
+                                        </nav>
+                                        <!-- /.social -->
+                                    </div>
+                                </div>
+                                <!-- /.offcanvas-footer -->
+                            </div>
                         </div>
+                        <!-- /.navbar-collapse -->
+                        <div class="navbar-other ms-auto w-100 d-none d-lg-block">
+                            <nav class="nav social social-muted justify-content-end text-end">
+                                <a href="#"><i class="uil uil-twitter"></i></a>
+                                <a href="#"><i class="uil uil-facebook-f"></i></a>
+                                <a href="#"><i class="uil uil-dribbble"></i></a>
+                                <a href="#"><i class="uil uil-instagram"></i></a>
+                            </nav>
+                            <!-- /.social -->
+                        </div>
+                        <!-- /.navbar-other -->
                     </div>
-
-                    <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
-                    </div>
+                    <!-- /.navbar-collapse-wrapper -->
                 </div>
+                <!-- /.container -->
+            </nav>
+            <!-- /.navbar -->
+            <div class="offcanvas offcanvas-end text-inverse" id="offcanvas-info" data-bs-scroll="true">
+                <div class="offcanvas-header">
+                    <h3 class="text-white fs-30 mb-0">Sandbox</h3>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body pb-6">
+                    <div class="widget mb-8">
+                        <p>Sandbox is a multipurpose HTML5 template with various layouts which will be a great solution
+                            for your business.</p>
+                    </div>
+                    <!-- /.widget -->
+                    <div class="widget mb-8">
+                        <h4 class="widget-title text-white mb-3">Contact Info</h4>
+                        <address> Moonshine St. 14/05 <br /> Light City, London </address>
+                        <a href="/l/email-protection.html#12747b6061663c7e73616652777f737b7e3c717d7f"><span
+                                class="__cf_email__"
+                                data-cfemail="9cf5f2faf3dcf9f1fdf5f0b2fff3f1">[email&#160;protected]</span></a><br />
+                        00 (123) 456 78 90
+                    </div>
+                    <!-- /.widget -->
+                    <div class="widget mb-8">
+                        <h4 class="widget-title text-white mb-3">Learn More</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Our Story</a></li>
+                            <li><a href="#">Terms of Use</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <!-- /.widget -->
+                    <div class="widget">
+                        <h4 class="widget-title text-white mb-3">Follow Us</h4>
+                        <nav class="nav social social-white">
+                            <a href="#"><i class="uil uil-twitter"></i></a>
+                            <a href="#"><i class="uil uil-facebook-f"></i></a>
+                            <a href="#"><i class="uil uil-dribbble"></i></a>
+                            <a href="#"><i class="uil uil-instagram"></i></a>
+                            <a href="#"><i class="uil uil-youtube"></i></a>
+                        </nav>
+                        <!-- /.social -->
+                    </div>
+                    <!-- /.widget -->
+                </div>
+                <!-- /.offcanvas-body -->
             </div>
+            <!-- /.offcanvas -->
+        </header>
+        <!-- /header -->
+        <div class="modal fade modal-popup" id="modal-02" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-md">
+                <div class="modal-content text-center">
+                    <div class="modal-body">
+                        <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <div class="row">
+                            <div class="col-md-10 offset-md-1">
+                                <figure class="mb-6"><img src="{{ asset('img/illustrations/i7.png') }}" alt="" /></figure>
+                            </div>
+                            <!-- /column -->
+                        </div>
+                        <!-- /.row -->
+                        <h3>Join the mailing list and get %10 off</h3>
+                        <p class="mb-6">Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla
+                            non metus auctor fringilla.</p>
+                        <div class="newsletter-wrapper">
+                            <div class="row">
+                                <div class="col-md-10 offset-md-1">
+                                    <!-- Begin Mailchimp Signup Form -->
+                                    <div id="mc_embed_signup">
+                                        <form
+                                            action="https://elemisfreebies.us20.list-manage.com/subscribe/post?u=aa4947f70a475ce162057838d&amp;id=b49ef47a9a"
+                                            method="post" id="mc-embedded-subscribe-form"
+                                            name="mc-embedded-subscribe-form" class="validate" target="_blank"
+                                            novalidate>
+                                            <div id="mc_embed_signup_scroll">
+                                                <div class="mc-field-group input-group form-floating">
+                                                    <input type="email" value="" name="EMAIL"
+                                                        class="required email form-control"
+                                                        placeholder="Email Address" id="mce-EMAIL">
+                                                    <label for="mce-EMAIL">Email Address</label>
+                                                    <input type="submit" value="Join" name="subscribe"
+                                                        id="mc-embedded-subscribe" class="btn btn-primary">
+                                                </div>
+                                                <div id="mce-responses" class="clear">
+                                                    <div class="response" id="mce-error-response"
+                                                        style="display:none"></div>
+                                                    <div class="response" id="mce-success-response"
+                                                        style="display:none"></div>
+                                                </div>
+                                                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                                <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                                                    <input type="text"
+                                                        name="b_ddc180777a163e0f9f66ee014_4b1bcfa0bc" tabindex="-1"
+                                                        value=""></div>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <!--End mc_embed_signup-->
+                                </div>
+                                <!-- /.newsletter-wrapper -->
+                            </div>
+                            <!-- /column -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!--/.modal-body -->
+                </div>
+                <!--/.modal-content -->
+            </div>
+            <!--/.modal-dialog -->
         </div>
-    </body>
+        <!--/.modal -->
+        <section class="wrapper bg-soft-primary">
+            <div class="container pt-10 pb-15 pt-md-14 pb-md-20">
+                <div class="row gx-lg-8 gx-xl-12 gy-10 mb-5 align-items-center">
+                    <div class="col-md-10 offset-md-1 offset-lg-0 col-lg-5 text-center text-lg-start order-2 order-lg-0"
+                        data-cues="slideInDown" data-group="page-title" data-delay="600">
+                        <h1 class="display-1 mb-5 mx-md-n5 mx-lg-0">Creative. Smart. Awesome.</h1>
+                        <p class="lead fs-lg mb-7">We specialize in web, mobile and identity design. We love to turn
+                            ideas into beautiful things.</p>
+                        <div class="d-flex justify-content-center justify-content-lg-start" data-cues="slideInDown"
+                            data-group="page-title-buttons" data-delay="900">
+                            <span><a class="btn btn-primary rounded me-2">See Projects</a></span>
+                            <span><a class="btn btn-yellow rounded">Learn More</a></span>
+                        </div>
+                    </div>
+                    <!-- /column -->
+                    <div class="col-lg-7" data-cue="slideInDown">
+                        <figure><img class="w-auto" src="{{ asset('img/illustrations/i6.png') }}"  alt="" /></figure>
+                    </div>
+                    <!-- /column -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container -->
+        </section>
+        <!-- /section -->
+        <section class="wrapper bg-light">
+            <div class="container py-14 py-md-16 pb-md-17">
+                <div class="row gx-md-5 gy-5 mt-n18 mt-md-n21 mb-14 mb-md-17">
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card shadow-lg card-border-bottom border-soft-yellow">
+                            <div class="card-body">
+                                <img src="{{ asset('img/icons/lineal/browser.svg') }}"
+                                    class="svg-inject icon-svg icon-svg-md text-yellow mb-3" alt="" />
+                                <h4>Content Marketing</h4>
+                                <p class="mb-2">Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta
+                                    gravida at eget metus cras justo.</p>
+                                <a href="#" class="more hover link-yellow">Learn More</a>
+                            </div>
+                            <!--/.card-body -->
+                        </div>
+                        <!--/.card -->
+                    </div>
+                    <!--/column -->
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card shadow-lg card-border-bottom border-soft-green">
+                            <div class="card-body">
+                                <img src="{{ asset('img/icons/lineal/chat-2.svg') }}"
+                                    class="svg-inject icon-svg icon-svg-md text-green mb-3" alt="" />
+                                <h4>Social Engagement</h4>
+                                <p class="mb-2">Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta
+                                    gravida at eget metus cras justo.</p>
+                                <a href="#" class="more hover link-green">Learn More</a>
+                            </div>
+                            <!--/.card-body -->
+                        </div>
+                        <!--/.card -->
+                    </div>
+                    <!--/column -->
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card shadow-lg card-border-bottom border-soft-orange">
+                            <div class="card-body">
+                                <img src="{{ asset('img/icons/lineal/id-card.svg') }}"
+                                    class="svg-inject icon-svg icon-svg-md text-orange mb-3" alt="" />
+                                <h4>Identity & Branding</h4>
+                                <p class="mb-2">Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta
+                                    gravida at eget metus cras justo.</p>
+                                <a href="#" class="more hover link-orange">Learn More</a>
+                            </div>
+                            <!--/.card-body -->
+                        </div>
+                        <!--/.card -->
+                    </div>
+                    <!--/column -->
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card shadow-lg card-border-bottom border-soft-blue">
+                            <div class="card-body">
+                                <img src="{{ asset('img/icons/lineal/gift.svg') }}"
+                                    class="svg-inject icon-svg icon-svg-md text-blue mb-3" alt="" />
+                                <h4>Product Design</h4>
+                                <p class="mb-2">Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta
+                                    gravida at eget metus cras justo.</p>
+                                <a href="#" class="more hover link-blue">Learn More</a>
+                            </div>
+                            <!--/.card-body -->
+                        </div>
+                        <!--/.card -->
+                    </div>
+                    <!--/column -->
+                </div>
+                <!--/.row -->
+                <div class="row gx-lg-8 gx-xl-12 gy-10 mb-14 mb-md-17 align-items-center">
+                    <div class="col-lg-7">
+                        <figure><img class="w-auto" src="{{ asset('img/illustrations/i8.png') }}" alt="" /></figure>
+                    </div>
+                    <!--/column -->
+                    <div class="col-lg-5">
+                        <h3 class="display-4 mb-7">Our three process steps on creating awesome projects.</h3>
+                        <div class="d-flex flex-row mb-6">
+                            <div>
+                                <span class="icon btn btn-circle btn-soft-primary pe-none me-5"><span
+                                        class="number fs-18">1</span></span>
+                            </div>
+                            <div>
+                                <h4 class="mb-1">Collect Ideas</h4>
+                                <p class="mb-0">Nulla vitae elit libero pharetra augue dapibus. Praesent commodo
+                                    cursus. Donec ullamcorper nulla non metus.</p>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row mb-6">
+                            <div>
+                                <span class="icon btn btn-circle btn-soft-primary pe-none me-5"><span
+                                        class="number fs-18">2</span></span>
+                            </div>
+                            <div>
+                                <h4 class="mb-1">Data Analysis</h4>
+                                <p class="mb-0">Vivamus sagittis lacus vel augue laoreet. Etiam porta sem malesuada
+                                    magna auctor fringilla augue.</p>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <div>
+                                <span class="icon btn btn-circle btn-soft-primary pe-none me-5"><span
+                                        class="number fs-18">3</span></span>
+                            </div>
+                            <div>
+                                <h4 class="mb-1">Finalize Product</h4>
+                                <p class="mb-0">Cras mattis consectetur purus sit amet. Aenean lacinia bibendum nulla
+                                    sed. Nulla vitae elit libero pharetra.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/column -->
+                </div>
+                <!--/.row -->
+                <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
+                    <div class="col-lg-7 order-lg-2">
+                        <figure><img class="w-auto" src="{{ asset('img/illustrations/i2.png') }}"  alt="" /></figure>
+                    </div>
+                    <!--/column -->
+                    <div class="col-lg-5">
+                        <h3 class="display-4 mb-7 mt-lg-10">Few reasons why our valued customers choose us.</h3>
+                        <div class="accordion accordion-wrapper" id="accordionExample">
+                            <div class="card plain accordion-item">
+                                <div class="card-header" id="headingOne">
+                                    <button class="accordion-button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseOne" aria-expanded="true"
+                                        aria-controls="collapseOne"> Professional Design </button>
+                                </div>
+                                <!--/.card-header -->
+                                <div id="collapseOne" class="accordion-collapse collapse show"
+                                    aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+                                            fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet
+                                            fermentum. Praesent commodo cursus magna, vel.</p>
+                                    </div>
+                                    <!--/.card-body -->
+                                </div>
+                                <!--/.accordion-collapse -->
+                            </div>
+                            <!--/.accordion-item -->
+                            <div class="card plain accordion-item">
+                                <div class="card-header" id="headingTwo">
+                                    <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                        aria-expanded="false" aria-controls="collapseTwo"> Top-Notch Support </button>
+                                </div>
+                                <!--/.card-header -->
+                                <div id="collapseTwo" class="accordion-collapse collapse"
+                                    aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+                                            fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet
+                                            fermentum. Praesent commodo cursus magna, vel.</p>
+                                    </div>
+                                    <!--/.card-body -->
+                                </div>
+                                <!--/.accordion-collapse -->
+                            </div>
+                            <!--/.accordion-item -->
+                            <div class="card plain accordion-item">
+                                <div class="card-header" id="headingThree">
+                                    <button class="collapsed" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseThree" aria-expanded="false"
+                                        aria-controls="collapseThree"> Header and Slider Options </button>
+                                </div>
+                                <!--/.card-header -->
+                                <div id="collapseThree" class="accordion-collapse collapse"
+                                    aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+                                            fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet
+                                            fermentum. Praesent commodo cursus magna, vel.</p>
+                                    </div>
+                                    <!--/.card-body -->
+                                </div>
+                                <!--/.accordion-collapse -->
+                            </div>
+                            <!--/.accordion-item -->
+                        </div>
+                        <!--/.accordion -->
+                    </div>
+                    <!--/column -->
+                </div>
+                <!--/.row -->
+            </div>
+            <!-- /.container -->
+        </section>
+        <!-- /section -->
+        <section class="wrapper bg-soft-primary">
+            <div class="container py-14 pt-md-17 pb-md-20">
+                <div class="row gx-lg-8 gx-xl-12 gy-10 gy-lg-0">
+                    <div class="col-lg-4 text-center text-lg-start">
+                        <h3 class="display-4 mb-3 pe-xl-15">We are proud of our works</h3>
+                        <p class="lead fs-lg mb-0 pe-xxl-10">We bring solutions to make life easier for our customers.
+                        </p>
+                    </div>
+                    <!-- /column -->
+                    <div class="col-lg-8 mt-lg-2">
+                        <div class="row align-items-center counter-wrapper gy-6 text-center">
+                            <div class="col-md-4">
+                                <img src="{{ asset('img/icons/lineal/check.svg') }}"
+                                    class="svg-inject icon-svg icon-svg-md text-primary mb-3" alt="" />
+                                <h3 class="counter">7518</h3>
+                                <p>Completed Projects</p>
+                            </div>
+                            <!--/column -->
+                            <div class="col-md-4">
+                                <img src="{{ asset('img/icons/lineal/user.svg') }}"
+                                    class="svg-inject icon-svg icon-svg-md text-primary mb-3" alt="" />
+                                <h3 class="counter">3472</h3>
+                                <p>Happy Customers</p>
+                            </div>
+                            <!--/column -->
+                            <div class="col-md-4">
+                                <img src="{{ asset('img/icons/lineal/briefcase-2.svg') }}"
+                                    class="svg-inject icon-svg icon-svg-md text-primary mb-3" alt="" />
+                                <h3 class="counter">2184</h3>
+                                <p>Expert Employees</p>
+                            </div>
+                            <!--/column -->
+                        </div>
+                        <!--/.row -->
+                    </div>
+                    <!-- /column -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container -->
+        </section>
+        <!-- /section -->
+        <section class="wrapper bg-light">
+            <div class="container py-14 py-md-16 pb-md-17">
+                <div class="grid mb-14 mb-md-18 mt-3">
+                    <div class="row isotope gy-6 mt-n19 mt-md-n22">
+                        <div class="item col-md-6 col-xl-3">
+                            <div class="card shadow-lg card-border-bottom border-soft-primary">
+                                <div class="card-body">
+                                    <span class="ratings five mb-3"></span>
+                                    <blockquote class="icon mb-0">
+                                        <p>“Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+                                            Vestibulum id ligula porta. Cras mattis consectetur.”</p>
+                                        <div class="blockquote-details">
+                                            <div class="info ps-0">
+                                                <h5 class="mb-1">Coriss Ambady</h5>
+                                                <p class="mb-0">Financial Analyst</p>
+                                            </div>
+                                        </div>
+                                    </blockquote>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                        <!--/column -->
+                        <div class="item col-md-6 col-xl-3">
+                            <div class="card shadow-lg card-border-bottom border-soft-primary">
+                                <div class="card-body">
+                                    <span class="ratings five mb-3"></span>
+                                    <blockquote class="icon mb-0">
+                                        <p>“Fusce dapibus, tellus ac cursus tortor mauris condimentum fermentum massa
+                                            justo sit amet purus sit amet fermentum.”</p>
+                                        <div class="blockquote-details">
+                                            <div class="info ps-0">
+                                                <h5 class="mb-1">Cory Zamora</h5>
+                                                <p class="mb-0">Marketing Specialist</p>
+                                            </div>
+                                        </div>
+                                    </blockquote>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                        <!--/column -->
+                        <div class="item col-md-6 col-xl-3">
+                            <div class="card shadow-lg card-border-bottom border-soft-primary">
+                                <div class="card-body">
+                                    <span class="ratings five mb-3"></span>
+                                    <blockquote class="icon mb-0">
+                                        <p>“Curabitur blandit tempus porttitor. Vivamus sagittis lacus vel augue laoreet
+                                            rutrum faucibus dolor eu rutrum. Nulla vitae libero.”</p>
+                                        <div class="blockquote-details">
+                                            <div class="info ps-0">
+                                                <h5 class="mb-1">Nikolas Brooten</h5>
+                                                <p class="mb-0">Sales Manager</p>
+                                            </div>
+                                        </div>
+                                    </blockquote>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                        <!--/column -->
+                        <div class="item col-md-6 col-xl-3">
+                            <div class="card shadow-lg card-border-bottom border-soft-primary">
+                                <div class="card-body">
+                                    <span class="ratings five mb-3"></span>
+                                    <blockquote class="icon mb-0">
+                                        <p>“Etiam adipiscing tincidunt elit convallis felis suscipit ut. Phasellus
+                                            rhoncus eu tincidunt auctor nullam rutrum, pharetra augue.”</p>
+                                        <div class="blockquote-details">
+                                            <div class="info ps-0">
+                                                <h5 class="mb-1">Coriss Ambady</h5>
+                                                <p class="mb-0">Financial Analyst</p>
+                                            </div>
+                                        </div>
+                                    </blockquote>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                        <!--/column -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.grid-view -->
+                <div class="projects-tiles">
+                    <div class="project grid grid-view">
+                        <div class="row gx-md-8 gx-xl-12 gy-10 gy-md-12 isotope">
+                            <div class="item col-md-6 mt-md-7 mt-lg-15">
+                                <div
+                                    class="project-details d-flex justify-content-center align-self-end flex-column ps-0 pb-0">
+                                    <div class="post-header">
+                                        <h2 class="display-4 mb-4 pe-xxl-15">Check out some of our recent projects
+                                            below.</h2>
+                                        <p class="lead fs-lg mb-0">We love to turn ideas into beautiful things.</p>
+                                    </div>
+                                    <!-- /.post-header -->
+                                </div>
+                                <!-- /.project-details -->
+                            </div>
+                            <!-- /.item -->
+                            <div class="item col-md-6">
+                                <figure class="lift rounded mb-6"><a href="single-project3.html"> <img
+                                            src="{{ asset('img/photos/rp1.jpg') }}"  alt="" /></a>
+                                </figure>
+                                <div class="post-category text-line mb-2 text-violet">Stationary</div>
+                                <h2 class="post-title h3">Ipsum Ultricies Cursus</h2>
+                            </div>
+                            <!-- /.item -->
+                            <div class="item col-md-6">
+                                <figure class="lift rounded mb-6"><a href="single-project2.html"> <img
+                                            src="{{ asset('img/photos/rp2.jpg') }}"  alt="" /></a>
+                                </figure>
+                                <div class="post-category text-line mb-2 text-leaf">Invitation</div>
+                                <h2 class="post-title h3">Mollis Ipsum Mattis</h2>
+                            </div>
+                            <!-- /.item -->
+                            <div class="item col-md-6">
+                                <figure class="lift rounded mb-6"><a href="single-project.html"> <img
+                                            src="{{ asset('img/photos/rp3.jpg') }}"  alt="" /></a>
+                                </figure>
+                                <div class="post-category text-line mb-2 text-purple">Notebook</div>
+                                <h2 class="post-title h3">Magna Tristique Inceptos</h2>
+                            </div>
+                            <!-- /.item -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.project -->
+                </div>
+                <!-- /.projects-tiles -->
+            </div>
+            <!-- /.container -->
+        </section>
+        <!-- /section -->
+        <section class="wrapper bg-soft-primary">
+            <div class="container py-14 py-md-17">
+                <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
+                    <div class="col-lg-7">
+                        <figure><img class="w-auto" src="{{ asset('img/illustrations/i5.png') }}"  alt="" /></figure>
+                    </div>
+                    <!--/column -->
+                    <div class="col-lg-5">
+                        <h3 class="display-4 mb-7">Got any questions? Don't hesitate to get in touch.</h3>
+                        <div class="d-flex flex-row">
+                            <div>
+                                <div class="icon text-primary fs-28 me-4 mt-n1"> <i
+                                        class="uil uil-location-pin-alt"></i> </div>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">Address</h5>
+                                <address>Moonshine St. 14/05 Light City, London</address>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <div>
+                                <div class="icon text-primary fs-28 me-4 mt-n1"> <i
+                                        class="uil uil-phone-volume"></i> </div>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">Phone</h5>
+                                <p>00 (123) 456 78 90</p>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <div>
+                                <div class="icon text-primary fs-28 me-4 mt-n1"> <i class="uil uil-envelope"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">E-mail</h5>
+                                <p class="mb-0"><a
+                                        href="/l/email-protection.html#691a08070d0b0611290c04080005470a0604"
+                                        class="link-body"><span class="__cf_email__"
+                                            data-cfemail="abd8cac5cfc9c4d3ebcec6cac2c785c8c4c6">[email&#160;protected]</span></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/column -->
+                </div>
+                <!--/.row -->
+            </div>
+            <!-- /.container -->
+        </section>
+        <!-- /section -->
+    </div>
+    <!-- /.content-wrapper -->
+    <footer class="bg-light">
+        <div class="container py-13 py-md-15">
+            <div class="row gy-6 gy-lg-0">
+                <div class="col-md-4 col-lg-3">
+                    <div class="widget">
+                        <img class="mb-4" src="{{ asset('img/logo-dark.png') }}"  alt="" />
+                        <p class="mb-4">© 2023 Sandbox. <br class="d-none d-lg-block" />All rights reserved.</p>
+                        <nav class="nav social ">
+                            <a href="#"><i class="uil uil-twitter"></i></a>
+                            <a href="#"><i class="uil uil-facebook-f"></i></a>
+                            <a href="#"><i class="uil uil-dribbble"></i></a>
+                            <a href="#"><i class="uil uil-instagram"></i></a>
+                            <a href="#"><i class="uil uil-youtube"></i></a>
+                        </nav>
+                        <!-- /.social -->
+                    </div>
+                    <!-- /.widget -->
+                </div>
+                <!-- /column -->
+                <div class="col-md-4 col-lg-3">
+                    <div class="widget">
+                        <h4 class="widget-title  mb-3">Get in Touch</h4>
+                        <address class="pe-xl-15 pe-xxl-17">Moonshine St. 14/05 Light City, London, United Kingdom
+                        </address>
+                        <a href="/l/email-protection.html#d3f0" class="link-body"><span class="__cf_email__"
+                                data-cfemail="b2dbdcd4ddf2d7dfd3dbde9cd1dddf">[email&#160;protected]</span></a><br />
+                        00 (123) 456 78 90
+                    </div>
+                    <!-- /.widget -->
+                </div>
+                <!-- /column -->
+                <div class="col-md-4 col-lg-3">
+                    <div class="widget">
+                        <h4 class="widget-title  mb-3">Learn More</h4>
+                        <ul class="list-unstyled text-reset mb-0">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Our Story</a></li>
+                            <li><a href="#">Projects</a></li>
+                            <li><a href="#">Terms of Use</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <!-- /.widget -->
+                </div>
+                <!-- /column -->
+                <div class="col-md-12 col-lg-3">
+                    <div class="widget">
+                        <h4 class="widget-title  mb-3">Our Newsletter</h4>
+                        <p class="mb-5">Subscribe to our newsletter to get our news & deals delivered to you.</p>
+                        <div class="newsletter-wrapper">
+                            <!-- Begin Mailchimp Signup Form -->
+                            <div id="mc_embed_signup2">
+                                <form
+                                    action="https://elemisfreebies.us20.list-manage.com/subscribe/post?u=aa4947f70a475ce162057838d&amp;id=b49ef47a9a"
+                                    method="post" id="mc-embedded-subscribe-form2"
+                                    name="mc-embedded-subscribe-form" class="validate " target="_blank"
+                                    novalidate>
+                                    <div id="mc_embed_signup_scroll2">
+                                        <div class="mc-field-group input-group form-floating">
+                                            <input type="email" value="" name="EMAIL"
+                                                class="required email form-control" placeholder="Email Address"
+                                                id="mce-EMAIL2">
+                                            <label for="mce-EMAIL2">Email Address</label>
+                                            <input type="submit" value="Join" name="subscribe"
+                                                id="mc-embedded-subscribe2" class="btn btn-primary ">
+                                        </div>
+                                        <div id="mce-responses2" class="clear">
+                                            <div class="response" id="mce-error-response2" style="display:none">
+                                            </div>
+                                            <div class="response" id="mce-success-response2" style="display:none">
+                                            </div>
+                                        </div>
+                                        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input
+                                                type="text" name="b_ddc180777a163e0f9f66ee014_4b1bcfa0bc"
+                                                tabindex="-1" value=""></div>
+                                        <div class="clear"></div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!--End mc_embed_signup-->
+                        </div>
+                        <!-- /.newsletter-wrapper -->
+                    </div>
+                    <!-- /.widget -->
+                </div>
+                <!-- /column -->
+            </div>
+            <!--/.row -->
+        </div>
+        <!-- /.container -->
+    </footer>
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+    {{-- <script src="{{ asset('js/theme.js') }}"></script> --}}
+</body>
+
+
 </html>
