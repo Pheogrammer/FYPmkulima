@@ -23,7 +23,7 @@
             <nav class="navbar navbar-expand-lg extended navbar-light navbar-bg-light caret-none">
                 <div class="container flex-lg-column">
                     <div class="topbar d-flex flex-row w-100 justify-content-between align-items-center">
-                        <div class="navbar-brand"><a href="index.html"><img src="{{ asset('img/mkulima.png') }}"  alt="" /></a></div>
+                        <div class="navbar-brand"><a href="index.html"><img src="{{ asset('img/mkulima.png') }}" width="180px" alt="" /></a></div>
                         <div class="navbar-other ms-auto">
                             <ul class="navbar-nav flex-row align-items-center">
                                 <li class="nav-item"><a class="nav-link" data-bs-toggle="offcanvas"
@@ -1386,7 +1386,7 @@
             <div class="row gy-6 gy-lg-0">
                 <div class="col-md-4 col-lg-3">
                     <div class="widget">
-                        <img class="mb-4" src="{{ asset('img/mkulima.png') }}"  alt="" />
+                        <img class="mb-4" src="{{ asset('img/mkulima.png') }}" width="180px"  alt="" />
                         <p class="mb-4">© 2023 Sandbox. <br class="d-none d-lg-block" />All rights reserved.</p>
                         <nav class="nav social ">
                             <a href="#"><i class="uil uil-twitter"></i></a>
