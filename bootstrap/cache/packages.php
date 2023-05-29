@@ -17,6 +17,13 @@
       0 => 'Fruitcake\\Cors\\CorsServiceProvider',
     ),
   ),
+  'haruncpi/laravel-user-activity' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Haruncpi\\LaravelUserActivity\\ServiceProvider',
+    ),
+  ),
   'laravel/sail' => 
   array (
     'providers' => 
