@@ -6,6 +6,7 @@ use App\Http\Controllers\AgencyController;
 use App\Http\Controllers\DocumentsController;
 use App\Http\Controllers\SMSandUSSDController;
 use App\Http\Controllers\UsersController;
+use App\Http\Middleware\AdminMiddleware;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,7 +32,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // Administrator Section
 
-Route::get('/settings',[HomeController::class,'settings'])->name('settings');
-Route::get('/agencies',[AgencyController::class,'index'])->name('agencies');
-Route::get('users',[UsersController::class,'index'])->name('users');
+
+
+Route::group(['middleware' => 'admin'], function () {
+    Route::get('/settings',[HomeController::class,'settings'])->name('settings');
+    Route::get('/agencies',[AgencyController::class,'index'])->name('agencies');
+    Route::get('users',[UsersController::class,'index'])->name('users');
+});
+
 //
