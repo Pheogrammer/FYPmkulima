@@ -23,23 +23,42 @@
             <nav class="navbar navbar-expand-lg extended navbar-light navbar-bg-light caret-none">
                 <div class="container flex-lg-column">
                     <div class="topbar d-flex flex-row w-100 justify-content-between align-items-center">
-                        <div class="navbar-brand"><a href="index.html"><img src="{{ asset('img/mkulima.png') }}" width="180px" alt="" /></a></div>
+                        <div class="navbar-brand"><a href="index.html"><img src="{{ asset('img/mkulima.png') }}"
+                                    width="180px" alt="" /></a></div>
                         <div class="navbar-other ms-auto">
                             <ul class="navbar-nav flex-row align-items-center">
-                                <li class="nav-item"><a class="nav-link" data-bs-toggle="offcanvas"
-                                        data-bs-target="#offcanvas-info"><i class="uil uil-info-circle"></i></a></li>
-                                <li class="nav-item dropdown language-select text-uppercase">
-                                    <a class="nav-link dropdown-item dropdown-toggle" href="#" role="button"
-                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">En</a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item"><a class="dropdown-item" href="#">En</a></li>
-                                        <li class="nav-item"><a class="dropdown-item" href="#">De</a></li>
-                                        <li class="nav-item"><a class="dropdown-item" href="#">Es</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item d-lg-none">
-                                    <button class="hamburger offcanvas-nav-btn"><span></span></button>
-                                </li>
+                                        @guest
+                                        @if (Route::has('login'))
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                            </li>
+                                        @endif
+
+                                        @if (Route::has('register'))
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                            </li>
+                                        @endif
+                                    @else
+                                        <li class="nav-item dropdown">
+                                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                                {{ Auth::user()->name }}
+                                            </a>
+
+                                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                                   onclick="event.preventDefault();
+                                                                 document.getElementById('logout-form').submit();">
+                                                    {{ __('Logout') }}
+                                                </a>
+
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                    @csrf
+                                                </form>
+                                            </div>
+                                        </li>
+                                    @endguest
+                               
                             </ul>
                             <!-- /.navbar-nav -->
                         </div>
@@ -242,7 +261,6 @@
                                                         <a class="dropdown-item" href="demo23.html">
                                                             <figure class="rounded lift d-none d-lg-block"><img
                                                                     src="{{ asset('img/demos/mi23.jpg') }}"
-
                                                                     alt=""></figure>
                                                             <span class="d-lg-none">Demo 23</span>
                                                         </a>
@@ -508,7 +526,8 @@
                                                             <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2">
                                                                 <img class="rounded-0"
                                                                     src="{{ asset('img/demos/block1.svg') }}"
-                                                                    alt=""></div>
+                                                                    alt="">
+                                                            </div>
                                                             <span>About</span>
                                                         </a>
                                                     </li>
@@ -517,7 +536,8 @@
                                                             <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2">
                                                                 <img class="rounded-0"
                                                                     src="{{ asset('img/demos/block2.svg') }}"
-                                                                    alt=""></div>
+                                                                    alt="">
+                                                            </div>
                                                             <span>Blog</span>
                                                         </a>
                                                     </li>
@@ -526,7 +546,8 @@
                                                             <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2">
                                                                 <img class="rounded-0"
                                                                     src="{{ asset('img/demos/block3.svg') }}"
-                                                                    alt=""></div>
+                                                                    alt="">
+                                                            </div>
                                                             <span>Call to Action</span>
                                                         </a>
                                                     </li>
@@ -535,7 +556,8 @@
                                                             <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2">
                                                                 <img class="rounded-0"
                                                                     src="{{ asset('img/demos/block4.svg') }}"
-                                                                    alt=""></div>
+                                                                    alt="">
+                                                            </div>
                                                             <span>Clients</span>
                                                         </a>
                                                     </li>
@@ -544,7 +566,8 @@
                                                             <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2">
                                                                 <img class="rounded-0"
                                                                     src="{{ asset('img/demos/block5.svg') }}"
-                                                                    alt=""></div>
+                                                                    alt="">
+                                                            </div>
                                                             <span>Contact</span>
                                                         </a>
                                                     </li>
@@ -553,7 +576,8 @@
                                                             <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2">
                                                                 <img class="rounded-0"
                                                                     src="{{ asset('img/demos/block6.svg') }}"
-                                                                    alt=""></div>
+                                                                    alt="">
+                                                            </div>
                                                             <span>Facts</span>
                                                         </a>
                                                     </li>
@@ -562,7 +586,8 @@
                                                             <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2">
                                                                 <img class="rounded-0"
                                                                     src="{{ asset('img/demos/block7.svg') }}"
-                                                                    alt=""></div>
+                                                                    alt="">
+                                                            </div>
                                                             <span>FAQ</span>
                                                         </a>
                                                     </li>
@@ -571,7 +596,8 @@
                                                             <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2">
                                                                 <img class="rounded-0"
                                                                     src="{{ asset('img/demos/block8.svg') }}"
-                                                                    alt=""></div>
+                                                                    alt="">
+                                                            </div>
                                                             <span>Features</span>
                                                         </a>
                                                     </li>
@@ -580,7 +606,8 @@
                                                             <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2">
                                                                 <img class="rounded-0"
                                                                     src="{{ asset('img/demos/block9.svg') }}"
-                                                                    alt=""></div>
+                                                                    alt="">
+                                                            </div>
                                                             <span>Footer</span>
                                                         </a>
                                                     </li>
@@ -589,7 +616,8 @@
                                                             <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2">
                                                                 <img class="rounded-0"
                                                                     src="{{ asset('img/demos/block10.svg') }}"
-                                                                    alt=""></div>
+                                                                    alt="">
+                                                            </div>
                                                             <span>Hero</span>
                                                         </a>
                                                     </li>
@@ -598,7 +626,8 @@
                                                             <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2">
                                                                 <img class="rounded-0"
                                                                     src="{{ asset('img/demos/block17.svg') }}"
-                                                                    alt=""></div>
+                                                                    alt="">
+                                                            </div>
                                                             <span>Misc</span>
                                                         </a>
                                                     </li>
@@ -607,7 +636,8 @@
                                                             <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2">
                                                                 <img class="rounded-0"
                                                                     src="{{ asset('img/demos/block11.svg') }}"
-                                                                    alt=""></div>
+                                                                    alt="">
+                                                            </div>
                                                             <span>Navbar</span>
                                                         </a>
                                                     </li>
@@ -616,7 +646,8 @@
                                                             <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2">
                                                                 <img class="rounded-0"
                                                                     src="{{ asset('img/demos/block12.svg') }}"
-                                                                    alt=""></div>
+                                                                    alt="">
+                                                            </div>
                                                             <span>Portfolio</span>
                                                         </a>
                                                     </li>
@@ -625,7 +656,8 @@
                                                             <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2">
                                                                 <img class="rounded-0"
                                                                     src="{{ asset('img/demos/block13.svg') }}"
-                                                                    alt=""></div>
+                                                                    alt="">
+                                                            </div>
                                                             <span>Pricing</span>
                                                         </a>
                                                     </li>
@@ -634,7 +666,8 @@
                                                             <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2">
                                                                 <img class="rounded-0"
                                                                     src="{{ asset('img/demos/block14.svg') }}"
-                                                                    alt=""></div>
+                                                                    alt="">
+                                                            </div>
                                                             <span>Process</span>
                                                         </a>
                                                     </li>
@@ -643,7 +676,8 @@
                                                             <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2">
                                                                 <img class="rounded-0"
                                                                     src="{{ asset('img/demos/block15.svg') }}"
-                                                                    alt=""></div>
+                                                                    alt="">
+                                                            </div>
                                                             <span>Team</span>
                                                         </a>
                                                     </li>
@@ -652,7 +686,8 @@
                                                             <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2">
                                                                 <img class="rounded-0"
                                                                     src="{{ asset('img/demos/block16.svg') }}"
-                                                                    alt=""></div>
+                                                                    alt="">
+                                                            </div>
                                                             <span>Testimonials</span>
                                                         </a>
                                                     </li>
@@ -883,7 +918,8 @@
                         <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         <div class="row">
                             <div class="col-md-10 offset-md-1">
-                                <figure class="mb-6"><img src="{{ asset('img/illustrations/i7.png') }}" alt="" /></figure>
+                                <figure class="mb-6"><img src="{{ asset('img/illustrations/i7.png') }}"
+                                        alt="" /></figure>
                             </div>
                             <!-- /column -->
                         </div>
@@ -920,7 +956,8 @@
                                                 <div style="position: absolute; left: -5000px;" aria-hidden="true">
                                                     <input type="text"
                                                         name="b_ddc180777a163e0f9f66ee014_4b1bcfa0bc" tabindex="-1"
-                                                        value=""></div>
+                                                        value="">
+                                                </div>
                                                 <div class="clear"></div>
                                             </div>
                                         </form>
@@ -956,7 +993,8 @@
                     </div>
                     <!-- /column -->
                     <div class="col-lg-7" data-cue="slideInDown">
-                        <figure><img class="w-auto" src="{{ asset('img/illustrations/i6.png') }}"  alt="" /></figure>
+                        <figure><img class="w-auto" src="{{ asset('img/illustrations/i6.png') }}" alt="" />
+                        </figure>
                     </div>
                     <!-- /column -->
                 </div>
@@ -1032,7 +1070,8 @@
                 <!--/.row -->
                 <div class="row gx-lg-8 gx-xl-12 gy-10 mb-14 mb-md-17 align-items-center">
                     <div class="col-lg-7">
-                        <figure><img class="w-auto" src="{{ asset('img/illustrations/i8.png') }}" alt="" /></figure>
+                        <figure><img class="w-auto" src="{{ asset('img/illustrations/i8.png') }}" alt="" />
+                        </figure>
                     </div>
                     <!--/column -->
                     <div class="col-lg-5">
@@ -1076,7 +1115,8 @@
                 <!--/.row -->
                 <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
                     <div class="col-lg-7 order-lg-2">
-                        <figure><img class="w-auto" src="{{ asset('img/illustrations/i2.png') }}"  alt="" /></figure>
+                        <figure><img class="w-auto" src="{{ asset('img/illustrations/i2.png') }}" alt="" />
+                        </figure>
                     </div>
                     <!--/column -->
                     <div class="col-lg-5">
@@ -1296,7 +1336,7 @@
                             <!-- /.item -->
                             <div class="item col-md-6">
                                 <figure class="lift rounded mb-6"><a href="single-project3.html"> <img
-                                            src="{{ asset('img/photos/rp1.jpg') }}"  alt="" /></a>
+                                            src="{{ asset('img/photos/rp1.jpg') }}" alt="" /></a>
                                 </figure>
                                 <div class="post-category text-line mb-2 text-violet">Stationary</div>
                                 <h2 class="post-title h3">Ipsum Ultricies Cursus</h2>
@@ -1304,7 +1344,7 @@
                             <!-- /.item -->
                             <div class="item col-md-6">
                                 <figure class="lift rounded mb-6"><a href="single-project2.html"> <img
-                                            src="{{ asset('img/photos/rp2.jpg') }}"  alt="" /></a>
+                                            src="{{ asset('img/photos/rp2.jpg') }}" alt="" /></a>
                                 </figure>
                                 <div class="post-category text-line mb-2 text-leaf">Invitation</div>
                                 <h2 class="post-title h3">Mollis Ipsum Mattis</h2>
@@ -1312,7 +1352,7 @@
                             <!-- /.item -->
                             <div class="item col-md-6">
                                 <figure class="lift rounded mb-6"><a href="single-project.html"> <img
-                                            src="{{ asset('img/photos/rp3.jpg') }}"  alt="" /></a>
+                                            src="{{ asset('img/photos/rp3.jpg') }}" alt="" /></a>
                                 </figure>
                                 <div class="post-category text-line mb-2 text-purple">Notebook</div>
                                 <h2 class="post-title h3">Magna Tristique Inceptos</h2>
@@ -1332,7 +1372,8 @@
             <div class="container py-14 py-md-17">
                 <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
                     <div class="col-lg-7">
-                        <figure><img class="w-auto" src="{{ asset('img/illustrations/i5.png') }}"  alt="" /></figure>
+                        <figure><img class="w-auto" src="{{ asset('img/illustrations/i5.png') }}"
+                                alt="" /></figure>
                     </div>
                     <!--/column -->
                     <div class="col-lg-5">
@@ -1386,7 +1427,8 @@
             <div class="row gy-6 gy-lg-0">
                 <div class="col-md-4 col-lg-3">
                     <div class="widget">
-                        <img class="mb-4" src="{{ asset('img/mkulima.png') }}" width="180px"  alt="" />
+                        <img class="mb-4" src="{{ asset('img/mkulima.png') }}" width="180px"
+                            alt="" />
                         <p class="mb-4">© 2023 Sandbox. <br class="d-none d-lg-block" />All rights reserved.</p>
                         <nav class="nav social ">
                             <a href="#"><i class="uil uil-twitter"></i></a>
