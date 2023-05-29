@@ -1,7 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AgencyController;
+use App\Http\Controllers\DocumentsController;
+use App\Http\Controllers\SMSandUSSDController;
+use App\Http\Controllers\UsersController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,3 +28,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Administrator Section
+
+Route::get('/settings',[HomeController::class,'settings'])->name('settings');
+Route::get('/agencies',[AgencyController::class,'index'])->name('agencies');
+Route::get('users',[UsersController::class,'index'])->name('users');
+//
