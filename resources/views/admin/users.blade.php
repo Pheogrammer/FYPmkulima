@@ -62,16 +62,16 @@
                                 $rollingNo = 1;
                             @endphp
                             @foreach ($users as $user)
-                                <tr>
+                                <tr @if($user->status == 0) class="bg-secondary text-light" @endif>
                                     <td>{{ $rollingNo }}</td>
                                     <td>{{ ucwords($user->name) }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->phone }}</td>
-                                    <td>{{ $user->type }}</td>
-                                    <td>{{ $user->agency }}</td>
+                                    <td>{{ $user->userType }}</td>
+                                    <td>{{ $user->agencyID }}</td>
                                     <td>
-                                        <a href="" class="btn btn-primary">Edit</a>
-                                        <a href="" class="btn btn-danger">Deactivate</a>
+                                        <a href="{{ route('edituser',$user->id) }}" class="btn btn-primary">Edit</a>
+                                        <a href="@if($user->status == 1){{ route('deactivateUser',$user->id) }} @else {{ route('activateUser',$user->id) }} @endif" class="btn @if($user->status == 0) btn-success @else btn-danger @endif">@if($user->status == 0) Activate @else Deactivate @endif</a>
                                     </td>
                                 </tr>
                                 @php
