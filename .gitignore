@@ -15,5 +15,5 @@ yarn-error.log
 /bootstrap/cache
 /.idea
 /.vscode
-/.composer.lock
+/composer.lock
 
