@@ -20,23 +20,56 @@
 <body>
     <div class="content-wrapper">
         <header class="wrapper bg-soft-primary">
-            <nav class="navbar navbar-expand-lg extended navbar-light navbar-bg-light caret-none">
+            <nav class="navbar navbar-expand-lg extended navbar-light navbar-bg-light caret-none" style="background-color: #fff !important;">
                 <div class="container flex-lg-column">
                     <div class="topbar d-flex flex-row w-100 justify-content-between align-items-center">
                         <div class="navbar-brand"><a href="index.html"><img src="{{ asset('img/mkulima.png') }}"
                                     width="180px" alt="" /></a></div>
+                        <div class="navbar-other m-auto">
+                            <ul class="navbar-nav flex-row align-items-center">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item dropdown dropdown-mega">
+                                        <a class="nav-link dropdown-toggle" href="#"
+                                            data-bs-toggle="dropdown">Nyumbani</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#"
+                                            data-bs-toggle="dropdown">Habari</a>
+
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#"
+                                            data-bs-toggle="dropdown">Hari ya hewa</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#"
+                                            data-bs-toggle="dropdown">Bei</a>
+                                    </li>
+                                    <li class="nav-item dropdown dropdown-mega">
+                                        <a class="nav-link dropdown-toggle" href="#"
+                                            data-bs-toggle="dropdown">Wakala</a>
+                                        <!--/.dropdown-menu -->
+                                    </li>
+                                    <li class="nav-item dropdown dropdown-mega">
+                                        <a class="nav-link dropdown-toggle" href="#"
+                                            data-bs-toggle="dropdown"></a>
+                                        <!--/.dropdown-menu -->
+                                    </li>
+                                </ul>
+                            </ul>
+                        </div>
                         <div class="navbar-other ms-auto">
                             <ul class="navbar-nav flex-row align-items-center">
                                 @guest
                                     @if (Route::has('login'))
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                            <a class="nav-link" href="{{ route('login') }}">{{ __('Ingia') }}</a>
                                         </li>
                                     @endif
 
                                     @if (Route::has('register'))
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                            <a class="nav-link" href="{{ route('register') }}">{{ __('Jisajili') }}</a>
                                         </li>
                                     @endif
                                 @else
@@ -70,44 +103,6 @@
                         </div>
                         <!-- /.navbar-other -->
                     </div>
-                    <!-- /.d-flex -->
-                    <div class="navbar-collapse-wrapper bg-white d-flex flex-row align-items-center">
-                        <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
-                            <div class="offcanvas-header d-lg-none">
-                                <h3 class="text-white fs-30 mb-0">{{ config('app.name', 'Laravel') }}</h3>
-                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="offcanvas-body d-flex flex-column h-100">
-                                <ul class="navbar-nav">
-                                    <li class="nav-item dropdown dropdown-mega">
-                                        <a class="nav-link dropdown-toggle" href="#"
-                                            data-bs-toggle="dropdown">Home</a>
-                                    </li>
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#"
-                                            data-bs-toggle="dropdown">News</a>
-
-                                    </li>
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#"
-                                            data-bs-toggle="dropdown">weather</a>
-                                    </li>
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#"
-                                            data-bs-toggle="dropdown">Price</a>
-                                    </li>
-                                    <li class="nav-item dropdown dropdown-mega">
-                                        <a class="nav-link dropdown-toggle" href="#"
-                                            data-bs-toggle="dropdown">Agencies</a>
-                                        <!--/.dropdown-menu -->
-                                    </li>
-            
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- /.navbar-other -->
-                    </div>
                     <!-- /.navbar-collapse-wrapper -->
                 </div>
                 <!-- /.container -->
@@ -134,10 +129,9 @@
                             <div class="card-body">
                                 <img src="{{ asset('img/icons/lineal/browser.svg') }}"
                                     class="svg-inject icon-svg icon-svg-md text-yellow mb-3" alt="" />
-                                <h4>Content Marketing</h4>
-                                <p class="mb-2">Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta
-                                    gravida at eget metus cras justo.</p>
-                                <a href="#" class="more hover link-yellow">Learn More</a>
+                                <h4>Bei za mazao</h4>
+                                <p class="mb-2">Angalia orodha ya bei elekezi ya mazao katika eneo ulilopo.</p>
+                                <a href="#" class="more hover link-yellow">Ingia zaidi</a>
                             </div>
                             <!--/.card-body -->
                         </div>
@@ -149,10 +143,9 @@
                             <div class="card-body">
                                 <img src="{{ asset('img/icons/lineal/chat-2.svg') }}"
                                     class="svg-inject icon-svg icon-svg-md text-green mb-3" alt="" />
-                                <h4>Social Engagement</h4>
-                                <p class="mb-2">Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta
-                                    gravida at eget metus cras justo.</p>
-                                <a href="#" class="more hover link-green">Learn More</a>
+                                <h4>Habari za kilimo</h4>
+                                <p class="mb-2">Angalia taarifa mbalimbali zinazohusu kilimo.</p>
+                                <a href="#" class="more hover link-green">Ingia zaidi </a>
                             </div>
                             <!--/.card-body -->
                         </div>
@@ -164,10 +157,9 @@
                             <div class="card-body">
                                 <img src="{{ asset('img/icons/lineal/id-card.svg') }}"
                                     class="svg-inject icon-svg icon-svg-md text-orange mb-3" alt="" />
-                                <h4>Identity & Branding</h4>
-                                <p class="mb-2">Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta
-                                    gravida at eget metus cras justo.</p>
-                                <a href="#" class="more hover link-orange">Learn More</a>
+                                <h4>Taarifa ya hari ya hewa</h4>
+                                <p class="mb-2">Ijue hali ya hewa katika maeneo tofauti.</p>
+                                <a href="#" class="more hover link-orange">Ingia zaidi</a>
                             </div>
                             <!--/.card-body -->
                         </div>
@@ -179,10 +171,9 @@
                             <div class="card-body">
                                 <img src="{{ asset('img/icons/lineal/gift.svg') }}"
                                     class="svg-inject icon-svg icon-svg-md text-blue mb-3" alt="" />
-                                <h4>Product Design</h4>
-                                <p class="mb-2">Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta
-                                    gravida at eget metus cras justo.</p>
-                                <a href="#" class="more hover link-blue">Learn More</a>
+                                <h4>Mawakala wa kilimo</h4>
+                                <p class="mb-2">Wajue mawakala wa kilimo katika kanda uliyopo.</p>
+                                <a href="#" class="more hover link-blue">Ingia zaidi</a>
                             </div>
                             <!--/.card-body -->
                         </div>
@@ -310,186 +301,8 @@
             </div>
             <!-- /.container -->
         </section>
-        <!-- /section -->
-        <section class="wrapper bg-soft-primary">
-            <div class="container py-14 pt-md-17 pb-md-20">
-                <div class="row gx-lg-8 gx-xl-12 gy-10 gy-lg-0">
-                    <div class="col-lg-4 text-center text-lg-start">
-                        <h3 class="display-4 mb-3 pe-xl-15">We are proud of our works</h3>
-                        <p class="lead fs-lg mb-0 pe-xxl-10">We bring solutions to make life easier for our customers.
-                        </p>
-                    </div>
-                    <!-- /column -->
-                    <div class="col-lg-8 mt-lg-2">
-                        <div class="row align-items-center counter-wrapper gy-6 text-center">
-                            <div class="col-md-4">
-                                <img src="{{ asset('img/icons/lineal/check.svg') }}"
-                                    class="svg-inject icon-svg icon-svg-md text-primary mb-3" alt="" />
-                                <h3 class="counter">7518</h3>
-                                <p>Completed Projects</p>
-                            </div>
-                            <!--/column -->
-                            <div class="col-md-4">
-                                <img src="{{ asset('img/icons/lineal/user.svg') }}"
-                                    class="svg-inject icon-svg icon-svg-md text-primary mb-3" alt="" />
-                                <h3 class="counter">3472</h3>
-                                <p>Happy Customers</p>
-                            </div>
-                            <!--/column -->
-                            <div class="col-md-4">
-                                <img src="{{ asset('img/icons/lineal/briefcase-2.svg') }}"
-                                    class="svg-inject icon-svg icon-svg-md text-primary mb-3" alt="" />
-                                <h3 class="counter">2184</h3>
-                                <p>Expert Employees</p>
-                            </div>
-                            <!--/column -->
-                        </div>
-                        <!--/.row -->
-                    </div>
-                    <!-- /column -->
-                </div>
-                <!-- /.row -->
-            </div>
-            <!-- /.container -->
-        </section>
-        <!-- /section -->
-        <section class="wrapper bg-light">
-            <div class="container py-14 py-md-16 pb-md-17">
-                <div class="grid mb-14 mb-md-18 mt-3">
-                    <div class="row isotope gy-6 mt-n19 mt-md-n22">
-                        <div class="item col-md-6 col-xl-3">
-                            <div class="card shadow-lg card-border-bottom border-soft-primary">
-                                <div class="card-body">
-                                    <span class="ratings five mb-3"></span>
-                                    <blockquote class="icon mb-0">
-                                        <p>“Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-                                            Vestibulum id ligula porta. Cras mattis consectetur.”</p>
-                                        <div class="blockquote-details">
-                                            <div class="info ps-0">
-                                                <h5 class="mb-1">Coriss Ambady</h5>
-                                                <p class="mb-0">Financial Analyst</p>
-                                            </div>
-                                        </div>
-                                    </blockquote>
-                                </div>
-                                <!-- /.card-body -->
-                            </div>
-                            <!-- /.card -->
-                        </div>
-                        <!--/column -->
-                        <div class="item col-md-6 col-xl-3">
-                            <div class="card shadow-lg card-border-bottom border-soft-primary">
-                                <div class="card-body">
-                                    <span class="ratings five mb-3"></span>
-                                    <blockquote class="icon mb-0">
-                                        <p>“Fusce dapibus, tellus ac cursus tortor mauris condimentum fermentum massa
-                                            justo sit amet purus sit amet fermentum.”</p>
-                                        <div class="blockquote-details">
-                                            <div class="info ps-0">
-                                                <h5 class="mb-1">Cory Zamora</h5>
-                                                <p class="mb-0">Marketing Specialist</p>
-                                            </div>
-                                        </div>
-                                    </blockquote>
-                                </div>
-                                <!-- /.card-body -->
-                            </div>
-                            <!-- /.card -->
-                        </div>
-                        <!--/column -->
-                        <div class="item col-md-6 col-xl-3">
-                            <div class="card shadow-lg card-border-bottom border-soft-primary">
-                                <div class="card-body">
-                                    <span class="ratings five mb-3"></span>
-                                    <blockquote class="icon mb-0">
-                                        <p>“Curabitur blandit tempus porttitor. Vivamus sagittis lacus vel augue laoreet
-                                            rutrum faucibus dolor eu rutrum. Nulla vitae libero.”</p>
-                                        <div class="blockquote-details">
-                                            <div class="info ps-0">
-                                                <h5 class="mb-1">Nikolas Brooten</h5>
-                                                <p class="mb-0">Sales Manager</p>
-                                            </div>
-                                        </div>
-                                    </blockquote>
-                                </div>
-                                <!-- /.card-body -->
-                            </div>
-                            <!-- /.card -->
-                        </div>
-                        <!--/column -->
-                        <div class="item col-md-6 col-xl-3">
-                            <div class="card shadow-lg card-border-bottom border-soft-primary">
-                                <div class="card-body">
-                                    <span class="ratings five mb-3"></span>
-                                    <blockquote class="icon mb-0">
-                                        <p>“Etiam adipiscing tincidunt elit convallis felis suscipit ut. Phasellus
-                                            rhoncus eu tincidunt auctor nullam rutrum, pharetra augue.”</p>
-                                        <div class="blockquote-details">
-                                            <div class="info ps-0">
-                                                <h5 class="mb-1">Coriss Ambady</h5>
-                                                <p class="mb-0">Financial Analyst</p>
-                                            </div>
-                                        </div>
-                                    </blockquote>
-                                </div>
-                                <!-- /.card-body -->
-                            </div>
-                            <!-- /.card -->
-                        </div>
-                        <!--/column -->
-                    </div>
-                    <!-- /.row -->
-                </div>
-                <!-- /.grid-view -->
-                <div class="projects-tiles">
-                    <div class="project grid grid-view">
-                        <div class="row gx-md-8 gx-xl-12 gy-10 gy-md-12 isotope">
-                            <div class="item col-md-6 mt-md-7 mt-lg-15">
-                                <div
-                                    class="project-details d-flex justify-content-center align-self-end flex-column ps-0 pb-0">
-                                    <div class="post-header">
-                                        <h2 class="display-4 mb-4 pe-xxl-15">Check out some of our recent projects
-                                            below.</h2>
-                                        <p class="lead fs-lg mb-0">We love to turn ideas into beautiful things.</p>
-                                    </div>
-                                    <!-- /.post-header -->
-                                </div>
-                                <!-- /.project-details -->
-                            </div>
-                            <!-- /.item -->
-                            <div class="item col-md-6">
-                                <figure class="lift rounded mb-6"><a href="single-project3.html"> <img
-                                            src="{{ asset('img/photos/rp1.jpg') }}" alt="" /></a>
-                                </figure>
-                                <div class="post-category text-line mb-2 text-violet">Stationary</div>
-                                <h2 class="post-title h3">Ipsum Ultricies Cursus</h2>
-                            </div>
-                            <!-- /.item -->
-                            <div class="item col-md-6">
-                                <figure class="lift rounded mb-6"><a href="single-project2.html"> <img
-                                            src="{{ asset('img/photos/rp2.jpg') }}" alt="" /></a>
-                                </figure>
-                                <div class="post-category text-line mb-2 text-leaf">Invitation</div>
-                                <h2 class="post-title h3">Mollis Ipsum Mattis</h2>
-                            </div>
-                            <!-- /.item -->
-                            <div class="item col-md-6">
-                                <figure class="lift rounded mb-6"><a href="single-project.html"> <img
-                                            src="{{ asset('img/photos/rp3.jpg') }}" alt="" /></a>
-                                </figure>
-                                <div class="post-category text-line mb-2 text-purple">Notebook</div>
-                                <h2 class="post-title h3">Magna Tristique Inceptos</h2>
-                            </div>
-                            <!-- /.item -->
-                        </div>
-                        <!-- /.row -->
-                    </div>
-                    <!-- /.project -->
-                </div>
-                <!-- /.projects-tiles -->
-            </div>
-            <!-- /.container -->
-        </section>
+     
+
         <!-- /section -->
         <section class="wrapper bg-soft-primary">
             <div class="container py-14 py-md-17">
@@ -544,7 +357,8 @@
                         <img class="mb-4" src="{{ asset('img/mkulima.png') }}" width="180px" alt="" />
                         <p class="mb-4">© @php echo date('Y'); @endphp
 
-                        {{ config('app.name', 'Laravel') }}. <br class="d-none d-lg-block" />All rights reserved.</p>
+                            {{ config('app.name', 'Laravel') }}. <br class="d-none d-lg-block" />All rights reserved.
+                        </p>
 
                         <!-- /.social -->
                     </div>

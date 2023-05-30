@@ -35,8 +35,38 @@
 
                 <div class="card-body">
 
-                    {{ __('You are logged in!') }}
-                </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>SN</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @php
+                                $rollingNo = 1;
+                            @endphp
+                            @foreach ($agency as $agency)
+                                <tr>
+                                    <td>{{ $rollingNo }}</td>
+                                    <td>{{ ucwords($agency->agencyName) }}</td>
+                                    <td>{{ $agency->email }}</td>
+                                    <td>{{ $agency->phone }}</td>
+                                    <td>{{ $user->type }}</td>
+                                    <td>{{ $user->agency }}</td>
+                                    <td>
+                                        <a href="" class="btn btn-primary">Edit</a>
+                                        <a href="" class="btn btn-danger">Deactivate</a>
+                                    </td>
+                                </tr>
+                                @php
+                                    $rollingNo++;
+                                @endphp
+                            @endforeach
+                        </tbody>
+                    </table>                </div>
             </div>
         </div>
     </div>
