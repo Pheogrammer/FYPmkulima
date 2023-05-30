@@ -44,8 +44,6 @@
                 </div>
 
                 <div class="card-body">
-
-
                     {{-- table to display all users registered in the system --}}
                     <table class="table">
                         <thead>
