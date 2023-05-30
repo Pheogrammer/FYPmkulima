@@ -555,14 +555,10 @@
                 <div class="col-md-4 col-lg-3">
                     <div class="widget">
                         <img class="mb-4" src="{{ asset('img/mkulima.png') }}" width="180px" alt="" />
-                        <p class="mb-4">© 2023 {{ config('app.name', 'Laravel') }}. <br class="d-none d-lg-block" />All rights reserved.</p>
-                        <nav class="nav social ">
-                            <a href="#"><i class="uil uil-twitter"></i></a>
-                            <a href="#"><i class="uil uil-facebook-f"></i></a>
-                            <a href="#"><i class="uil uil-dribbble"></i></a>
-                            <a href="#"><i class="uil uil-instagram"></i></a>
-                            <a href="#"><i class="uil uil-youtube"></i></a>
-                        </nav>
+                        <p class="mb-4">© @php echo date('Y'); @endphp
+
+                        {{ config('app.name', 'Laravel') }}. <br class="d-none d-lg-block" />All rights reserved.</p>
+
                         <!-- /.social -->
                     </div>
                     <!-- /.widget -->
