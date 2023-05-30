@@ -20,11 +20,44 @@
 <body>
     <div class="content-wrapper">
         <header class="wrapper bg-soft-primary">
-            <nav class="navbar navbar-expand-lg extended navbar-light navbar-bg-light caret-none">
+            <nav class="navbar navbar-expand-lg extended navbar-light navbar-bg-light caret-none" style="background-color: #fff !important;">
                 <div class="container flex-lg-column">
                     <div class="topbar d-flex flex-row w-100 justify-content-between align-items-center">
                         <div class="navbar-brand"><a href="index.html"><img src="{{ asset('img/mkulima.png') }}"
                                     width="180px" alt="" /></a></div>
+                        <div class="navbar-other m-auto">
+                            <ul class="navbar-nav flex-row align-items-center">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item dropdown dropdown-mega">
+                                        <a class="nav-link dropdown-toggle" href="#"
+                                            data-bs-toggle="dropdown">Demos</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#"
+                                            data-bs-toggle="dropdown">Pages</a>
+
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#"
+                                            data-bs-toggle="dropdown">Projects</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#"
+                                            data-bs-toggle="dropdown">Blog</a>
+                                    </li>
+                                    <li class="nav-item dropdown dropdown-mega">
+                                        <a class="nav-link dropdown-toggle" href="#"
+                                            data-bs-toggle="dropdown">Blocks</a>
+                                        <!--/.dropdown-menu -->
+                                    </li>
+                                    <li class="nav-item dropdown dropdown-mega">
+                                        <a class="nav-link dropdown-toggle" href="#"
+                                            data-bs-toggle="dropdown">Documentation</a>
+                                        <!--/.dropdown-menu -->
+                                    </li>
+                                </ul>
+                            </ul>
+                        </div>
                         <div class="navbar-other ms-auto">
                             <ul class="navbar-nav flex-row align-items-center">
                                 @guest
@@ -67,48 +100,6 @@
 
                             </ul>
                             <!-- /.navbar-nav -->
-                        </div>
-                        <!-- /.navbar-other -->
-                    </div>
-                    <!-- /.d-flex -->
-                    <div class="navbar-collapse-wrapper bg-white d-flex flex-row align-items-center">
-                        <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
-                            <div class="offcanvas-header d-lg-none">
-                                <h3 class="text-white fs-30 mb-0">{{ config('app.name', 'Laravel') }}</h3>
-                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="offcanvas-body d-flex flex-column h-100">
-                                <ul class="navbar-nav">
-                                    <li class="nav-item dropdown dropdown-mega">
-                                        <a class="nav-link dropdown-toggle" href="#"
-                                            data-bs-toggle="dropdown">Demos</a>
-                                    </li>
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#"
-                                            data-bs-toggle="dropdown">Pages</a>
-
-                                    </li>
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#"
-                                            data-bs-toggle="dropdown">Projects</a>
-                                    </li>
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#"
-                                            data-bs-toggle="dropdown">Blog</a>
-                                    </li>
-                                    <li class="nav-item dropdown dropdown-mega">
-                                        <a class="nav-link dropdown-toggle" href="#"
-                                            data-bs-toggle="dropdown">Blocks</a>
-                                        <!--/.dropdown-menu -->
-                                    </li>
-                                    <li class="nav-item dropdown dropdown-mega">
-                                        <a class="nav-link dropdown-toggle" href="#"
-                                            data-bs-toggle="dropdown">Documentation</a>
-                                        <!--/.dropdown-menu -->
-                                    </li>
-                                </ul>
-                            </div>
                         </div>
                         <!-- /.navbar-other -->
                     </div>
@@ -557,7 +548,8 @@
                         <img class="mb-4" src="{{ asset('img/mkulima.png') }}" width="180px" alt="" />
                         <p class="mb-4">© @php echo date('Y'); @endphp
 
-                        {{ config('app.name', 'Laravel') }}. <br class="d-none d-lg-block" />All rights reserved.</p>
+                            {{ config('app.name', 'Laravel') }}. <br class="d-none d-lg-block" />All rights reserved.
+                        </p>
 
                         <!-- /.social -->
                     </div>

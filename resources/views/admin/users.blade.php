@@ -38,7 +38,7 @@
                             {{ __('Registered Users') }}
                         </div>
                         <div class="col-md-2">
-                            <a href="" class="btn btn-primary">Register New User</a>
+                            <a href="{{ route('registeruser') }}" class="btn btn-primary">Register New User</a>
                         </div>
                     </div>
                 </div>
