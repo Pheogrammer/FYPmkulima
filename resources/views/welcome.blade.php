@@ -82,31 +82,27 @@
                                 <ul class="navbar-nav">
                                     <li class="nav-item dropdown dropdown-mega">
                                         <a class="nav-link dropdown-toggle" href="#"
-                                            data-bs-toggle="dropdown">Demos</a>
+                                            data-bs-toggle="dropdown">Home</a>
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#"
-                                            data-bs-toggle="dropdown">Pages</a>
+                                            data-bs-toggle="dropdown">News</a>
 
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#"
-                                            data-bs-toggle="dropdown">Projects</a>
+                                            data-bs-toggle="dropdown">weather</a>
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#"
-                                            data-bs-toggle="dropdown">Blog</a>
+                                            data-bs-toggle="dropdown">Price</a>
                                     </li>
                                     <li class="nav-item dropdown dropdown-mega">
                                         <a class="nav-link dropdown-toggle" href="#"
-                                            data-bs-toggle="dropdown">Blocks</a>
+                                            data-bs-toggle="dropdown">Agencies</a>
                                         <!--/.dropdown-menu -->
                                     </li>
-                                    <li class="nav-item dropdown dropdown-mega">
-                                        <a class="nav-link dropdown-toggle" href="#"
-                                            data-bs-toggle="dropdown">Documentation</a>
-                                        <!--/.dropdown-menu -->
-                                    </li>
+            
                                 </ul>
                             </div>
                         </div>
@@ -504,17 +500,8 @@
                     </div>
                     <!--/column -->
                     <div class="col-lg-5">
-                        <h3 class="display-4 mb-7">Got any questions? Don't hesitate to get in touch.</h3>
-                        <div class="d-flex flex-row">
-                            <div>
-                                <div class="icon text-primary fs-28 me-4 mt-n1"> <i
-                                        class="uil uil-location-pin-alt"></i> </div>
-                            </div>
-                            <div>
-                                <h5 class="mb-1">Address</h5>
-                                <address>Moonshine St. 14/05 Light City, London</address>
-                            </div>
-                        </div>
+                        <h3 class="display-4 mb-7">Umeona uharamia wowote wa kilimo?, Usiogope kutupatia taarifa hiyo.</h3>
+                        
                         <div class="d-flex flex-row">
                             <div>
                                 <div class="icon text-primary fs-28 me-4 mt-n1"> <i class="uil uil-phone-volume"></i>
@@ -522,7 +509,7 @@
                             </div>
                             <div>
                                 <h5 class="mb-1">Phone</h5>
-                                <p>00 (123) 456 78 90</p>
+                                <p>222 333 000</p>
                             </div>
                         </div>
                         <div class="d-flex flex-row">
@@ -566,29 +553,17 @@
                 <!-- /column -->
                 <div class="col-md-4 col-lg-3">
                     <div class="widget">
-                        <h4 class="widget-title  mb-3">Get in Touch</h4>
-                        <address class="pe-xl-15 pe-xxl-17">Moonshine St. 14/05 Light City, London, United Kingdom
+                        <h4 class="widget-title  mb-3">Mawasiliano</h4>
+                        <address class="pe-xl-15 pe-xxl-17">Bandari St. 14 Dar es salaam, Tanzania
                         </address>
                         <a href="/l/email-protection.html#d3f0" class="link-body"><span class="__cf_email__"
                                 data-cfemail="b2dbdcd4ddf2d7dfd3dbde9cd1dddf">[email&#160;protected]</span></a><br />
-                        00 (123) 456 78 90
+                        222 333 111
                     </div>
                     <!-- /.widget -->
                 </div>
                 <!-- /column -->
-                <div class="col-md-4 col-lg-3">
-                    <div class="widget">
-                        <h4 class="widget-title  mb-3">Learn More</h4>
-                        <ul class="list-unstyled text-reset mb-0">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Our Story</a></li>
-                            <li><a href="#">Projects</a></li>
-                            <li><a href="#">Terms of Use</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                        </ul>
-                    </div>
-                    <!-- /.widget -->
-                </div>
+               
                 <!-- /column -->
                 <div class="col-md-12 col-lg-3">
                     <div class="widget">
@@ -643,6 +618,4 @@
     </div>
     {{-- <script src="{{ asset('js/theme.js') }}"></script> --}}
 </body>
-
-
 </html>
