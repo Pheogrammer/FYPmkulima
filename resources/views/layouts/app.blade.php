@@ -8,19 +8,17 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }} /  @yield('title') </title>
+    <title>{{ config('app.name', 'Laravel') }} / @yield('title') </title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/datatables.min.js') }}"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-<link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }}">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/datatables.min.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -45,6 +43,10 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('settings') }}">{{ __('Settings') }}</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('prices') }}">{{ __('Crop Prices') }}</a>
+
+                            </li>
                         @endguest
                     </ul>
                     <ul class="navbar-nav m-auto">
@@ -58,6 +60,18 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('agencies') }}">{{ __('Agency') }}</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('region') }}">{{ __('Regions') }}</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('zone') }}">{{ __('Zones') }}</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('crops') }}">{{ __('Crops') }}</a>
                             </li>
                         @endguest
 
@@ -107,6 +121,11 @@
             @yield('content')
         </main>
     </div>
+    <script>
+        $(document).ready(function() {
+            $('#myModal').modal('hide'); // Optional: Hide the modal by default
+        });
+    </script>
 </body>
 
 </html>

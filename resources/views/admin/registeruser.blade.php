@@ -34,78 +34,62 @@
                 <div class="card-header">{{ __('Users Registration') }}</div>
 
                 <div class="card-body">
-                    <form action="" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('saveRegisteredUser') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
                                     <label for="">Name</label>
-                                    <input type="text" name="" id="" class="form-control" placeholder=""
-                                        aria-describedby="helpId">
-                                    <small id="helpId" class="text-muted">Help text</small>
+                                    <input type="text" required name="name" id="" class="form-control"
+                                    value="{{ old('name') }}"  placeholder="" aria-describedby="helpId">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="">Name</label>
-                                    <input type="text" name="" id="" class="form-control" placeholder=""
-                                        aria-describedby="helpId">
-                                    <small id="helpId" class="text-muted">Help text</small>
+                                    <label for="">Email</label>
+                                    <input type="email" required name="email" id="" class="form-control"
+                                    value="{{ old('email') }}"   placeholder="" aria-describedby="helpId">
                                 </div>
                             </div>
-                        </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="">Phone</label>
+                                    <input required type="tel" name="phone" id="" class="form-control"
+                                    value="{{ old('phone') }}"  placeholder="" aria-describedby="helpId">
+                                </div>
+                            </div>
+
+                        </div> <br>
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="">Name</label>
-                                    <input type="text" name="" id="" class="form-control" placeholder=""
+                                    <label for="">Type</label>
+                                    <select required name="userType" id="" class="form-control" placeholder=""
                                         aria-describedby="helpId">
-                                    <small id="helpId" class="text-muted">Help text</small>
+                                        <option value="">Select Type</option>
+                                        <option value="1">Admin</option>
+                                        <option value="0">Normal User</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="">Name</label>
-                                    <input type="text" name="" id="" class="form-control" placeholder=""
+                                    <label for="">Agency</label>
+                                    <select name="agencyID" id="" class="form-control" placeholder=""
                                         aria-describedby="helpId">
-                                    <small id="helpId" class="text-muted">Help text</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="">Name</label>
-                                    <input type="text" name="" id="" class="form-control" placeholder=""
-                                        aria-describedby="helpId">
-                                    <small id="helpId" class="text-muted">Help text</small>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="">Name</label>
-                                    <input type="text" name="" id="" class="form-control" placeholder=""
-                                        aria-describedby="helpId">
-                                    <small id="helpId" class="text-muted">Help text</small>
+                                        <option value="">Select Agency</option>
+                                        @foreach ($agency as $agency)
+                                            <option value="{{ $agency->id }}">{{ $agency->agencyName }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                         </div>
+                        <br>
                         <div class="row">
                             <div class="col">
-                                <div class="form-group">
-                                    <label for="">Name</label>
-                                    <input type="text" name="" id="" class="form-control" placeholder=""
-                                        aria-describedby="helpId">
-                                    <small id="helpId" class="text-muted">Help text</small>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="">Name</label>
-                                    <input type="text" name="" id="" class="form-control" placeholder=""
-                                        aria-describedby="helpId">
-                                    <small id="helpId" class="text-muted">Help text</small>
-                                </div>
+                                <button type="submit" class="btn btn-primary">Register</button>
+                                <a href="{{ route('users') }}" class="btn btn-danger">Cancel</a>
                             </div>
                         </div>
                     </form>

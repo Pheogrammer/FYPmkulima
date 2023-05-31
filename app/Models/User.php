@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use Haruncpi\LaravelUserActivity\Traits\Loggable;
+// use Haruncpi\LaravelUserActivity\Traits\Loggable;
 
 class User extends Authenticatable
 {
@@ -42,6 +42,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    
-    use Loggable;
+
+    // use Loggable;
+
+    public function agency()
+{
+    return $this->belongsTo(Agency::class, 'agencyID');
+}
+
 }

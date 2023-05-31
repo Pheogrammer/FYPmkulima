@@ -31,16 +31,27 @@
             @endif
             {{-- ends here --}}
             <div class="card">
-                <div class="card-header">{{ __('Registered Users') }}</div>
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col">
+                            {{ __('Agencies') }}
+                        </div>
+                        <div class="col-md-3">
+                            <a href="{{ route('registeragency') }}" class="btn btn-primary">Register New Agency</a>
+                        </div>
+                    </div>
+                </div>
 
-                <div class="card-body">
+                <div class="card-body ">
 
                     <table class="table">
                         <thead>
                             <tr>
                                 <th>SN</th>
                                 <th>Name</th>
-                                <th>Description</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Website</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -52,13 +63,11 @@
                                 <tr>
                                     <td>{{ $rollingNo }}</td>
                                     <td>{{ ucwords($agency->agencyName) }}</td>
-                                    <td>{{ $agency->email }}</td>
-                                    <td>{{ $agency->phone }}</td>
-                                    <td>{{ $user->type }}</td>
-                                    <td>{{ $user->agency }}</td>
+                                    <td>{{ $agency->agencyPhone }}</td>
+                                    <td>{{ $agency->agencyEmail }}</td>
+                                    <td>{{ $agency->agencyWebsite }}</td>
                                     <td>
-                                        <a href="" class="btn btn-primary">Edit</a>
-                                        <a href="" class="btn btn-danger">Deactivate</a>
+                                        <a href="{{ route('editagency',$agency->id) }}" class="btn btn-primary">Edit</a>
                                     </td>
                                 </tr>
                                 @php
@@ -66,7 +75,8 @@
                                 @endphp
                             @endforeach
                         </tbody>
-                    </table>                </div>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
