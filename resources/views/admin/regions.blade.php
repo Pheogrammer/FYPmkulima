@@ -61,7 +61,7 @@
                                 <tr >
                                     <td>{{ $rollingNo }}</td>
                                     <td>{{ ucwords($region->name) }}</td>
-                                    <td>12</td>
+                                    <td>{{ $region->zone->name }}</td>
                                     <td>
                                         <a href="{{ route('editregion',$region->id) }}" class="btn btn-primary">Edit</a>
                                     </td>

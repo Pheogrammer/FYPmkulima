@@ -55,8 +55,10 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('saveRegisteredZone',[HomeController::class,'saveRegisteredZone'])->name('saveRegisteredZone');
     Route::get('editzone/{id}',[HomeController::class,'editzone'])->name('editzone');
     Route::post('saveEditedZone',[HomeController::class,'saveEditedZone'])->name('saveEditedZone');
+Route::get('assignRegiontoZone/{id}',[HomeController::class,'assignRegiontoZone'])->name('assignRegiontoZone');
+Route::post('saveAssignedRegion',[HomeController::class,'saveAssignedRegion'])->name('saveAssignedRegion');
 
-    Route::get('region',[HomeController::class,'region'])->name('region');
+Route::get('region',[HomeController::class,'region'])->name('region');
     Route::get('registerRegion',[HomeController::class,'registerRegion'])->name('registerRegion');
     Route::post('saveRegisteredRegion',[HomeController::class,'saveRegisteredRegion'])->name('saveRegisteredRegion');
     Route::get('editRegion/{id}',[HomeController::class,'editregion'])->name('editregion');

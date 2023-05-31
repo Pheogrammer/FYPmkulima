@@ -33,7 +33,7 @@ public function settings()
 
     public function zone()
     {
-$zone = Zone::orderby('name','asc')->get();
+$zone = Zone::orderby('name','asc')->withCount('regions')->get();
 return view('admin.zone',['zone'=>$zone]);
     }
 
@@ -60,18 +60,48 @@ return view('admin.zone',['zone'=>$zone]);
     {
         $zone = Zone::where('id',$id)->first();
         $region = Region::where('zoneID', $id)->get();
+        return view('admin.editzone',['zone'=>$zone,'regionAssigned'=>$region]);
+    }
+
+    public function assignRegiontoZone($id)
+    {
+        $region = Region::where('zoneID', $id)->get();
+        $zone = Zone::where('id',$id)->first();
         $regions = Region::whereNotIn('id', $region->pluck('id'))->orderBy('name', 'asc')->get();
-        return view('admin.editzone',['zone'=>$zone,'regionAssigned'=>$region,'regions'=>$regions]);
+
+        return view('admin.assignregiontozone',['zone'=>$zone,'regions'=>$regions]);
+    }
+
+    public function saveAssignedRegion(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+        ]);
+
+        $region = Region::where('id',$request->input('name'))->first();
+        $region->zoneID = $request->input('id');
+        $region->save();
+
+        return redirect()->route('editzone',$request->input('id'))->with('status','Region Assigned Successfully');
     }
 
     public function saveEditedZone(Request $request)
     {
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+        ]);
+
+        $zone = Zone::where('id',$request->input('id'))->first();
+        $zone -> name = $request->input('name');
+        $zone->save();
+        return redirect()->route('zone')->with('status','Zone Updated Successfully');
+
 
     }
 
     public function region()
     {
-$region = Region::orderby('name','asc')->get();
+$region = Region::orderby('name','asc')->with('zone')->get();
 return view('admin.regions',['region'=>$region]);
     }
 

@@ -36,6 +36,7 @@
                 <div class="card-body">
                     <form action="{{ route('saveEditedZone') }}" method="post" enctype="multipart/form-data">
                         @csrf
+                        <input type="text" value="{{ $zone->id }}" name="id" hidden>
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
@@ -67,7 +68,7 @@
                             {{ __('Assigned Regions') }}
                         </div>
                         <div class="col-md-3">
-                            <a href="{{ route('registerRegion') }}" class="btn btn-primary">Assign New Region</a>
+                            <a href="{{ route('assignRegiontoZone',$zone->id) }}" class="btn btn-primary">Assign New Region</a>
                         </div>
                     </div>
                 </div>
@@ -91,7 +92,7 @@
                                     <td>{{ ucwords($regionAssigned->name) }}</td>
                                     <td>
                                         <a href="{{ route('editregion', $regionAssigned->id) }}"
-                                            class="btn btn-danger">Delete</a>
+                                            class="btn btn-danger">Edit</a>
                                     </td>
                                 </tr>
                                 @php
@@ -101,30 +102,6 @@
                         </tbody>
                     </table>
                 </div>
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                    Open Modal
-                </button>
-
-
-                <!-- Modal -->
-                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="myModalLabel">Modal Title</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <!-- Add your modal content here -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>

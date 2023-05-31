@@ -67,7 +67,7 @@
                                     <label for="">Type</label>
                                     <select required name="userType" id="" class="form-control" placeholder=""
                                         aria-describedby="helpId">
-                                        <option selected value="{{ $user->userType }}">{{ $user->userType }}</option>
+                                        <option selected value="{{ $user->userType }}">{{ $user->userType == 0 ? 'Normal User' : ($user->userType == 1 ? 'Admin' : '') }}</option>
                                         <option value="1">Admin</option>
                                         <option value="0">Normal User</option>
                                     </select>
@@ -78,7 +78,7 @@
                                     <label for="">Agency</label>
                                     <select name="agencyID" id="" class="form-control" placeholder=""
                                         aria-describedby="helpId">
-                                        <option selected value="{{ $user->agencyID }}">{{ $user->agencyID }}</option>
+                                        <option selected value="{{ $user->agencyID }}">{{ $user->agency->agencyName }}</option>
                                         @foreach ($agency as $agency)
                                             <option value="{{ $agency->id }}">{{ $agency->agencyName }}</option>
                                         @endforeach

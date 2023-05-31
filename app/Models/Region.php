@@ -10,4 +10,11 @@ class Region extends Model
 {
     use HasFactory;
     use Loggable;
+
+    public function zone()
+{
+    return $this->belongsTo(Zone::class, 'zoneID');
+}
+
+
 }
