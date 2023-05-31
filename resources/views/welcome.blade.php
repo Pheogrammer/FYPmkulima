@@ -39,7 +39,7 @@
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#"
-                                            data-bs-toggle="dropdown">Hari ya hewa</a>
+                                            data-bs-toggle="dropdown"Hali ya hewa</a>
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#"
@@ -67,11 +67,6 @@
                                         </li>
                                     @endif
 
-                                    @if (Route::has('register'))
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('register') }}">{{ __('Jisajili') }}</a>
-                                        </li>
-                                    @endif
                                 @else
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
@@ -124,7 +119,7 @@
         <section class="wrapper bg-light">
             <div class="container py-14 py-md-16 pb-md-17">
                 <div class="row gx-md-5 gy-5 mt-n18 mt-md-n21 mb-14 mb-md-17">
-                    <div class="col-md-6 col-xl-3">
+                <div class="col">
                         <div class="card shadow-lg card-border-bottom border-soft-yellow">
                             <div class="card-body">
                                 <img src="{{ asset('img/icons/lineal/browser.svg') }}"
@@ -138,7 +133,7 @@
                         <!--/.card -->
                     </div>
                     <!--/column -->
-                    <div class="col-md-6 col-xl-3">
+                    <div class="col">
                         <div class="card shadow-lg card-border-bottom border-soft-green">
                             <div class="card-body">
                                 <img src="{{ asset('img/icons/lineal/chat-2.svg') }}"
@@ -152,12 +147,12 @@
                         <!--/.card -->
                     </div>
                     <!--/column -->
-                    <div class="col-md-6 col-xl-3">
+                    <div class="col">
                         <div class="card shadow-lg card-border-bottom border-soft-orange">
                             <div class="card-body">
                                 <img src="{{ asset('img/icons/lineal/id-card.svg') }}"
                                     class="svg-inject icon-svg icon-svg-md text-orange mb-3" alt="" />
-                                <h4>Taarifa ya hari ya hewa</h4>
+                                <h4>Mabadiliko ya hali ya hewa</h4>
                                 <p class="mb-2">Ijue hali ya hewa katika maeneo tofauti.</p>
                                 <a href="#" class="more hover link-orange">Ingia zaidi</a>
                             </div>
@@ -166,20 +161,19 @@
                         <!--/.card -->
                     </div>
                     <!--/column -->
-                    <div class="col-md-6 col-xl-3">
-                        <div class="card shadow-lg card-border-bottom border-soft-blue">
+                    <div class="col">
+                        <div class="card shadow-lg card-border-bottom border-soft-orange">
                             <div class="card-body">
-                                <img src="{{ asset('img/icons/lineal/gift.svg') }}"
-                                    class="svg-inject icon-svg icon-svg-md text-blue mb-3" alt="" />
-                                <h4>Mawakala wa kilimo</h4>
-                                <p class="mb-2">Wajue mawakala wa kilimo katika kanda uliyopo.</p>
-                                <a href="#" class="more hover link-blue">Ingia zaidi</a>
+                                <img src="{{ asset('img/icons/lineal/id-card.svg') }}"
+                                    class="svg-inject icon-svg icon-svg-md text-orange mb-3" alt="" />
+                                <h4>Jisajili</h4>
+                                <p class="mb-2">Jisajili kupitia wavuti hii ili kupata dondoo za kilimo kwanjia ya SMS.</p>
+                                <a href="#" class="more hover link-green">Ingia zaidi</a>
                             </div>
                             <!--/.card-body -->
                         </div>
                         <!--/.card -->
                     </div>
-                    <!--/column -->
                 </div>
                 <!--/.row -->
                 <div class="row gx-lg-8 gx-xl-12 gy-10 mb-14 mb-md-17 align-items-center">
@@ -189,16 +183,15 @@
                     </div>
                     <!--/column -->
                     <div class="col-lg-5">
-                        <h3 class="display-4 mb-7">Our three process steps on creating awesome projects.</h3>
+                        <h3 class="display-4 mb-7">Pata mabadiliko ya bei za mazao mbalimbali kwa haraka na kwa uhakika.</h3>
                         <div class="d-flex flex-row mb-6">
                             <div>
                                 <span class="icon btn btn-circle btn-soft-primary pe-none me-5"><span
                                         class="number fs-18">1</span></span>
                             </div>
                             <div>
-                                <h4 class="mb-1">Collect Ideas</h4>
-                                <p class="mb-0">Nulla vitae elit libero pharetra augue dapibus. Praesent commodo
-                                    cursus. Donec ullamcorper nulla non metus.</p>
+                                <h4 class="mb-1">Ingia kwenye mfumo</h4>
+                                <p class="mb-0"></p>
                             </div>
                         </div>
                         <div class="d-flex flex-row mb-6">
@@ -207,9 +200,8 @@
                                         class="number fs-18">2</span></span>
                             </div>
                             <div>
-                                <h4 class="mb-1">Data Analysis</h4>
-                                <p class="mb-0">Vivamus sagittis lacus vel augue laoreet. Etiam porta sem malesuada
-                                    magna auctor fringilla augue.</p>
+                                <h4 class="mb-1">Ingiza taarifa za kanda uliopo</h4>
+                                <p class="mb-0"></p>
                             </div>
                         </div>
                         <div class="d-flex flex-row">
@@ -218,86 +210,14 @@
                                         class="number fs-18">3</span></span>
                             </div>
                             <div>
-                                <h4 class="mb-1">Finalize Product</h4>
-                                <p class="mb-0">Cras mattis consectetur purus sit amet. Aenean lacinia bibendum nulla
-                                    sed. Nulla vitae elit libero pharetra.</p>
+                                <h4 class="mb-1">Angalia bei ya zao unalotaka</h4>
+                                <p class="mb-0"></p>
                             </div>
                         </div>
                     </div>
                     <!--/column -->
                 </div>
-                <!--/.row -->
-                <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
-                    <div class="col-lg-7 order-lg-2">
-                        <figure><img class="w-auto" src="{{ asset('img/illustrations/i2.png') }}" alt="" />
-                        </figure>
-                    </div>
-                    <!--/column -->
-                    <div class="col-lg-5">
-                        <h3 class="display-4 mb-7 mt-lg-10">Few reasons why our valued customers choose us.</h3>
-                        <div class="accordion accordion-wrapper" id="accordionExample">
-                            <div class="card plain accordion-item">
-                                <div class="card-header" id="headingOne">
-                                    <button class="accordion-button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseOne" aria-expanded="true"
-                                        aria-controls="collapseOne"> Professional Design </button>
-                                </div>
-                                <!--/.card-header -->
-                                <div id="collapseOne" class="accordion-collapse collapse show"
-                                    aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                    <div class="card-body">
-                                        <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-                                            fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet
-                                            fermentum. Praesent commodo cursus magna, vel.</p>
-                                    </div>
-                                    <!--/.card-body -->
-                                </div>
-                                <!--/.accordion-collapse -->
-                            </div>
-                            <!--/.accordion-item -->
-                            <div class="card plain accordion-item">
-                                <div class="card-header" id="headingTwo">
-                                    <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-                                        aria-expanded="false" aria-controls="collapseTwo"> Top-Notch Support </button>
-                                </div>
-                                <!--/.card-header -->
-                                <div id="collapseTwo" class="accordion-collapse collapse"
-                                    aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                    <div class="card-body">
-                                        <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-                                            fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet
-                                            fermentum. Praesent commodo cursus magna, vel.</p>
-                                    </div>
-                                    <!--/.card-body -->
-                                </div>
-                                <!--/.accordion-collapse -->
-                            </div>
-                            <!--/.accordion-item -->
-                            <div class="card plain accordion-item">
-                                <div class="card-header" id="headingThree">
-                                    <button class="collapsed" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseThree" aria-expanded="false"
-                                        aria-controls="collapseThree"> Header and Slider Options </button>
-                                </div>
-                                <!--/.card-header -->
-                                <div id="collapseThree" class="accordion-collapse collapse"
-                                    aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                    <div class="card-body">
-                                        <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-                                            fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet
-                                            fermentum. Praesent commodo cursus magna, vel.</p>
-                                    </div>
-                                    <!--/.card-body -->
-                                </div>
-                                <!--/.accordion-collapse -->
-                            </div>
-                            <!--/.accordion-item -->
-                        </div>
-                        <!--/.accordion -->
-                    </div>
-                    <!--/column -->
-                </div>
-                <!--/.row -->
+                
             </div>
             <!-- /.container -->
         </section>
@@ -305,7 +225,7 @@
 
         <!-- /section -->
         <section class="wrapper bg-soft-primary">
-            <div class="container py-14 py-md-17">
+            <div class="container py-2 py-md-10">
                 <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
                     <div class="col-lg-7">
                         <figure><img class="w-auto" src="{{ asset('img/illustrations/i5.png') }}" alt="" />
@@ -313,30 +233,36 @@
                     </div>
                     <!--/column -->
                     <div class="col-lg-5">
-                        <h3 class="display-4 mb-7">Umeona uharamia wowote wa kilimo?, Usiogope kutupatia taarifa hiyo.</h3>
+                        <h3 class="display-4 mb-7">Pata dondoo za kilimo kiganjani mwako kupitia simu yako.</h3>
                         
-                        <div class="d-flex flex-row">
+                        <div class="d-flex flex-row mb-6">
                             <div>
-                                <div class="icon text-primary fs-28 me-4 mt-n1"> <i class="uil uil-phone-volume"></i>
-                                </div>
+                                <span class="icon btn btn-circle btn-primary pe-none me-5"><span
+                                        class="number fs-18">1</span></span>
                             </div>
                             <div>
-                                <h5 class="mb-1">Phone</h5>
-                                <p>222 333 000</p>
+                                <h4 class="mb-1">Piga *150*77#</h4>
+                                <p class="mb-0"></p>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row mb-6">
+                            <div>
+                                <span class="icon btn btn-circle btn-primary pe-none me-5"><span
+                                        class="number fs-18">2</span></span>
+                            </div>
+                            <div>
+                                <h4 class="mb-1">Jisajili</h4>
+                                <p class="mb-0"></p>
                             </div>
                         </div>
                         <div class="d-flex flex-row">
                             <div>
-                                <div class="icon text-primary fs-28 me-4 mt-n1"> <i class="uil uil-envelope"></i>
-                                </div>
+                                <span class="icon btn btn-circle btn-primary pe-none me-5"><span
+                                        class="number fs-18">3</span></span>
                             </div>
                             <div>
-                                <h5 class="mb-1">E-mail</h5>
-                                <p class="mb-0"><a
-                                        href="/l/email-protection.html#691a08070d0b0611290c04080005470a0604"
-                                        class="link-body"><span class="__cf_email__"
-                                            data-cfemail="abd8cac5cfc9c4d3ebcec6cac2c785c8c4c6">[email&#160;protected]</span></a>
-                                </p>
+                                <h4 class="mb-1">Kaa tayari kupokea dondoo kwa njia ya ujumbe mfupi</h4>
+                                <p class="mb-0"></p>
                             </div>
                         </div>
                     </div>
@@ -350,7 +276,7 @@
     </div>
     <!-- /.content-wrapper -->
     <footer class="bg-light">
-        <div class="container py-13 py-md-15">
+        <div class="container py-13 py-md-15 ">
             <div class="row gy-6 gy-lg-0">
                 <div class="col-md-4 col-lg-3">
                     <div class="widget">
@@ -378,48 +304,7 @@
                 </div>
                 <!-- /column -->
                
-                <!-- /column -->
-                <div class="col-md-12 col-lg-3">
-                    <div class="widget">
-                        <h4 class="widget-title  mb-3">Our Newsletter</h4>
-                        <p class="mb-5">Subscribe to our newsletter to get our news & deals delivered to you.</p>
-                        <div class="newsletter-wrapper">
-                            <!-- Begin Mailchimp Signup Form -->
-                            <div id="mc_embed_signup2">
-                                <form
-                                    action="https://elemisfreebies.us20.list-manage.com/subscribe/post?u=aa4947f70a475ce162057838d&amp;id=b49ef47a9a"
-                                    method="post" id="mc-embedded-subscribe-form2" name="mc-embedded-subscribe-form"
-                                    class="validate " target="_blank" novalidate>
-                                    <div id="mc_embed_signup_scroll2">
-                                        <div class="mc-field-group input-group form-floating">
-                                            <input type="email" value="" name="EMAIL"
-                                                class="required email form-control" placeholder="Email Address"
-                                                id="mce-EMAIL2">
-                                            <label for="mce-EMAIL2">Email Address</label>
-                                            <input type="submit" value="Join" name="subscribe"
-                                                id="mc-embedded-subscribe2" class="btn btn-primary ">
-                                        </div>
-                                        <div id="mce-responses2" class="clear">
-                                            <div class="response" id="mce-error-response2" style="display:none">
-                                            </div>
-                                            <div class="response" id="mce-success-response2" style="display:none">
-                                            </div>
-                                        </div>
-                                        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                                        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input
-                                                type="text" name="b_ddc180777a163e0f9f66ee014_4b1bcfa0bc"
-                                                tabindex="-1" value=""></div>
-                                        <div class="clear"></div>
-                                    </div>
-                                </form>
-                            </div>
-                            <!--End mc_embed_signup-->
-                        </div>
-                        <!-- /.newsletter-wrapper -->
-                    </div>
-                    <!-- /.widget -->
-                </div>
-                <!-- /column -->
+                
             </div>
             <!--/.row -->
         </div>
