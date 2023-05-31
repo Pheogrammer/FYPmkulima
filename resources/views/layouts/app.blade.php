@@ -65,6 +65,10 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('zone') }}">{{ __('Zones') }}</a>
                             </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('crops') }}">{{ __('Crops') }}</a>
+                            </li>
                         @endguest
 
                     </ul>

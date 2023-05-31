@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Zone;
 use App\Models\Region;
+use App\Models\Crop;
+
 class HomeController extends Controller
 {
     /**
@@ -26,15 +28,15 @@ class HomeController extends Controller
     {
         return view('home');
     }
-public function settings()
+    public function settings()
     {
         return view('admin.settings');
     }
 
     public function zone()
     {
-$zone = Zone::orderby('name','asc')->withCount('regions')->get();
-return view('admin.zone',['zone'=>$zone]);
+        $zone = Zone::orderby('name', 'asc')->withCount('regions')->get();
+        return view('admin.zone', ['zone' => $zone]);
     }
 
     public function registerzone()
@@ -50,26 +52,26 @@ return view('admin.zone',['zone'=>$zone]);
         ]);
 
         $zone = new Zone();
-        $zone -> name = $request->input('name');
+        $zone->name = $request->input('name');
         $zone->save();
 
-        return redirect()->route('zone')->with('status','Zone Registered Successfully');
+        return redirect()->route('zone')->with('status', 'Zone Registered Successfully');
     }
 
     public function editzone($id)
     {
-        $zone = Zone::where('id',$id)->first();
+        $zone = Zone::where('id', $id)->first();
         $region = Region::where('zoneID', $id)->get();
-        return view('admin.editzone',['zone'=>$zone,'regionAssigned'=>$region]);
+        return view('admin.editzone', ['zone' => $zone, 'regionAssigned' => $region]);
     }
 
     public function assignRegiontoZone($id)
     {
         $region = Region::where('zoneID', $id)->get();
-        $zone = Zone::where('id',$id)->first();
+        $zone = Zone::where('id', $id)->first();
         $regions = Region::whereNotIn('id', $region->pluck('id'))->orderBy('name', 'asc')->get();
 
-        return view('admin.assignregiontozone',['zone'=>$zone,'regions'=>$regions]);
+        return view('admin.assignregiontozone', ['zone' => $zone, 'regions' => $regions]);
     }
 
     public function saveAssignedRegion(Request $request)
@@ -78,11 +80,11 @@ return view('admin.zone',['zone'=>$zone]);
             'name' => 'required|max:255',
         ]);
 
-        $region = Region::where('id',$request->input('name'))->first();
+        $region = Region::where('id', $request->input('name'))->first();
         $region->zoneID = $request->input('id');
         $region->save();
 
-        return redirect()->route('editzone',$request->input('id'))->with('status','Region Assigned Successfully');
+        return redirect()->route('editzone', $request->input('id'))->with('status', 'Region Assigned Successfully');
     }
 
     public function saveEditedZone(Request $request)
@@ -91,24 +93,22 @@ return view('admin.zone',['zone'=>$zone]);
             'name' => 'required|max:255',
         ]);
 
-        $zone = Zone::where('id',$request->input('id'))->first();
-        $zone -> name = $request->input('name');
+        $zone = Zone::where('id', $request->input('id'))->first();
+        $zone->name = $request->input('name');
         $zone->save();
-        return redirect()->route('zone')->with('status','Zone Updated Successfully');
-
-
+        return redirect()->route('zone')->with('status', 'Zone Updated Successfully');
     }
 
     public function region()
     {
-$region = Region::orderby('name','asc')->with('zone')->get();
-return view('admin.regions',['region'=>$region]);
+        $region = Region::orderby('name', 'asc')->with('zone')->get();
+        return view('admin.regions', ['region' => $region]);
     }
 
     public function registerRegion()
     {
-        $zone = Zone::orderby('name','asc')->get();
-        return view('admin.registerregion',['zone'=>$zone]);
+        $zone = Zone::orderby('name', 'asc')->get();
+        return view('admin.registerregion', ['zone' => $zone]);
     }
 
     public function saveRegisteredRegion(Request $request)
@@ -123,15 +123,14 @@ return view('admin.regions',['region'=>$region]);
         $region->zoneID = $request->input('zoneID');
         $region->save();
 
-        return redirect()->route('region')->with('status','Region Registered Successfully');
-
+        return redirect()->route('region')->with('status', 'Region Registered Successfully');
     }
 
     public function editRegion($id)
     {
-        $region = Region::where('id',$id)->first();
-        $zone = Zone::orderby('name','asc')->get();
-        return view('admin.editregions',['region'=>$region,'zone'=>$zone]);
+        $region = Region::where('id', $id)->first();
+        $zone = Zone::orderby('name', 'asc')->get();
+        return view('admin.editregions', ['region' => $region, 'zone' => $zone]);
     }
 
     public function saveEditedRegion(Request $request)
@@ -141,12 +140,45 @@ return view('admin.regions',['region'=>$region]);
             'zoneID' => 'required',
         ]);
 
-        $region = Region::where('id',$request->input('id'))->first();
+        $region = Region::where('id', $request->input('id'))->first();
         $region->name = $request->input('name');
         $region->zoneID = $request->input('zoneID');
         $region->save();
 
-        return redirect()->route('region')->with('status','Region Updated Successfully');
+        return redirect()->route('region')->with('status', 'Region Updated Successfully');
+    }
 
+    public function crops()
+    {
+        $crops  = Crop::orderby('name', 'asc')->get();
+        return view('admin.crops', ['crop' => $crops]);
+    }
+
+    public function registerCrop()
+    {
+        return view('admin.registercrop');
+    }
+
+    public function saveRegisteredCrop(Request $request)
+    {
+        $crop = new Crop();
+        $crop->name = $request->input('name');
+        $crop->save();
+
+        return redirect()->route('crops')->with('status', 'Crop Registered Successfully');
+    }
+    public function editcrop($id)
+    {
+        $crop = Crop::where('id', $id)->first();
+        return view('admin.editcrop', ['crop' => $crop]);
+    }
+
+    public function saveeditedcrop(Request $request)
+    {
+        $crop = Crop::where('id', $request->input('id'))->first();
+        $crop->name = $request->input('name');
+        $crop->save();
+
+        return redirect()->route('crops')->with('status', 'Crop Updated Successfully');
     }
 }
