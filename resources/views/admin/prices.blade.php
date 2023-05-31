@@ -4,6 +4,16 @@
 @section('title')
     Crop Prices
 @endSection
+@php
+    use App\Models\Zone;
+    use App\Models\Region;
+    use App\Models\Crop;
+    use App\Models\Price;
+    use App\Models\Agency;
+    use App\Models\User;
+    use Carbon\Carbon as Carbon;
+
+@endphp
 <div class="container">
     <div class="row justify-content-center">
         <div class="col">
@@ -44,38 +54,62 @@
                 </div>
 
                 <div class="card-body">
-
-                    <table class="table">
+                    <table class="table" id="allRegions">
                         <thead>
                             <tr>
-                                <th>Region</th>
-                                @foreach ($prices as $price)
-                                    <th colspan="2">{{ $price->crop->name }}</th>
-                                @endforeach
-                            </tr>
-                            <tr>
-                                <th>Crop</th>
-                                @foreach ($prices as $price)
-                                    <th>Min Price</th>
-                                    <th>Max Price</th>
-                                @endforeach
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($prices as $price)
+                            @php
+                                $check = 1;
+                            @endphp
+                            @foreach ($region as $price)
                                 <tr>
-                                    <td>{{ $price->region->name }}</td>
-                                    @foreach ($prices as $regionPrice)
-                                        @if ($regionPrice->region->id == $price->region->id)
-                                            <td>{{ $regionPrice->minprice }}</td>
-                                            <td>{{ $regionPrice->maxprice }}</td>
-                                        @else
-                                            <td></td>
-                                            <td></td>
-                                        @endif
-                                    @endforeach
+
+                                    <td>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <td colspan="5">
+                                                        <h2> {{ $price->name }}</h2>
+
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>SN</th>
+                                                    <th>Crop</th>
+                                                    <th>Min Price</th>
+                                                    <th>Max Price</th>
+                                                    <th>Starting Date</th>
+                                                </tr>
+                                            </thead>
+                                            @php
+                                                $rollingNo = 1;
+                                                $prices = Price::where('regionID', $price->id)
+                                                    ->with('crop')
+                                                    ->get();
+                                            @endphp
+                                            <tbody>
+                                                @foreach ($prices as $crop)
+                                                    <tr>
+                                                        <td>{{ $rollingNo }}</td>
+                                                        <td>{{ $crop->crop->name }}</td>
+                                                        <td>{{ $crop->minprice }} Tzs</td>
+                                                        <td>{{ $crop->maxprice }} Tzs</td>
+                                                        <td>{{ Carbon::parse($crop->starting_at)->format('d/m/Y') }}
+                                                        </td>
+                                                    </tr>
+                                                    @php
+                                                        $rollingNo++;
+                                                    @endphp
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </td>
                                 </tr>
                             @endforeach
+
                         </tbody>
                     </table>
                 </div>

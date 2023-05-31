@@ -9,6 +9,7 @@ use App\Models\Crop;
 use App\Models\Price;
 use App\Models\Agency;
 use App\Models\User;
+use DB;
 
 class HomeController extends Controller
 {
@@ -194,13 +195,8 @@ class HomeController extends Controller
 
     public function prices()
     {
-        $prices = Price::with('crop', 'agency', 'region')
-            ->groupBy('id', 'cropID', 'agencyID', 'regionID', 'minprice', 'maxprice', 'starting_at', 'updated_at', 'created_at','status')
-            ->get();
-
-
-
-        return view('admin.prices', ['prices' => $prices]);
+        $regions = Region::orderby('name', 'asc')->with('zone')->get();
+        return view('admin.prices', ['region' => $regions]);
     }
 
     public function registerprice()
@@ -223,6 +219,16 @@ class HomeController extends Controller
             'max' => 'required',
         ]);
 
+        $existingCrop = Price::where('cropID', $request->input('crop'))
+    ->where('regionID', $request->input('region'))
+    ->where('agencyID',$request->input('agency'))
+    ->where('starting_at',  $request->input('starting'))
+    ->first();
+
+if ($existingCrop) {
+    return redirect()->back()->withErrors(['error' => 'Crop already registered.']);
+}
+
         $price = new Price();
         $price->cropID = $request->input('crop');
         $price->agencyID = $request->input('agency');
@@ -237,6 +243,15 @@ class HomeController extends Controller
 
     public function editprice($id)
     {
+    //     $existingCrop = Price::where('crop', $validatedData['crop'])
+    // ->where('region', $validatedData['region'])
+    // ->where('agency', $validatedData['agency'])
+    // ->where('starting', $validatedData['starting'])
+    // ->first();
+
+if ($existingCrop) {
+    return redirect()->back()->withErrors(['error' => 'Crop already registered.']);
+}
     }
 
     public function saveEditedprice(Request $request)

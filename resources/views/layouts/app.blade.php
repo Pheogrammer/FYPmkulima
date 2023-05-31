@@ -9,9 +9,11 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }} / @yield('title') </title>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -121,11 +123,17 @@
             @yield('content')
         </main>
     </div>
-    <script>
-        $(document).ready(function() {
-            $('#myModal').modal('hide'); // Optional: Hide the modal by default
-        });
-    </script>
+   <script src="{{ asset('DataTables/datatables.min.js') }}"></script>
+   <script>
+    $(document).ready(function() {
+        $('#allRegions').DataTable();
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('.allRegions').DataTable();
+    });
+</script>
 </body>
 
 </html>
