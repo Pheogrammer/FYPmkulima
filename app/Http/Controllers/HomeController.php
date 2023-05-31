@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Zone;
 use App\Models\Region;
 use App\Models\Crop;
+use App\Models\Price;
+use App\Models\Agency;
 
 class HomeController extends Controller
 {
@@ -180,5 +182,60 @@ class HomeController extends Controller
         $crop->save();
 
         return redirect()->route('crops')->with('status', 'Crop Updated Successfully');
+    }
+
+    public function prices()
+    {
+        $prices = Price::with('crop', 'agency', 'region')
+            ->groupBy('id', 'cropID', 'agencyID', 'regionID', 'minprice', 'maxprice', 'starting_at', 'updated_at', 'created_at','status')
+            ->get();
+
+
+
+        return view('admin.prices', ['prices' => $prices]);
+    }
+
+    public function registerprice()
+    {
+        $region = Region::orderby('name', 'asc')->get();
+        $agency = Agency::orderby('agencyName', 'asc')->get();
+        $crop = Crop::orderby('name', 'asc')->get();
+
+        return view('admin.registerpice', ['region' => $region, 'agency' => $agency, 'crop' => $crop]);
+    }
+
+    public function saveRegisteredPrice(Request $request)
+    {
+        $validatedData = $request->validate([
+            'crop' => 'required|max:255',
+            'region' => 'required',
+            'agency' => 'required',
+            'starting' => 'required',
+            'min' => 'required',
+            'max' => 'required',
+        ]);
+
+        $price = new Price();
+        $price->cropID = $request->input('crop');
+        $price->agencyID = $request->input('agency');
+        $price->regionID = $request->input('region');
+        $price->minprice = $request->input('min');
+        $price->maxprice = $request->input('max');
+        $price->starting_at = $request->input('starting');
+        $price->save();
+
+        return redirect()->route('prices')->with('status', 'Price Registered Successfully');
+    }
+
+    public function editprice($id)
+    {
+    }
+
+    public function saveEditedprice(Request $request)
+    {
+    }
+
+    public function manageCropsandPrices($id)
+    {
     }
 }

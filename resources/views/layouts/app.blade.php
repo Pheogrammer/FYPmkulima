@@ -43,6 +43,10 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('settings') }}">{{ __('Settings') }}</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('prices') }}">{{ __('Crop Prices') }}</a>
+
+                            </li>
                         @endguest
                     </ul>
                     <ul class="navbar-nav m-auto">

@@ -10,4 +10,21 @@ class Price extends Model
 {
     use HasFactory;
     use Loggable;
+
+    public function crop()
+    {
+        return $this->belongsTo(Crop::class, 'cropID');
+    }
+
+    public function agency()
+    {
+        return $this->belongsTo(Agency::class, 'agencyID');
+    }
+
+    public function region()
+    {
+        return $this->belongsTo(Region::class, 'regionID');
+    }
+
+    
 }
