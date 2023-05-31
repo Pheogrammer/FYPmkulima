@@ -4,12 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Haruncpi\LaravelUserActivity\Traits\Loggable;
+// use Haruncpi\LaravelUserActivity\Traits\Loggable;
 
 class Price extends Model
 {
     use HasFactory;
-    use Loggable;
+    // use Loggable;
 
     public function crop()
     {
@@ -26,5 +26,5 @@ class Price extends Model
         return $this->belongsTo(Region::class, 'regionID');
     }
 
-    
+
 }
