@@ -36,6 +36,7 @@
                 <div class="card-body">
                     <form action="{{ route('saveEditedAgency') }}" method="post" enctype="multipart/form-data">
                         @csrf
+                        <input type="text" value="{{ $agency->id }}" name="id" hidden>
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">

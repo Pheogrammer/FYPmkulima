@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Zone;
+use App\Models\Region;
 class HomeController extends Controller
 {
     /**
@@ -30,4 +31,92 @@ public function settings()
         return view('admin.settings');
     }
 
+    public function zone()
+    {
+$zone = Zone::orderby('name','asc')->get();
+return view('admin.zone',['zone'=>$zone]);
+    }
+
+    public function registerzone()
+    {
+        return view('admin.registerzone');
+    }
+
+    public function saveRegisteredZone(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|unique:zones|max:255',
+
+        ]);
+
+        $zone = new Zone();
+        $zone -> name = $request->input('name');
+        $zone->save();
+
+        return redirect()->route('zone')->with('status','Zone Registered Successfully');
+    }
+
+    public function editzone($id)
+    {
+        $zone = Zone::where('id',$id)->first();
+        $region = Region::where('zoneID', $id)->get();
+        $regions = Region::whereNotIn('id', $region->pluck('id'))->orderBy('name', 'asc')->get();
+        return view('admin.editzone',['zone'=>$zone,'regionAssigned'=>$region,'regions'=>$regions]);
+    }
+
+    public function saveEditedZone(Request $request)
+    {
+
+    }
+
+    public function region()
+    {
+$region = Region::orderby('name','asc')->get();
+return view('admin.regions',['region'=>$region]);
+    }
+
+    public function registerRegion()
+    {
+        $zone = Zone::orderby('name','asc')->get();
+        return view('admin.registerregion',['zone'=>$zone]);
+    }
+
+    public function saveRegisteredRegion(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|unique:regions|max:255',
+            'zoneID' => 'required',
+        ]);
+
+        $region = new Region();
+        $region->name = $request->input('name');
+        $region->zoneID = $request->input('zoneID');
+        $region->save();
+
+        return redirect()->route('region')->with('status','Region Registered Successfully');
+
+    }
+
+    public function editRegion($id)
+    {
+        $region = Region::where('id',$id)->first();
+        $zone = Zone::orderby('name','asc')->get();
+        return view('admin.editregions',['region'=>$region,'zone'=>$zone]);
+    }
+
+    public function saveEditedRegion(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'zoneID' => 'required',
+        ]);
+
+        $region = Region::where('id',$request->input('id'))->first();
+        $region->name = $request->input('name');
+        $region->zoneID = $request->input('zoneID');
+        $region->save();
+
+        return redirect()->route('region')->with('status','Region Updated Successfully');
+
+    }
 }

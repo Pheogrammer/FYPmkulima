@@ -51,7 +51,7 @@ class AgencyController extends Controller
             'agencyWebsite' => 'required|max:255',
         ]);
 
-        $agency = Agency::where('id',$request->input('id'));
+        $agency = Agency::where('id',$request->input('id'))->first();
         $agency->agencyName = $request->input('agencyName');
         $agency->agencyPhone = $request->input('agencyPhone');
         $agency->agencyEmail = $request->input('agencyEmail');
