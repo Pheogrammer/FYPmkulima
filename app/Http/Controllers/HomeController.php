@@ -249,9 +249,9 @@ if ($existingCrop) {
     // ->where('starting', $validatedData['starting'])
     // ->first();
 
-if ($existingCrop) {
-    return redirect()->back()->withErrors(['error' => 'Crop already registered.']);
-}
+// if ($existingCrop) {
+//     return redirect()->back()->withErrors(['error' => 'Crop already registered.']);
+// }
     }
 
     public function saveEditedprice(Request $request)
