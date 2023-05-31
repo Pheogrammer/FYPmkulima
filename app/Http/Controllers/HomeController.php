@@ -8,6 +8,7 @@ use App\Models\Region;
 use App\Models\Crop;
 use App\Models\Price;
 use App\Models\Agency;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -28,8 +29,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return redirect()->route('prices');
-        // return view('home');
+        // return redirect()->route('prices');
+        $zone = Zone::orderby('name', 'asc')->get();
+        $crops = Crop::orderby('name', 'asc')->get();
+        $agency = Agency::orderby('agencyName', 'asc')->get();
+        $region = Region::orderby('name', 'asc')->get();
+        $users = User::orderby('name', 'asc')->get();
+        $prices = Price::distinct('published_at')->get();
+        return view('home',['zone'=>$zone,'crops'=>$crops,'agency'=>$agency,'region'=>$region,'users'=>$users,'prices'=>$prices]);
     }
     public function settings()
     {
