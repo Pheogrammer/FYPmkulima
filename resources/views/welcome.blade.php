@@ -39,7 +39,7 @@
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#"
-                                            data-bs-toggle="dropdown"Hali ya hewa</a>
+                                            data-bs-toggle="dropdown">Hali ya hewa</a>
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#"
