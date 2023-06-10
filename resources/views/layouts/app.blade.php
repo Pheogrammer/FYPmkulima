@@ -127,12 +127,15 @@
    <script>
 
     $(document).ready(function() {
-        $('.regioned').DataTable();
+        $('.regioned').DataTable({
+            "pageLength": 5
+        });
     });
     $(document).ready(function() {
     $('.cropped').DataTable({
         searching: false, // Disable search bar
-        lengthChange: false, // Disable "Show [x] entries" select options
+        lengthChange: false,
+        "pageLength": 5
     });
 });
 
