@@ -40,7 +40,8 @@
                     <tbody class="text-dark">
                         @foreach ($beimazao as $startingAt => $prices)
                             <tr>
-                                <td colspan="4">{{ $startingAt }}</td>
+                                <td colspan="4">{{ \Carbon\Carbon::parse($startingAt)->format('d/m/Y') }}
+                                </td>
                             </tr>
                             @foreach ($prices as $price)
                                 <tr>

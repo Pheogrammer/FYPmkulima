@@ -16,7 +16,7 @@ class ViewerController extends Controller
     public function beimazao($id)
     {
         $region = Price::where('regionID', $id)->first();
-        $beimazao = Price::where('regionID', $id)->orderBy('starting_at')->get()->groupBy('starting_at');
+        $beimazao = Price::where('regionID', $id)->orderBy('starting_at', 'desc')->get()->groupBy('starting_at');
         return view('beimikoa', ['beimazao' => $beimazao, 'region' => $region]);
     }
 }
