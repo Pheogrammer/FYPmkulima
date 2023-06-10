@@ -211,14 +211,6 @@ class HomeController extends Controller
 
     public function saveRegisteredPrice(Request $request)
     {
-        $validatedData = $request->validate([
-            'crop' => 'required|max:255',
-            'region' => 'required',
-            'agency' => 'required',
-            'starting' => 'required',
-            'min' => 'required',
-            'max' => 'required',
-        ]);
 
         $existingCrop = Price::where('cropID', $request->input('crop'))
             ->where('regionID', $request->input('region'))
@@ -227,7 +219,7 @@ class HomeController extends Controller
             ->first();
 
         if ($existingCrop) {
-            return redirect()->back()->withErrors(['error' => 'Crop already registered.']);
+            return redirect()->back()->withErrors(['message' => 'Crop already registered.']);
         }
 
         $validator = Validator::make($request->all(), [
@@ -252,6 +244,7 @@ class HomeController extends Controller
 
         if ($validator->fails()) {
             // Handle validation failure
+            return redirect()->back()->withErrors(['message' => 'Check your Inputs']);
         } else {
             // Validation passed, proceed with saving the data
             $price = new Price();

@@ -54,7 +54,7 @@
                 </div>
 
                 <div class="card-body">
-                    <table class="table regioned">
+                    <table class="table allRegions">
                         <thead>
                             <tr>
                                 <th></th>
@@ -68,7 +68,7 @@
                                 <tr>
 
                                     <td>
-                                        <table class="cropped table">
+                                        <table class="table">
                                             <thead>
                                                 <tr>
                                                     <td colspan="5">
