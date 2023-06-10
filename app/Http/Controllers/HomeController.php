@@ -9,6 +9,7 @@ use App\Models\Crop;
 use App\Models\Price;
 use App\Models\Agency;
 use App\Models\User;
+use Illuminate\Support\Facades\Validator;
 use DB;
 
 class HomeController extends Controller
@@ -37,7 +38,7 @@ class HomeController extends Controller
         $region = Region::orderby('name', 'asc')->get();
         $users = User::orderby('name', 'asc')->get();
         $prices = Price::distinct('published_at')->get();
-        return view('home',['zone'=>$zone,'crops'=>$crops,'agency'=>$agency,'region'=>$region,'users'=>$users,'prices'=>$prices]);
+        return view('home', ['zone' => $zone, 'crops' => $crops, 'agency' => $agency, 'region' => $region, 'users' => $users, 'prices' => $prices]);
     }
     public function settings()
     {
@@ -220,38 +221,63 @@ class HomeController extends Controller
         ]);
 
         $existingCrop = Price::where('cropID', $request->input('crop'))
-    ->where('regionID', $request->input('region'))
-    ->where('agencyID',$request->input('agency'))
-    ->where('starting_at',  $request->input('starting'))
-    ->first();
+            ->where('regionID', $request->input('region'))
+            ->where('agencyID', $request->input('agency'))
+            ->where('starting_at',  $request->input('starting'))
+            ->first();
 
-if ($existingCrop) {
-    return redirect()->back()->withErrors(['error' => 'Crop already registered.']);
-}
+        if ($existingCrop) {
+            return redirect()->back()->withErrors(['error' => 'Crop already registered.']);
+        }
 
-        $price = new Price();
-        $price->cropID = $request->input('crop');
-        $price->agencyID = $request->input('agency');
-        $price->regionID = $request->input('region');
-        $price->minprice = $request->input('min');
-        $price->maxprice = $request->input('max');
-        $price->starting_at = $request->input('starting');
-        $price->save();
+        $validator = Validator::make($request->all(), [
+            'crop' => 'required',
+            'agency' => 'required',
+            'region' => 'required',
+            'min' => 'required|numeric',
+            'max' => 'required|numeric|gt:min',
+            'starting' => 'required|date',
+        ]);
 
-        return redirect()->route('prices')->with('status', 'Price Registered Successfully');
+        $validator->after(function ($validator) use ($request) {
+            $cropID = $request->input('crop');
+            $agencyID = $request->input('agency');
+            $regionID = $request->input('region');
+            $starting = $request->input('starting');
+
+            $validator->sometimes('crop', 'unique:prices,cropID,NULL,id,agencyID,' . $agencyID . ',regionID,' . $regionID . ',starting_at,' . $starting, function ($input) {
+                return true;
+            });
+        });
+
+        if ($validator->fails()) {
+            // Handle validation failure
+        } else {
+            // Validation passed, proceed with saving the data
+            $price = new Price();
+            $price->cropID = $request->input('crop');
+            $price->agencyID = $request->input('agency');
+            $price->regionID = $request->input('region');
+            $price->minprice = $request->input('min');
+            $price->maxprice = $request->input('max');
+            $price->starting_at = $request->input('starting');
+            $price->save();
+
+            return redirect()->route('prices')->with('status', 'Price Registered Successfully');
+        }
     }
 
     public function editprice($id)
     {
-    //     $existingCrop = Price::where('crop', $validatedData['crop'])
-    // ->where('region', $validatedData['region'])
-    // ->where('agency', $validatedData['agency'])
-    // ->where('starting', $validatedData['starting'])
-    // ->first();
+        //     $existingCrop = Price::where('crop', $validatedData['crop'])
+        // ->where('region', $validatedData['region'])
+        // ->where('agency', $validatedData['agency'])
+        // ->where('starting', $validatedData['starting'])
+        // ->first();
 
-// if ($existingCrop) {
-//     return redirect()->back()->withErrors(['error' => 'Crop already registered.']);
-// }
+        // if ($existingCrop) {
+        //     return redirect()->back()->withErrors(['error' => 'Crop already registered.']);
+        // }
     }
 
     public function saveEditedprice(Request $request)

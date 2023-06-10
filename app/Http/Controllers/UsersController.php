@@ -29,7 +29,7 @@ class UsersController extends Controller
             'email' => 'required|unique:users|max:255',
             'userType' => 'required|max:255',
             'agencyID' => 'required|max:255',
-            'phone' => ['required', 'unique:users', 'regex:/^(?:\+|0|255)\d{9}(?:\d{4})?$/'],
+            'phone' => ['required', 'numeric', 'unique:users', 'regex:/^(?:\+|0|255)\d{9}(?:\d{4})?$/'],
         ]);
 
         $user = new User();
