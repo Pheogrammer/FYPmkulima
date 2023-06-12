@@ -26,7 +26,8 @@
                                 <tr>
                             @endif
                             <td scope="row">
-                                <a  style="color: #000;"  href="{{route('beimazao',$bei->regionID)}}">{{ $bei->region->name }}</a>
+                                <a style="color: #000;"
+                                    href="{{ route('beimazao', $bei->regionID) }}">{{ $bei->region->name }}</a>
                             </td>
                             @if (($index + 1) % 5 === 0 || $loop->last)
                                 </tr>

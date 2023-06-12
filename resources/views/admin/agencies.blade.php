@@ -67,7 +67,8 @@
                                     <td>{{ $agency->agencyEmail }}</td>
                                     <td>{{ $agency->agencyWebsite }}</td>
                                     <td>
-                                        <a href="{{ route('editagency',$agency->id) }}" class="btn btn-primary">Edit</a>
+                                        <a href="{{ route('editagency', $agency->id) }}"
+                                            class="btn btn-primary">Edit</a>
                                     </td>
                                 </tr>
                                 @php

@@ -58,12 +58,12 @@
                                 $rollingNo = 1;
                             @endphp
                             @foreach ($region as $region)
-                                <tr >
+                                <tr>
                                     <td>{{ $rollingNo }}</td>
                                     <td>{{ ucwords($region->name) }}</td>
                                     <td>{{ $region->zone->name }}</td>
                                     <td>
-                                        <a href="{{ route('editregion',$region->id) }}" class="btn btn-primary">Edit</a>
+                                        <a href="{{ route('editregion', $region->id) }}" class="btn btn-primary">Edit</a>
                                     </td>
                                 </tr>
                                 @php

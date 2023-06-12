@@ -50,12 +50,11 @@
                                     <label for="">Zone</label>
                                     <select required type="text" name="zoneID" id="input_id" class="form-control"
                                         placeholder="" aria-describedby="helpId">
-<option value="">Select Zone</option>
-@foreach ($zone as $zone)
-<option value="{{ $zone->id }}">{{ $zone->name }}</option>
-
-@endforeach
-                                        </select>
+                                        <option value="">Select Zone</option>
+                                        @foreach ($zone as $zone)
+                                            <option value="{{ $zone->id }}">{{ $zone->name }}</option>
+                                        @endforeach
+                                    </select>
 
                                 </div>
                             </div>

@@ -68,7 +68,8 @@
                             {{ __('Assigned Regions') }}
                         </div>
                         <div class="col-md-3">
-                            <a href="{{ route('assignRegiontoZone',$zone->id) }}" class="btn btn-primary">Assign New Region</a>
+                            <a href="{{ route('assignRegiontoZone', $zone->id) }}" class="btn btn-primary">Assign New
+                                Region</a>
                         </div>
                     </div>
                 </div>

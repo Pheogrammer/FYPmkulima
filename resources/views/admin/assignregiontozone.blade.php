@@ -31,7 +31,7 @@
             @endif
             {{-- ends here --}}
             <div class="card">
-                <div class="card-header">{{ __('Region Assignment To '.$zone->name.' Zone') }}</div>
+                <div class="card-header">{{ __('Region Assignment To ' . $zone->name . ' Zone') }}</div>
 
                 <div class="card-body">
                     <form action="{{ route('saveAssignedRegion') }}" method="post" enctype="multipart/form-data">

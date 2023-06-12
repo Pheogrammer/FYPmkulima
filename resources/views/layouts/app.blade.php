@@ -123,23 +123,21 @@
             @yield('content')
         </main>
     </div>
-   <script src="{{ asset('DataTables/datatables.min.js') }}"></script>
-   <script>
-
-    $(document).ready(function() {
-        $('.regioned').DataTable({
-            "pageLength": 5
+    <script src="{{ asset('DataTables/datatables.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('.regioned').DataTable({
+                "pageLength": 5
+            });
         });
-    });
-    $(document).ready(function() {
-    $('.cropped').DataTable({
-        searching: false, // Disable search bar
-        lengthChange: false,
-        "pageLength": 5
-    });
-});
-
-</script>
+        $(document).ready(function() {
+            $('.cropped').DataTable({
+                searching: false, // Disable search bar
+                lengthChange: false,
+                "pageLength": 5
+            });
+        });
+    </script>
 </body>
 
 </html>

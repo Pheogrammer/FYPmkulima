@@ -42,21 +42,22 @@
                                 <div class="form-group">
                                     <label for="">Name</label>
                                     <input type="text" required name="name" id="" class="form-control"
-                                    value="{{ $user->name }}"  placeholder="" aria-describedby="helpId">
+                                        value="{{ $user->name }}" placeholder="" aria-describedby="helpId">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label for="">Email</label>
-                                    <input disabled type="email" required name="email" id="" class="form-control"
-                                    value="{{ $user->email }}"   placeholder="" aria-describedby="helpId">
+                                    <input disabled type="email" required name="email" id=""
+                                        class="form-control" value="{{ $user->email }}" placeholder=""
+                                        aria-describedby="helpId">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label for="">Phone</label>
                                     <input required type="tel" name="phone" id="" class="form-control"
-                                    value="{{ $user->phone }}"  placeholder="" aria-describedby="helpId">
+                                        value="{{ $user->phone }}" placeholder="" aria-describedby="helpId">
                                 </div>
                             </div>
 
@@ -67,7 +68,9 @@
                                     <label for="">Type</label>
                                     <select required name="userType" id="" class="form-control" placeholder=""
                                         aria-describedby="helpId">
-                                        <option selected value="{{ $user->userType }}">{{ $user->userType == 0 ? 'Normal User' : ($user->userType == 1 ? 'Admin' : '') }}</option>
+                                        <option selected value="{{ $user->userType }}">
+                                            {{ $user->userType == 0 ? 'Normal User' : ($user->userType == 1 ? 'Admin' : '') }}
+                                        </option>
                                         <option value="1">Admin</option>
                                         <option value="0">Normal User</option>
                                     </select>
@@ -78,7 +81,8 @@
                                     <label for="">Agency</label>
                                     <select name="agencyID" id="" class="form-control" placeholder=""
                                         aria-describedby="helpId">
-                                        <option selected value="{{ $user->agencyID }}">{{ $user->agency->agencyName }}</option>
+                                        <option selected value="{{ $user->agencyID }}">{{ $user->agency->agencyName }}
+                                        </option>
                                         @foreach ($agency as $agency)
                                             <option value="{{ $agency->id }}">{{ $agency->agencyName }}</option>
                                         @endforeach

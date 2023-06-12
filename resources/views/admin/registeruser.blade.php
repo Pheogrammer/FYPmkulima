@@ -41,21 +41,21 @@
                                 <div class="form-group">
                                     <label for="">Name</label>
                                     <input type="text" required name="name" id="" class="form-control"
-                                    value="{{ old('name') }}"  placeholder="" aria-describedby="helpId">
+                                        value="{{ old('name') }}" placeholder="" aria-describedby="helpId">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label for="">Email</label>
                                     <input type="email" required name="email" id="" class="form-control"
-                                    value="{{ old('email') }}"   placeholder="" aria-describedby="helpId">
+                                        value="{{ old('email') }}" placeholder="" aria-describedby="helpId">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label for="">Phone</label>
                                     <input required type="tel" name="phone" id="" class="form-control"
-                                    value="{{ old('phone') }}"  placeholder="" aria-describedby="helpId">
+                                        value="{{ old('phone') }}" placeholder="" aria-describedby="helpId">
                                 </div>
                             </div>
 

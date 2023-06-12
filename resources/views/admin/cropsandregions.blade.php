@@ -12,7 +12,7 @@
     use App\Models\Agency;
     use App\Models\User;
     use Carbon\Carbon as Carbon;
-
+    
 @endphp
 <div class="container">
     <div class="row justify-content-center">

@@ -11,7 +11,7 @@
         content="bootstrap 5, business, corporate, creative, gulp, marketing, minimal, modern, multipurpose, one page, responsive, saas, sass, seo, startup, html5 template, site template">
     <meta name="author" content="elemis">
     <title>{{ config('app.name', 'Laravel') }}</title>
-    <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('img/mkulima.png') }}">
     <link rel="stylesheet" href="{{ asset('css/plugins.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/colors/orange.css') }}">
@@ -22,7 +22,8 @@
 <body>
     <div class="content-wrapper">
         <header class="wrapper bg-soft-primary">
-            <nav class="navbar navbar-expand-lg extended navbar-light navbar-bg-light caret-none" style="background-color: #fff !important;">
+            <nav class="navbar navbar-expand-lg extended navbar-light navbar-bg-light caret-none"
+                style="background-color: #fff !important;">
                 <div class="container flex-lg-column">
                     <div class="topbar d-flex flex-row w-100 justify-content-between align-items-center">
                         <div class="navbar-brand"><a href="/"><img src="{{ asset('img/mkulima.png') }}"
@@ -44,7 +45,7 @@
                                             data-bs-toggle="dropdown">Hali ya hewa</a>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link " href="{{route('bei')}}">Bei</a>
+                                        <a class="nav-link " href="{{ route('bei') }}">Bei</a>
                                     </li>
                                 </ul>
                             </ul>
@@ -57,7 +58,6 @@
                                             <a class="nav-link" href="{{ route('login') }}">{{ __('Ingia') }}</a>
                                         </li>
                                     @endif
-
                                 @else
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
@@ -102,47 +102,49 @@
             @yield('content')
         </main>
 
-    <!-- /.content-wrapper -->
-    <footer class="bg-light">
-        <div class="container py-13 py-md-15 ">
-            <div class="row gy-6 gy-lg-0">
-                <div class="col-md-4 col-lg-3">
-                    <div class="widget">
-                        <img class="mb-4" src="{{ asset('img/mkulima.png') }}" width="180px" alt="" />
-                        <p class="mb-4">© @php echo date('Y'); @endphp
+        <!-- /.content-wrapper -->
+        <footer class="bg-light">
+            <div class="container py-13 py-md-15 ">
+                <div class="row gy-6 gy-lg-0">
+                    <div class="col-md-4 col-lg-3">
+                        <div class="widget">
+                            <img class="mb-4" src="{{ asset('img/mkulima.png') }}" width="180px" alt="" />
+                            <p class="mb-4">© @php echo date('Y'); @endphp
 
-                            {{ config('app.name', 'Laravel') }}. <br class="d-none d-lg-block" />All rights reserved.
-                        </p>
+                                {{ config('app.name', 'Laravel') }}. <br class="d-none d-lg-block" />All rights
+                                reserved.
+                            </p>
 
-                        <!-- /.social -->
+                            <!-- /.social -->
+                        </div>
+                        <!-- /.widget -->
                     </div>
-                    <!-- /.widget -->
-                </div>
-                <!-- /column -->
-                <div class="col-md-4 col-lg-3">
-                    <div class="widget">
-                        <h4 class="widget-title  mb-3">Mawasiliano</h4>
-                        <address class="pe-xl-15 pe-xxl-17">Bandari St. 14 Dar es salaam, Tanzania
-                        </address>
-                        <a href="#" class="link-body"><span class="__cf_email__"
-                                data-cfemail="b2dbdcd4ddf2d7dfd3dbde9cd1dddf">[email&#160;protected]</span></a><br />
-                        222 333 111
+                    <!-- /column -->
+                    <div class="col-md-4 col-lg-3">
+                        <div class="widget">
+                            <h4 class="widget-title  mb-3">Mawasiliano</h4>
+                            <address class="pe-xl-15 pe-xxl-17">Bandari St. 14 Dar es salaam, Tanzania
+                            </address>
+                            <a href="#" class="link-body"><span class="__cf_email__"
+                                    data-cfemail="b2dbdcd4ddf2d7dfd3dbde9cd1dddf">[email&#160;protected]</span></a><br />
+                            222 333 111
+                        </div>
+                        <!-- /.widget -->
                     </div>
-                    <!-- /.widget -->
+                    <!-- /column -->
+
+
                 </div>
-                <!-- /column -->
-
-
+                <!--/.row -->
             </div>
-            <!--/.row -->
+            <!-- /.container -->
+        </footer>
+        <div class="progress-wrap">
+            <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+            </svg>
         </div>
-        <!-- /.container -->
-    </footer>
-    <div class="progress-wrap">
-        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
-        </svg>
-    </div>
-    {{-- <script src="{{ asset('js/theme.js') }}"></script> --}}
+        {{-- <script src="{{ asset('js/theme.js') }}"></script> --}}
 </body>
+
 </html>
