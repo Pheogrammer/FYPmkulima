@@ -174,9 +174,10 @@
                                 $.each(response.list, function(index, forecast) {
                                     var row = $('<tr>');
                                     var date = new Date(forecast.dt_txt);
-                                    var formattedDate = date.getDate() + '/' + (date
-                                        .getMonth() + 1) + '/' + date.getFullYear();
-                                    row.append('<td>' + formattedDate + '</td>');
+                                    var formattedDate = formatDate(date);
+                                    var formattedTime = formatTime(date);
+                                    row.append('<td>' + formattedDate + ' ' +
+                                        formattedTime + '</td>');
 
                                     var temperature = (forecast.main.temp / 10).toFixed(2);
                                     row.append('<td>' + temperature + ' °C</td>');
@@ -190,8 +191,22 @@
                         }
                     });
                 });
+
+                function formatDate(date) {
+                    var day = date.getDate();
+                    var month = date.getMonth() + 1;
+                    var year = date.getFullYear();
+                    return day + '/' + month + '/' + year;
+                }
+
+                function formatTime(date) {
+                    var hours = date.getHours();
+                    var minutes = date.getMinutes();
+                    return hours + ':0' + minutes;
+                }
             });
         </script>
+
 
 </body>
 

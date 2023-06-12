@@ -7,7 +7,7 @@
 <!--/.modal -->
 <section class="wrapper bg-soft-primary">
     <div class="container pt-10 pb-15 pt-md-14">
-        <h2>Hali ya Hewa kwa siku 30 Zijazo</h2>
+        <h2>Hali ya Hewa kwa siku kadhaa zijazo</h2>
     </div>
     <!-- /.container -->
 </section>
