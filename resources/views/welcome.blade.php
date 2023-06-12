@@ -123,10 +123,7 @@
 <section class="wrapper bg-soft-primary">
     <div class="container py-2 py-md-10">
         <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
-            <div class="col-lg-7">
-                <figure><img class="w-auto" src="{{ asset('img/illustrations/i5.png') }}" alt="" />
-                </figure>
-            </div>
+
             <!--/column -->
             <div class="col-lg-5">
                 <h3 class="display-4 mb-7">Pata dondoo za kilimo kiganjani mwako kupitia simu yako.</h3>
@@ -161,6 +158,10 @@
                         <p class="mb-0"></p>
                     </div>
                 </div>
+            </div>
+            <div class="col-lg-7">
+                <figure><img class="w-auto" src="{{ asset('img/illustrations/i5.png') }}" alt="" />
+                </figure>
             </div>
             <!--/column -->
         </div>
