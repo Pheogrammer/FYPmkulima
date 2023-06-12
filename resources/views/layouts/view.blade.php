@@ -151,32 +151,34 @@
                 <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
             </svg>
         </div>
+
         <script>
             $(document).ready(function() {
-                // Intercept the form submit event
                 $('#weatherForm').submit(function(event) {
-                    event.preventDefault(); // Prevent the form from submitting normally
+                    event.preventDefault();
 
-                    // Get the form data
                     var formData = $(this).serialize();
-                    console.log(formData);
-                    // Send an AJAX request to the weatherData endpoint
+
                     $.ajax({
                         url: '{{ route('weatherData') }}',
                         method: 'GET',
                         data: formData,
                         dataType: 'json',
                         success: function(response) {
-                            console.log(response);
-                            // Update the weather forecast table
                             if (response) {
+                                $('#weatherTitle').text('Weather Forecast for ' + response.city
+                                    .name);
+
                                 var tableBody = $('#weatherTable tbody');
                                 tableBody.empty();
 
                                 $.each(response.list, function(index, forecast) {
                                     var row = $('<tr>');
                                     row.append('<td>' + forecast.dt_txt + '</td>');
-                                    row.append('<td>' + forecast.main.temp + ' °C</td>');
+
+                                    var temperature = (forecast.main.temp / 10).toFixed(2);
+                                    row.append('<td>' + temperature + ' °C</td>');
+
                                     row.append('<td>' + forecast.weather[0].description +
                                         '</td>');
 
@@ -188,7 +190,6 @@
                 });
             });
         </script>
-
 </body>
 
 </html>

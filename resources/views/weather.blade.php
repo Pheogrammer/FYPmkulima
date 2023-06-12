@@ -20,15 +20,14 @@
         <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center bg-light">
             <div class="col">
 
-                <form id="weatherForm" action="" method="GET">
+                <form id="weatherForm" action="{{ route('weatherData') }}" method="GET">
                     <input type="text" name="region" placeholder="Enter region">
                     <button type="submit">Search</button>
                 </form>
 
 
-                @if (!empty($weatherData))
-                    <h2>Weather Forecast for {{ $weatherData['city']['name'] }}</h2>
-                    <table id="weatherTable">
+                <div id="weatherTableContainer">
+                    <table class="table" id="weatherTable">
                         <thead>
                             <tr>
                                 <th>Date</th>
@@ -38,7 +37,8 @@
                         </thead>
                         <tbody></tbody>
                     </table>
-                @endif
+                </div>
+
 
 
             </div>
