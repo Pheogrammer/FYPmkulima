@@ -125,14 +125,20 @@
     </div>
    <script src="{{ asset('DataTables/datatables.min.js') }}"></script>
    <script>
+
     $(document).ready(function() {
-        $('#allRegions').DataTable();
+        $('.regioned').DataTable({
+            "pageLength": 5
+        });
     });
-</script>
-<script>
     $(document).ready(function() {
-        $('.allRegions').DataTable();
+    $('.cropped').DataTable({
+        searching: false, // Disable search bar
+        lengthChange: false,
+        "pageLength": 5
     });
+});
+
 </script>
 </body>
 

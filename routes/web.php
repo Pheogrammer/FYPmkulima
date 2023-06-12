@@ -8,6 +8,7 @@ use App\Http\Controllers\SMSandUSSDController;
 use App\Http\Controllers\UsersController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\ViewerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,19 +24,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('bei',[ViewerController::class,'bei'])->name('bei');
+Route::get('beimazao/{id}',[ViewerController::class,'beimazao'])->name('beimazao');
+
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-// Administrator Section
 
 
 
 Route::group(['middleware' => 'admin'], function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
     Route::get('/settings', [HomeController::class, 'settings'])->name('settings');
     Route::get('/agencies', [AgencyController::class, 'index'])->name('agencies');
     Route::get('users', [UsersController::class, 'index'])->name('users');

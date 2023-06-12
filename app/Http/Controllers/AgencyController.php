@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Agency;
+
 class AgencyController extends Controller
 {
     //
     public function index()
     {
-        $agency = Agency::orderby('agencyName','asc')->get();
-        return view('admin.agencies',['agency'=>$agency]);
+        $agency = Agency::orderby('agencyName', 'asc')->get();
+        return view('admin.agencies', ['agency' => $agency]);
     }
 
     public function registeragency()
@@ -33,13 +34,13 @@ class AgencyController extends Controller
         $agency->agencyEmail = $request->input('agencyEmail');
         $agency->agencyWebsite = $request->input('agencyWebsite');
         $agency->save();
-        return redirect()->route('agencies')->with('status','Agency Registered Successfully');
+        return redirect()->route('agencies')->with('status', 'Agency Registered Successfully');
     }
 
     public function editagency($id)
     {
-        $agency = Agency::where('id',$id)->first();
-        return view('admin.editagency',['agency'=>$agency]);
+        $agency = Agency::where('id', $id)->first();
+        return view('admin.editagency', ['agency' => $agency]);
     }
 
     public function saveEditedAgency(Request $request)
@@ -51,13 +52,12 @@ class AgencyController extends Controller
             'agencyWebsite' => 'required|max:255',
         ]);
 
-        $agency = Agency::where('id',$request->input('id'))->first();
+        $agency = Agency::where('id', $request->input('id'))->first();
         $agency->agencyName = $request->input('agencyName');
         $agency->agencyPhone = $request->input('agencyPhone');
         $agency->agencyEmail = $request->input('agencyEmail');
         $agency->agencyWebsite = $request->input('agencyWebsite');
         $agency->save();
-        return redirect()->route('agencies')->with('status','Agency Updated Successfully');
-
+        return redirect()->route('agencies')->with('status', 'Agency Updated Successfully');
     }
 }

@@ -9,6 +9,7 @@ use App\Models\Crop;
 use App\Models\Price;
 use App\Models\Agency;
 use App\Models\User;
+use Illuminate\Support\Facades\Validator;
 use DB;
 
 class HomeController extends Controller
@@ -210,14 +211,6 @@ class HomeController extends Controller
 
     public function saveRegisteredPrice(Request $request)
     {
-        $validatedData = $request->validate([
-            'crop' => 'required|max:255',
-            'region' => 'required',
-            'agency' => 'required',
-            'starting' => 'required',
-            'min' => 'required',
-            'max' => 'required',
-        ]);
 
         $existingCrop = Price::where('cropID', $request->input('crop'))
             ->where('regionID', $request->input('region'))
@@ -226,19 +219,45 @@ class HomeController extends Controller
             ->first();
 
         if ($existingCrop) {
-            return redirect()->back()->withErrors(['error' => 'Crop already registered.']);
+            return redirect()->back()->withErrors(['message' => 'Crop already registered.']);
         }
 
-        $price = new Price();
-        $price->cropID = $request->input('crop');
-        $price->agencyID = $request->input('agency');
-        $price->regionID = $request->input('region');
-        $price->minprice = $request->input('min');
-        $price->maxprice = $request->input('max');
-        $price->starting_at = $request->input('starting');
-        $price->save();
+        $validator = Validator::make($request->all(), [
+            'crop' => 'required',
+            'agency' => 'required',
+            'region' => 'required',
+            'min' => 'required|numeric',
+            'max' => 'required|numeric|gt:min',
+            'starting' => 'required|date',
+        ]);
 
-        return redirect()->route('prices')->with('status', 'Price Registered Successfully');
+        $validator->after(function ($validator) use ($request) {
+            $cropID = $request->input('crop');
+            $agencyID = $request->input('agency');
+            $regionID = $request->input('region');
+            $starting = $request->input('starting');
+
+            $validator->sometimes('crop', 'unique:prices,cropID,NULL,id,agencyID,' . $agencyID . ',regionID,' . $regionID . ',starting_at,' . $starting, function ($input) {
+                return true;
+            });
+        });
+
+        if ($validator->fails()) {
+            // Handle validation failure
+            return redirect()->back()->withErrors(['message' => 'Check your Inputs']);
+        } else {
+            // Validation passed, proceed with saving the data
+            $price = new Price();
+            $price->cropID = $request->input('crop');
+            $price->agencyID = $request->input('agency');
+            $price->regionID = $request->input('region');
+            $price->minprice = $request->input('min');
+            $price->maxprice = $request->input('max');
+            $price->starting_at = $request->input('starting');
+            $price->save();
+
+            return redirect()->route('prices')->with('status', 'Price Registered Successfully');
+        }
     }
 
     public function editprice($id)
