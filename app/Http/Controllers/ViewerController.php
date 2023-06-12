@@ -19,7 +19,7 @@ class ViewerController extends Controller
     {
         $region = Price::where('regionID', $id)->first();
         $beimazao = Price::where('regionID', $id)->orderBy('starting_at', 'desc')->get()->groupBy('starting_at');
-        return view('beimikoa', ['beimazao' => $beimazao, 'region' => $region]);
+        return view('beimikoa', ['beimazao' => $beimazao, 'region' => $region,'id'=>$id]);
     }
 
     public function news()
@@ -45,7 +45,10 @@ class ViewerController extends Controller
         $apiKey = env('OPEN_WEATHER_API_KEY');
 
         // Make API request to OpenWeatherMap for weather forecast using Guzzle
-        $client = new Client();
+        $client = new Client(
+            ['verify'=>false,]
+        );
+
         $response = $client->get('https://api.openweathermap.org/data/2.5/forecast', [
             'query' => [
                 'q' => $region,

@@ -27,7 +27,7 @@
         <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
             <div class="col bg-light">
 
-
+<a href="{{ route('generatepdfforprice',$id) }}" target="_blank"> Generate PDF</a>
                 <table class="table table-striped table-inverse table-responsive">
                     <thead class="thead-inverse">
                         <tr>
