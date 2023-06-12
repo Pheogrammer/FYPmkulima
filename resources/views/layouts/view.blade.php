@@ -104,7 +104,7 @@
 
         <!-- /.content-wrapper -->
         <footer class="bg-light">
-            <div class="container py-13 py-md-15 ">
+            <div class="container py-13 py-md-4 ">
                 <div class="row gy-6 gy-lg-0">
                     <div class="col-md-4 col-lg-3">
                         <div class="widget">
@@ -126,13 +126,20 @@
                             <address class="pe-xl-15 pe-xxl-17">Bandari St. 14 Dar es salaam, Tanzania
                             </address>
                             <a href="#" class="link-body"><span class="__cf_email__"
-                                    data-cfemail="b2dbdcd4ddf2d7dfd3dbde9cd1dddf">[email&#160;protected]</span></a><br />
+                                    data-cfemail="b2dbdcd4ddf2d7dfd3dbde9cd1dddf">agroinfo@gmail.com</span></a><br />
                             222 333 111
                         </div>
                         <!-- /.widget -->
                     </div>
                     <!-- /column -->
-
+                    <div class="col-md-4 col-lg-3">
+                        <div class="widget">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15846.81268090133!2d39.280641492309506!3d-6.805916759159262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ssw!2stz!4v1686549930333!5m2!1ssw!2stz"
+                                width="600" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
 
                 </div>
                 <!--/.row -->
