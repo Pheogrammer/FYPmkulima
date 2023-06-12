@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\News;
 use App\Models\Price;
+use GuzzleHttp\Client;
 
 class ViewerController extends Controller
 {
@@ -33,7 +34,28 @@ class ViewerController extends Controller
         return view('ReadNews', ['news' => $news]);
     }
 
-    public function weather(){
+    public function weather()
+    {
         return view('weather');
+    }
+
+    public function weatherData(Request $request)
+    {
+        $region = $request->input('region');
+        $apiKey = env('OPEN_WEATHER_API_KEY');
+
+        // Make API request to OpenWeatherMap for weather forecast using Guzzle
+        $client = new Client();
+        $response = $client->get('https://api.openweathermap.org/data/2.5/forecast', [
+            'query' => [
+                'q' => $region,
+                'cnt' => 30,
+                'appid' => $apiKey,
+            ],
+        ]);
+
+        $weatherData = json_decode($response->getBody(), true);
+
+        return response()->json($weatherData);
     }
 }
