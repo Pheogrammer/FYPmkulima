@@ -151,7 +151,6 @@
                 <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
             </svg>
         </div>
-
         <script>
             $(document).ready(function() {
                 $('#weatherForm').submit(function(event) {
@@ -174,7 +173,10 @@
 
                                 $.each(response.list, function(index, forecast) {
                                     var row = $('<tr>');
-                                    row.append('<td>' + forecast.dt_txt + '</td>');
+                                    var date = new Date(forecast.dt_txt);
+                                    var formattedDate = date.getDate() + '/' + (date
+                                        .getMonth() + 1) + '/' + date.getFullYear();
+                                    row.append('<td>' + formattedDate + '</td>');
 
                                     var temperature = (forecast.main.temp / 10).toFixed(2);
                                     row.append('<td>' + temperature + ' °C</td>');
@@ -190,6 +192,7 @@
                 });
             });
         </script>
+
 </body>
 
 </html>

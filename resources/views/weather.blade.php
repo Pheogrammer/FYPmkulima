@@ -7,7 +7,7 @@
 <!--/.modal -->
 <section class="wrapper bg-soft-primary">
     <div class="container pt-10 pb-15 pt-md-14">
-        <h2>Hali ya Hewa</h2>
+        <h2>Hali ya Hewa kwa siku 30 Zijazo</h2>
     </div>
     <!-- /.container -->
 </section>
@@ -20,11 +20,14 @@
         <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center bg-light">
             <div class="col">
 
-                <form id="weatherForm" action="{{ route('weatherData') }}" method="GET">
-                    <input type="text" name="region" placeholder="Enter region">
-                    <button type="submit">Search</button>
+                <form id="weatherForm" action="{{ route('weatherData') }}" method="GET" class="search-form">
+                    <div class="input-group">
+                        <input type="text" name="region" placeholder="Enter region" class="form-control">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
                 </form>
 
+                <br>
 
                 <div id="weatherTableContainer">
                     <table class="table" id="weatherTable">
