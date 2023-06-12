@@ -41,11 +41,22 @@
                                         src="{{ $item->attachement ? asset('NewsAttachments/' . $item->attachement) : asset('kilimo.jpeg') }}"
                                         alt="">
                                     <div class="card-body">
-                                        <h4 class="card-title">{{ Illuminate\Support\Str::limit(ucwords($item->title), 40, '...') }}</h4>
-                                        <p class="card-text">{{ Illuminate\Support\Str::limit($item->description, 40, '...') }}</p>
+                                        <h4 class="card-title">
+                                            {{ Illuminate\Support\Str::limit(ucwords($item->title), 40, '...') }}</h4>
+                                        <p class="card-text">
+                                            {{ Illuminate\Support\Str::limit($item->description, 200, '...') }}</p>
                                     </div>
                                     <div class="card-body">
-                                        <p class="card-text">{{ $item->created_at->format('d/m/Y H:i') }}</p>
+                                        <div class="row">
+
+                                            <div class="col-md-6">
+                                                <p class="card-text">{{ $item->created_at->format('d/m/Y') }}</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <a href="{{ route('newsdetails', $item->id) }}"
+                                                    class="btn btn-primary">Soma Zaidi</a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

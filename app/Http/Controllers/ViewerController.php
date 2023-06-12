@@ -26,4 +26,10 @@ class ViewerController extends Controller
         $news = News::orderBy('created_at', 'desc')->paginate(12);
         return view('news', ['news' => $news]);
     }
+
+    public function newsdetails($id)
+    {
+        $news = News::where('id', $id)->first();
+        return view('ReadNews', ['news' => $news]);
+    }
 }
