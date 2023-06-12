@@ -10,6 +10,7 @@ use App\Models\Price;
 use App\Models\Agency;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
+use App\Models\News;
 use DB;
 
 class HomeController extends Controller
@@ -279,5 +280,71 @@ class HomeController extends Controller
 
     public function manageCropsandPrices($id)
     {
+    }
+
+    public function manageNews()
+    {
+        $news = News::orderby('created_at', 'desc')->get();
+        return view('admin.manageNews', ['news' => $news]);
+    }
+
+    public function saveNews(Request $request)
+    {
+        $validatedData = $request->validate([
+            'title' => 'required|max:255',
+            'description' => 'required',
+        ]);
+
+        $news = new News();
+        $news->title = $request->input('title');
+        $news->description = $request->input('description');
+
+        if ($request->hasFile('attachment')) {
+            $attachment = $request->file('attachment');
+            $fileName = $news->title . '_' . time() . '.' . $attachment->getClientOriginalExtension();
+
+            // Check if the directory exists, create it if it doesn't
+            $directory = 'NewsAttachments';
+            if (!file_exists($directory)) {
+                mkdir($directory, 0777, true);
+            }
+
+            $attachment->move($directory, $fileName);
+            $news->attachement = $fileName;
+        }
+
+        $news->save();
+
+        return redirect()->route('manageNews')->with('status', 'News Registered Successfully');
+    }
+
+    public function saveEditedNews(Request $request)
+    {
+        $validatedData = $request->validate([
+            'title' => 'required|max:255',
+            'description' => 'required',
+        ]);
+
+        $news = News::where('id', $request->input('id'))->first();
+        $news->title = $request->input('title');
+        $news->description = $request->input('description');
+
+        if ($request->hasFile('attachment')) {
+            $attachment = $request->file('attachment');
+            $fileName = $news->title . '_' . time() . '.' . $attachment->getClientOriginalExtension();
+
+            // Check if the directory exists, create it if it doesn't
+            $directory = 'NewsAttachments';
+            if (!file_exists($directory)) {
+                mkdir($directory, 0777, true);
+            }
+
+            $attachment->move($directory, $fileName);
+            $news->attachement = $fileName;
+        }
+
+        $news->save();
+
+        return redirect()->route('manageNews')->with('status', 'News Updated Successfully');
     }
 }

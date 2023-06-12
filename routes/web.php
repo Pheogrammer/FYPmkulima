@@ -76,6 +76,10 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('editprice/{id}', [HomeController::class, 'editprice'])->name('editprice');
     Route::post('saveEditedprice', [HomeController::class, 'saveEditedprice'])->name('saveEditedprice');
     Route::get('manageCropsandPrices/{id}', [HomeController::class, 'manageCropsandPrices'])->name('manageCropsandPrices');
+
+    Route::get('manageNews', [HomeController::class, 'manageNews'])->name('manageNews');
+    Route::post('saveNews', [HomeController::class, 'saveNews'])->name('saveNews');
+    Route::post('saveEditedNews', [HomeController::class, 'saveEditedNews'])->name('saveEditedNews');
 });
 
 //
