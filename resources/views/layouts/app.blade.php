@@ -28,7 +28,7 @@
         <nav class="navbar navbar-expand-md navbar-primary bg-ligth text shadow-sm"
             style="border-bottom: green  2px solid">
             <div class="container">
-                <div class="navbar-brand"><a href="index.html"><img src="{{ asset('img/mkulima.png') }}" height="40px"
+                <div class="navbar-brand"><a href="/"><img src="{{ asset('img/mkulima.png') }}" height="40px"
                             alt="" /></a></div>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"

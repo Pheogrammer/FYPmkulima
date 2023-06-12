@@ -25,7 +25,7 @@
             <nav class="navbar navbar-expand-lg extended navbar-light navbar-bg-light caret-none" style="background-color: #fff !important;">
                 <div class="container flex-lg-column">
                     <div class="topbar d-flex flex-row w-100 justify-content-between align-items-center">
-                        <div class="navbar-brand"><a href="index.html"><img src="{{ asset('img/mkulima.png') }}"
+                        <div class="navbar-brand"><a href="/"><img src="{{ asset('img/mkulima.png') }}"
                                     width="180px" alt="" /></a></div>
                         <div class="navbar-other m-auto">
                             <ul class="navbar-nav flex-row align-items-center">
@@ -124,7 +124,7 @@
                         <h4 class="widget-title  mb-3">Mawasiliano</h4>
                         <address class="pe-xl-15 pe-xxl-17">Bandari St. 14 Dar es salaam, Tanzania
                         </address>
-                        <a href="/l/email-protection.html#d3f0" class="link-body"><span class="__cf_email__"
+                        <a href="#" class="link-body"><span class="__cf_email__"
                                 data-cfemail="b2dbdcd4ddf2d7dfd3dbde9cd1dddf">[email&#160;protected]</span></a><br />
                         222 333 111
                     </div>
