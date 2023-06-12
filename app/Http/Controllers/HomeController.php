@@ -37,7 +37,7 @@ class HomeController extends Controller
         $region = Region::orderby('name', 'asc')->get();
         $users = User::orderby('name', 'asc')->get();
         $prices = Price::distinct('published_at')->get();
-        return view('home',['zone'=>$zone,'crops'=>$crops,'agency'=>$agency,'region'=>$region,'users'=>$users,'prices'=>$prices]);
+        return view('home', ['zone' => $zone, 'crops' => $crops, 'agency' => $agency, 'region' => $region, 'users' => $users, 'prices' => $prices]);
     }
     public function settings()
     {
@@ -220,14 +220,14 @@ class HomeController extends Controller
         ]);
 
         $existingCrop = Price::where('cropID', $request->input('crop'))
-    ->where('regionID', $request->input('region'))
-    ->where('agencyID',$request->input('agency'))
-    ->where('starting_at',  $request->input('starting'))
-    ->first();
+            ->where('regionID', $request->input('region'))
+            ->where('agencyID', $request->input('agency'))
+            ->where('starting_at',  $request->input('starting'))
+            ->first();
 
-if ($existingCrop) {
-    return redirect()->back()->withErrors(['error' => 'Crop already registered.']);
-}
+        if ($existingCrop) {
+            return redirect()->back()->withErrors(['error' => 'Crop already registered.']);
+        }
 
         $price = new Price();
         $price->cropID = $request->input('crop');
@@ -243,15 +243,15 @@ if ($existingCrop) {
 
     public function editprice($id)
     {
-    //     $existingCrop = Price::where('crop', $validatedData['crop'])
-    // ->where('region', $validatedData['region'])
-    // ->where('agency', $validatedData['agency'])
-    // ->where('starting', $validatedData['starting'])
-    // ->first();
+        //     $existingCrop = Price::where('crop', $validatedData['crop'])
+        // ->where('region', $validatedData['region'])
+        // ->where('agency', $validatedData['agency'])
+        // ->where('starting', $validatedData['starting'])
+        // ->first();
 
-// if ($existingCrop) {
-//     return redirect()->back()->withErrors(['error' => 'Crop already registered.']);
-// }
+        // if ($existingCrop) {
+        //     return redirect()->back()->withErrors(['error' => 'Crop already registered.']);
+        // }
     }
 
     public function saveEditedprice(Request $request)
