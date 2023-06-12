@@ -35,13 +35,12 @@
                                         <a class="nav-link dropdown-toggle" href="/"
                                             data-bs-toggle="dropdown">Nyumbani</a>
                                     </li>
-                                    <li class="nav-item dropdown">
+                                    <li class="nav-item ">
                                         <a class="nav-link" href="{{ route('news') }}">Habari</a>
 
                                     </li>
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#"
-                                            data-bs-toggle="dropdown">Hali ya hewa</a>
+                                    <li class="nav-item">
+                                        <a class="nav-link " href="{{ route('weather') }}">Hali ya hewa</a>
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link " href="{{ route('bei') }}">Bei</a>

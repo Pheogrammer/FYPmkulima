@@ -32,4 +32,8 @@ class ViewerController extends Controller
         $news = News::where('id', $id)->first();
         return view('ReadNews', ['news' => $news]);
     }
+
+    public function weather(){
+        return view('weather');
+    }
 }
