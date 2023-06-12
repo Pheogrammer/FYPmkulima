@@ -36,8 +36,7 @@
                                             data-bs-toggle="dropdown">Nyumbani</a>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#"
-                                            data-bs-toggle="dropdown">Habari</a>
+                                        <a class="nav-link" href="{{ route('news') }}">Habari</a>
 
                                     </li>
                                     <li class="nav-item dropdown">

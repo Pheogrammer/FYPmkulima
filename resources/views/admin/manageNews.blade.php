@@ -99,8 +99,9 @@
                             @foreach ($news as $agency)
                                 <tr>
                                     <td>{{ $rollingNo }}</td>
-                                    <td>{{ ucwords($agency->title) }}</td>
-                                    <td>{{ $agency->description }}</td>
+                                    <td>{{ Illuminate\Support\Str::limit(ucwords($agency->title), 40, '...') }}</td>
+
+                                    <td>{{ Illuminate\Support\Str::limit($agency->description), 100, '...' }}</td>
                                     <td>
                                         @if ($agency->attachement)
                                             <a href="{{ asset('NewsAttachments/' . $agency->attachement) }}"

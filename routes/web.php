@@ -24,9 +24,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('bei',[ViewerController::class,'bei'])->name('bei');
-Route::get('beimazao/{id}',[ViewerController::class,'beimazao'])->name('beimazao');
-
+Route::get('bei', [ViewerController::class, 'bei'])->name('bei');
+Route::get('beimazao/{id}', [ViewerController::class, 'beimazao'])->name('beimazao');
+Route::get('news', [ViewerController::class, 'news'])->name('news');
+Route::get('newsdetails/{id}', [ViewerController::class, 'newsdetails'])->name('newsdetails');
 Auth::routes();
 
 

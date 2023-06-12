@@ -17,4 +17,5 @@ yarn-error.log
 /.vscode
 /composer.lock
 /bootstrap/cache/
-
+/public/NewsAttachments
+/public/NewsAttachments/*

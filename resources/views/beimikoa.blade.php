@@ -2,7 +2,7 @@
 
 @section('content')
 @section('title')
-    Home
+    Bei Mikoa
 @endSection
 <!--/.modal -->
 <section class="wrapper bg-soft-primary">

@@ -2,7 +2,7 @@
 
 @section('content')
 @section('title')
-    Home
+    Bei
 @endSection
 <!--/.modal -->
 <section class="wrapper bg-soft-primary">
