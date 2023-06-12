@@ -22,10 +22,10 @@
 
 
 <!-- /section -->
-<section class="wrapper bg-ligth">
+<section class="wrapper bg-soft-primary">
     <div class="container py-2 py-md-10">
         <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
-            <div class="col">
+            <div class="col bg-light">
 
 
                 <table class="table table-striped table-inverse table-responsive">
