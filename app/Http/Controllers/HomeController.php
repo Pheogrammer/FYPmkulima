@@ -11,6 +11,8 @@ use App\Models\Agency;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use App\Models\News;
+use Illuminate\Support\Facades\Hash;
+
 use DB;
 
 class HomeController extends Controller
@@ -346,5 +348,33 @@ class HomeController extends Controller
         $news->save();
 
         return redirect()->route('manageNews')->with('status', 'News Updated Successfully');
+    }
+    public function updateprofile()
+    {
+        $agency = Agency::get();
+        return view('admin.profile', ['agency' => $agency]);
+    }
+
+    public function saveProfile(Request $request)
+    {
+        $user = User::where('id', $request->id)->first();
+        $user->name = $request->name;
+        $user->agencyID = $request->agency;
+        $user->save();
+        return redirect()->back()->with(['message' => 'Profile Details Changed Successfully']);
+    }
+
+    public function changePassword(Request $request)
+    {
+        $validatedData = $request->validate([
+            'password' => 'required|min:8|required_with:cpassword|same:cpassword',
+            'cpassword'=> 'min:8'
+
+        ]);
+
+        $user = User::where('id', $request->id)->first();
+        $user->password = Hash::make($request->password);
+        $user->save();
+        return redirect()->back()->with(['message' => 'Password Changed Successfully']);
     }
 }
