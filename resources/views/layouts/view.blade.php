@@ -157,13 +157,14 @@
                     event.preventDefault();
 
                     var formData = $(this).serialize();
-
+                    console.log(formData);
                     $.ajax({
                         url: '{{ route('weatherData') }}',
                         method: 'GET',
                         data: formData,
                         dataType: 'json',
                         success: function(response) {
+                            console.log(response);
                             if (response) {
                                 $('#weatherTitle').text('Weather Forecast for ' + response.city
                                     .name);

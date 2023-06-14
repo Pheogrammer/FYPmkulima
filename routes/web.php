@@ -30,6 +30,7 @@ Route::get('news', [ViewerController::class, 'news'])->name('news');
 Route::get('newsdetails/{id}', [ViewerController::class, 'newsdetails'])->name('newsdetails');
 Route::get('weather', [ViewerController::class, 'weather'])->name('weather');
 Route::get('weatherData', [ViewerController::class, 'weatherData'])->name('weatherData');
+Route::get('generatepdfforprice/{id}', [DocumentsController::class, 'generatepdfforprice'])->name('generatepdfforprice');
 Auth::routes();
 
 
