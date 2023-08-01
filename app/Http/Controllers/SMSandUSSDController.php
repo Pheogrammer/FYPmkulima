@@ -52,7 +52,7 @@ class SMSandUSSDController extends Controller
                             $response .= $region->id . '. ' . $region->name . "\n";
                         }
                     } else {
-                        $response .= "Hakuna mikoa iliyosajiliwa katika kanda uliyochagua.\n";
+                        $response .= "END Hakuna mikoa iliyosajiliwa katika kanda uliyochagua.\n";
                     }
                 } elseif (count($parts) === 3) {
                     $selectedRegionID = intval($parts[2]);
@@ -85,9 +85,7 @@ class SMSandUSSDController extends Controller
 
                             if ($nextOffset <= $totalCrops) {
                                 $response .= "Bonyeza 0 kuona mazao mengine.\n";
-                            } else {
-                                $response .= "Bonyeza 100 kurudi kwenye menyu kuu.\n";
-                            }
+                            } 
                         }
                     }
                 } elseif ((count($parts) === 4 && intval(end($parts)) === 0)) {
@@ -121,8 +119,6 @@ class SMSandUSSDController extends Controller
 
                             if ($nextOffset <= $totalCrops) {
                                 $response .= "Bonyeza 0 kuona mazao mengine.\n";
-                            } else {
-                                $response .= "Bonyeza 100 kurudi kwenye menyu kuu.\n";
                             }
                         }
                     }

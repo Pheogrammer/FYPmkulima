@@ -165,7 +165,7 @@ class HomeController extends Controller
 
     public function crops()
     {
-        $crops  = Crop::orderby('name', 'asc')->get();
+        $crops = Crop::orderby('name', 'asc')->get();
         return view('admin.crops', ['crop' => $crops]);
     }
 
@@ -214,11 +214,8 @@ class HomeController extends Controller
 
     public function saveRegisteredPrice(Request $request)
     {
-
         $existingCrop = Price::where('cropID', $request->input('crop'))
             ->where('regionID', $request->input('region'))
-            ->where('agencyID', $request->input('agency'))
-            ->where('starting_at',  $request->input('starting'))
             ->first();
 
         if ($existingCrop) {
@@ -226,42 +223,26 @@ class HomeController extends Controller
         }
 
         $validator = Validator::make($request->all(), [
-            'crop' => 'required',
-            'agency' => 'required',
+            'crop' => 'required|unique:prices,cropID,NULL,id,regionID,' . $request->input('region'),
             'region' => 'required',
-            'min' => 'required|numeric',
-            'max' => 'required|numeric|gt:min',
-            'starting' => 'required|date',
+            'max' => 'required|numeric',
         ]);
-
-        $validator->after(function ($validator) use ($request) {
-            $cropID = $request->input('crop');
-            $agencyID = $request->input('agency');
-            $regionID = $request->input('region');
-            $starting = $request->input('starting');
-
-            $validator->sometimes('crop', 'unique:prices,cropID,NULL,id,agencyID,' . $agencyID . ',regionID,' . $regionID . ',starting_at,' . $starting, function ($input) {
-                return true;
-            });
-        });
 
         if ($validator->fails()) {
             // Handle validation failure
-            return redirect()->back()->withErrors(['message' => 'Check your Inputs']);
+            return redirect()->back()->withErrors($validator)->withInput();
         } else {
             // Validation passed, proceed with saving the data
             $price = new Price();
             $price->cropID = $request->input('crop');
-            $price->agencyID = $request->input('agency');
             $price->regionID = $request->input('region');
-            $price->minprice = $request->input('min');
             $price->maxprice = $request->input('max');
-            $price->starting_at = $request->input('starting');
             $price->save();
 
             return redirect()->route('prices')->with('status', 'Price Registered Successfully');
         }
     }
+
 
     public function editprice($id)
     {
@@ -368,7 +349,7 @@ class HomeController extends Controller
     {
         $validatedData = $request->validate([
             'password' => 'required|min:8|required_with:cpassword|same:cpassword',
-            'cpassword'=> 'min:8'
+            'cpassword' => 'min:8'
 
         ]);
 

@@ -52,6 +52,17 @@
                             </div>
                             <div class="col">
                                 <div class="form-group">
+                                    <label for="">Maximum Price per KG</label>
+                                    <input type="number" required name="max" id="input_id" class="form-control"
+                                        placeholder="" aria-describedby="helpId" value="{{ old('max') }}"
+                                        min="0">
+                                </div>
+                            </div>
+                        </div> <br>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
                                     <label for="">Region</label>
                                     <select required name="region" id="input_id" class="form-control" placeholder=""
                                         aria-describedby="helpId" value="{{ old('region') }}">
@@ -63,48 +74,7 @@
 
                                 </div>
                             </div>
-                        </div> <br>
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="">Source Agency</label>
-                                    <select required name="agency" id="input_id" class="form-control" placeholder=""
-                                        aria-describedby="helpId" value="{{ old('agency') }}">
-                                        <option value="">Select Crop</option>
-                                        @foreach ($agency as $agency)
-                                            <option value="{{ $agency->id }}">{{ $agency->agencyName }}</option>
-                                        @endforeach
-                                    </select>
 
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="">Starting On</label>
-                                    <input type="date" required name="starting" id="input_id" class="form-control"
-                                        placeholder="" aria-describedby="helpId" value="{{ old('starting') }}"
-                                        min="{{ date('Y-m-d') }}">
-                                </div>
-                            </div>
-                        </div> <br>
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="">Minimum Price per KG</label>
-                                    <input type="number" required name="min" id="input_id" class="form-control"
-                                        placeholder="" aria-describedby="helpId" value="{{ old('min') }}"
-                                        min="0">
-
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="">Maximum Price per KG</label>
-                                    <input type="number" required name="max" id="input_id" class="form-control"
-                                        placeholder="" aria-describedby="helpId" value="{{ old('max') }}"
-                                        min="0">
-                                </div>
-                            </div>
                         </div>
                         <br>
                         <div class="row">

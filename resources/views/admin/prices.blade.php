@@ -79,9 +79,7 @@
                                                 <tr>
                                                     <th>SN</th>
                                                     <th>Crop</th>
-                                                    <th>Min Price</th>
-                                                    <th>Max Price</th>
-                                                    <th>Starting Date</th>
+                                                    <th> Price</th>
                                                 </tr>
                                             </thead>
                                             @php
@@ -95,9 +93,7 @@
                                                     <tr>
                                                         <td>{{ $rollingNo }}</td>
                                                         <td>{{ $crop->crop->name }}</td>
-                                                        <td>{{ $crop->minprice }} Tzs</td>
-                                                        <td>{{ $crop->maxprice }} Tzs</td>
-                                                        <td>{{ Carbon::parse($crop->starting_at)->format('d/m/Y') }}
+                                                        <td>{{ number_format($crop->maxprice) }} Tzs</td>
                                                         </td>
                                                     </tr>
                                                     @php
