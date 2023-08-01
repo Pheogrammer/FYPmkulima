@@ -31,6 +31,10 @@ Route::get('newsdetails/{id}', [ViewerController::class, 'newsdetails'])->name('
 Route::get('weather', [ViewerController::class, 'weather'])->name('weather');
 Route::get('weatherData', [ViewerController::class, 'weatherData'])->name('weatherData');
 Route::get('generatepdfforprice/{id}', [DocumentsController::class, 'generatepdfforprice'])->name('generatepdfforprice');
+
+
+Route::post('/ussd', [SMSandUSSDController::class, 'ussd'])->name('ussd');
+
 Auth::routes();
 
 
