@@ -134,7 +134,7 @@
                                 class="number fs-18">1</span></span>
                     </div>
                     <div>
-                        <h4 class="mb-1">Piga *150*77#</h4>
+                        <h4 class="mb-1">Piga *384*00007#</h4>
                         <p class="mb-0"></p>
                     </div>
                 </div>
