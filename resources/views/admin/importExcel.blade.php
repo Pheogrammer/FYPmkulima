@@ -31,19 +31,10 @@
             @endif
             {{-- ends here --}}
             <div class="card">
-                <div class="card-header">
-                    <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
-                        <div class="col">
-                            {{ __('Price Registration') }}
-                        </div>
-                        <div class="col-md-4">
-                            <a href="{{ route('importfromExcel') }}" class="btn btn-primary">Import Prices From Excel File</a>
-                        </div>
-                    </div>
-                </div>
+                <div class="card-header">{{ __('Price List Importation') }}</div>
 
                 <div class="card-body">
-                    <form action="{{ route('saveRegisteredPrice') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('import-prices') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col">
@@ -59,36 +50,27 @@
 
                                 </div>
                             </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="">Maximum Price per KG</label>
-                                    <input type="number" required name="max" id="input_id" class="form-control"
-                                        placeholder="" aria-describedby="helpId" value="{{ old('max') }}"
-                                        min="0">
-                                </div>
-                            </div>
-                        </div> <br>
 
+                        </div>
+                        <br>
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="">Region</label>
-                                    <select required name="region" id="input_id" class="form-control" placeholder=""
-                                        aria-describedby="helpId" value="{{ old('region') }}">
-                                        <option value="">Select Region</option>
-                                        @foreach ($region as $region)
-                                            <option value="{{ $region->id }}">{{ $region->name }}</option>
-                                        @endforeach
-                                    </select>
+                                    <label for="">Excel File</label>
+                                    <input required name="file" id="input_id" type="file" class="form-control"
+                                        aria-describedby="helpId">
 
                                 </div>
                             </div>
 
                         </div>
                         <br>
+                        <h5 class="text-danger">This will overwrite all data for this crop. make sure all fields are
+                            correctly filled</h5>
+                        <br>
                         <div class="row">
                             <div class="col">
-                                <button type="submit" class="btn btn-primary">Register</button>
+                                <button type="submit" class="btn btn-primary">Import</button>
                                 <a href="{{ route('prices') }}" class="btn btn-danger">Cancel</a>
                             </div>
                             <div class="col">

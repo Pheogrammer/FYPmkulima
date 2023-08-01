@@ -9,6 +9,7 @@ use App\Http\Controllers\UsersController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ViewerController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -84,14 +85,17 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('editprice/{id}', [HomeController::class, 'editprice'])->name('editprice');
     Route::post('saveEditedprice', [HomeController::class, 'saveEditedprice'])->name('saveEditedprice');
     Route::get('manageCropsandPrices/{id}', [HomeController::class, 'manageCropsandPrices'])->name('manageCropsandPrices');
+    Route::get('importfromExcel', [HomeController::class, 'importfromExcel'])->name('importfromExcel');
+    Route::post('/import-prices', [DocumentsController::class, 'importPrices'])->name('import-prices');
+
 
     Route::get('manageNews', [HomeController::class, 'manageNews'])->name('manageNews');
     Route::post('saveNews', [HomeController::class, 'saveNews'])->name('saveNews');
     Route::post('saveEditedNews', [HomeController::class, 'saveEditedNews'])->name('saveEditedNews');
 
-    Route::get('updateprofile',[HomeController::class,'updateprofile'])->name('updateprofile');
-    Route::post('saveProfile',[HomeController::class,'saveProfile'])->name('saveProfile');
-    Route::post('changePassword',[HomeController::class,'changePassword'])->name('changePassword');
+    Route::get('updateprofile', [HomeController::class, 'updateprofile'])->name('updateprofile');
+    Route::post('saveProfile', [HomeController::class, 'saveProfile'])->name('saveProfile');
+    Route::post('changePassword', [HomeController::class, 'changePassword'])->name('changePassword');
 });
 
 //

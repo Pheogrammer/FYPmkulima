@@ -358,4 +358,9 @@ class HomeController extends Controller
         $user->save();
         return redirect()->back()->with(['message' => 'Password Changed Successfully']);
     }
+
+    public function importfromExcel(){
+        $crops = Crop::get();
+        return view('admin.importExcel', ['crop' => $crops]);
+    }
 }
