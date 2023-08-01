@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Region;
 use App\Models\Zone;
 use App\Models\Price;
-
+use App\Models\Subscription;
 use AfricasTalking\SDK\AfricasTalking;
 
 class SMSandUSSDController extends Controller
@@ -130,6 +130,19 @@ class SMSandUSSDController extends Controller
                     $response = "END Taarifa uliyoomba haipo, tafadhali jaribu tena";
                 }
             }
+            if ($mainMenuOption === '2') {
+                $existingSubscriber = Subscription::where('mkulimaID', $phoneNumber)->first();
+
+                if ($existingSubscriber) {
+                    $response = "END Ulishakwishajisajili na huduma hii.";
+                } else {
+                    $subscriber = new Subscription();
+                    $subscriber->mkulimaID = $phoneNumber;
+                    $subscriber->save();
+                    $response = "END Namba yako " . $phoneNumber . " imefanikiwa kujiunga na huduma ya ujumbe mfupi kupata dondoo za kilimo.\n \nAsante kwa kujiunga na huduma hii.";
+                }
+            }
+
 
         }
 
