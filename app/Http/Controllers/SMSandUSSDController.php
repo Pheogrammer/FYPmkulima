@@ -62,7 +62,7 @@ class SMSandUSSDController extends Controller
                     } else {
                         $response .= "Hakuna mikoa iliyosajiliwa katika kanda uliyochagua.\n";
                     }
-                } elseif (count($parts) === 3 || (count($parts) === 4 && intval(end($parts)) === 0)) {
+                } elseif (count($parts) === 3) {
                     // Show crops for the selected region
                     $selectedRegionID = intval($parts[2]); // Use the selected region ID from the user input
                     $region = Region::find($selectedRegionID); // Fetch the region directly using the ID
@@ -97,8 +97,8 @@ class SMSandUSSDController extends Controller
                             $response = "CON Bei za mazao " . $region['name'] . ":\n";
 
                             foreach ($currentCropPrices as $key => $price) {
-                                $displayNumber = $currentOffset + $key;
-                                $response .= $displayNumber . '. ' . $price->crop->name . "\n";
+                                $displayNumber = $key - 1;
+                                $response .= $displayNumber . '. ' . $price->crop->name . " Tsh " . number_format($price->maxprice) . " \n";
                             }
 
                             // Check if there are more crops to display
@@ -111,9 +111,56 @@ class SMSandUSSDController extends Controller
                             }
                         }
                     }
-                }
+                } elseif ((count($parts) === 4 && intval(end($parts)) === 0)) {
+                    // Show crops for the selected region
+                    $selectedRegionID = intval($parts[2]); // Use the selected region ID from the user input
+                    $region = Region::find($selectedRegionID); // Fetch the region directly using the ID
+                    if (!$region) {
+                        // Invalid region ID
+                        $response = "END Mkoa uliochagua haupatikani. Tafadhali jaribu tena.";
+                    } else {
+                        $cropPrices = Price::where('regionID', $selectedRegionID)->with('crop')->get();
 
-                 else {
+                        // Check if there are crops to display
+                        if ($cropPrices->count() > 0) {
+                            // Calculate the total number of crops
+                            $totalCrops = $cropPrices->count();
+
+                            // Calculate the current offset based on user input
+                            $currentOffset = intval(end($parts)) ?: intval($parts[3] ?? 0);
+
+                            // Check if the user responded with 0 to fetch the next group of crops
+                            if ($currentOffset === 0) {
+                                // If the user entered 0, update the offset to fetch the next group of crops
+                                $currentOffset = intval($parts[4] ?? 1); // Use the next part as the new offset
+                            }
+
+                            // Calculate the next offset
+                            $nextOffset = $currentOffset + 5;
+
+                            // Get the current group of crops to display
+                            $currentCropPrices = $cropPrices->slice($currentOffset - 1, 5);
+
+                            // Prepare the response
+                            $region = Region::find($selectedRegionID);
+                            $response = "CON Bei za mazao " . $region['name'] . ":\n";
+
+                            foreach ($currentCropPrices as $key => $price) {
+                                $displayNumber = $key + 6;
+                                $response .= $displayNumber . '. ' . $price->crop->name . " Tsh " . number_format($price->maxprice) . " \n";
+                            }
+
+                            // Check if there are more crops to display
+                            if ($nextOffset <= $totalCrops) {
+                                // If there are more crops, show the option to see the next list
+                                $response .= "Bonyeza 0 kuona mazao mengine.\n";
+                            } else {
+                                // If there are no more crops, show the option to go back to the main menu or exit
+                                $response .= "Bonyeza 100 kurudi kwenye menyu kuu.\n";
+                            }
+                        }
+                    }
+                } else {
                     // Invalid input at this level
                     $response = "END Taarifa uliyoomba haipo, tafadhali jaribu tena";
                 }
