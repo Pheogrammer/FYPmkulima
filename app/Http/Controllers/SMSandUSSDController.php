@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Region;
 use App\Models\Zone;
 use App\Models\Price;
+
 use AfricasTalking\SDK\AfricasTalking;
 
 class SMSandUSSDController extends Controller
@@ -22,136 +23,109 @@ class SMSandUSSDController extends Controller
         // Initialize the response variable
         $response = 'CON Hello!';
 
+        // ... (your existing code)
+
         if ($text == '') {
             // This is the first request
             $response = "CON Habari, Karibu.\n";
             $response .= "Je, ungependa kupata huduma gani?\n";
             $response .= "1. Kujua bei za mazao\n";
             $response .= "2. Kujiunga na huduma ya ujumbe mfupi kupata dondoo za kilimo";
-        } elseif ($text == '1') {
-            $response = "CON Je, upo katika kanda ipi?\n";
-            $zone = Zone::all();
-            if ($zone->count() > 0) {
-                foreach ($zone as $key => $zone) {
-                    $response .= ($key + 1) . '. ' . $zone->name . "\n";
+        } else {
+            // Explode the text to get the different parts
+            $parts = explode('*', $text);
+
+            // Get the first part of the user input
+            $mainMenuOption = $parts[0];
+
+            if ($mainMenuOption === '1') {
+                if (count($parts) === 1) {
+                    // Show zones
+                    $response = "CON Je, upo katika kanda ipi?\n";
+                    $zones = Zone::all();
+                    if ($zones->count() > 0) {
+                        foreach ($zones as $key => $zone) {
+                            $response .= ($key + 1) . '. ' . $zone->name . "\n";
+                        }
+                    } else {
+                        $response .= "Hakuna kanda kwa sasa.\n";
+                    }
+                } elseif (count($parts) === 2) {
+                    // Show regions for the selected zone
+                    $selectedZoneIndex = intval($parts[1]);
+                    $regions = Region::where('zoneID', $selectedZoneIndex)->get();
+                    $response = "CON Je, upo katika mkoa upi?\n";
+                    if ($regions->count() > 0) {
+                        foreach ($regions as $region) {
+                            $response .= $region->id . '. ' . $region->name . "\n"; // Display the region ID instead of SN
+                        }
+                    } else {
+                        $response .= "Hakuna mikoa iliyosajiliwa katika kanda uliyochagua.\n";
+                    }
+                } elseif (count($parts) === 3 || (count($parts) === 4 && intval(end($parts)) === 0)) {
+                    // Show crops for the selected region
+                    $selectedRegionID = intval($parts[2]); // Use the selected region ID from the user input
+                    $region = Region::find($selectedRegionID); // Fetch the region directly using the ID
+                    if (!$region) {
+                        // Invalid region ID
+                        $response = "END Mkoa uliochagua haupatikani. Tafadhali jaribu tena.";
+                    } else {
+                        $cropPrices = Price::where('regionID', $selectedRegionID)->with('crop')->get();
+
+                        // Check if there are crops to display
+                        if ($cropPrices->count() > 0) {
+                            // Calculate the total number of crops
+                            $totalCrops = $cropPrices->count();
+
+                            // Calculate the current offset based on user input
+                            $currentOffset = intval(end($parts)) ?: intval($parts[3] ?? 0);
+
+                            // Check if the user responded with 0 to fetch the next group of crops
+                            if ($currentOffset === 0) {
+                                // If the user entered 0, update the offset to fetch the next group of crops
+                                $currentOffset = intval($parts[4] ?? 1); // Use the next part as the new offset
+                            }
+
+                            // Calculate the next offset
+                            $nextOffset = $currentOffset + 5;
+
+                            // Get the current group of crops to display
+                            $currentCropPrices = $cropPrices->slice($currentOffset - 1, 5);
+
+                            // Prepare the response
+                            $region = Region::find($selectedRegionID);
+                            $response = "CON Bei za mazao " . $region['name'] . ":\n";
+
+                            foreach ($currentCropPrices as $key => $price) {
+                                $displayNumber = $currentOffset + $key;
+                                $response .= $displayNumber . '. ' . $price->crop->name . "\n";
+                            }
+
+                            // Check if there are more crops to display
+                            if ($nextOffset <= $totalCrops) {
+                                // If there are more crops, show the option to see the next list
+                                $response .= "Bonyeza 0 kuona mazao mengine.\n";
+                            } else {
+                                // If there are no more crops, show the option to go back to the main menu or exit
+                                $response .= "Bonyeza 100 kurudi kwenye menyu kuu.\n";
+                            }
+                        }
+                    }
                 }
-            } else {
-                $response .= "Hakuna kanda kwa sasa.\n";
+
+                 else {
+                    // Invalid input at this level
+                    $response = "END Taarifa uliyoomba haipo, tafadhali jaribu tena";
+                }
             }
 
-        } elseif (strpos($text, '1*1') === 0) {
-            $selectedZoneIndex = 1;
-
-            $regions = Region::where('zoneID', $selectedZoneIndex)->get();
-
-            $response = "CON Je, upo katika mkoa upi?\n";
-
-            if ($regions->count() > 0) {
-                foreach ($regions as $key => $region) {
-                    $response .= ($key + 1) . '. ' . $region->name . "\n";
-                }
-            } else {
-                $response .= "Hakuna mikoa iliyosajiliwa katika kanda uliyochagua.\n";
-            }
-
-        } elseif (strpos($text, '1*2') === 0) {
-            $selectedZoneIndex = 2;
-
-            $regions = Region::where('zoneID', $selectedZoneIndex)->get();
-
-            $response = "CON Je, upo katika mkoa upi?\n";
-
-            if ($regions->count() > 0) {
-                foreach ($regions as $key => $region) {
-                    $response .= ($key + 1) . '. ' . $region->name . "\n";
-                }
-            } else {
-                $response .= "Hakuna mikoa iliyosajiliwa katika kanda uliyochagua.\n";
-            }
-
-        } elseif (strpos($text, '1*3') === 0) {
-            $selectedZoneIndex = 3;
-
-            $regions = Region::where('zoneID', $selectedZoneIndex)->get();
-
-            $response = "CON Je, upo katika mkoa upi?\n";
-
-            if ($regions->count() > 0) {
-                foreach ($regions as $key => $region) {
-                    $response .= ($key + 1) . '. ' . $region->name . "\n";
-                }
-            } else {
-                $response .= "Hakuna mikoa iliyosajiliwa katika kanda uliyochagua.\n";
-            }
-
-        } elseif (strpos($text, '1*4') === 0) {
-            $selectedZoneIndex = 4;
-
-            $regions = Region::where('zoneID', $selectedZoneIndex)->get();
-
-            $response = "CON Je, upo katika mkoa upi?\n";
-
-            if ($regions->count() > 0) {
-                foreach ($regions as $key => $region) {
-                    $response .= ($key + 1) . '. ' . $region->name . "\n";
-                }
-            } else {
-                $response .= "Hakuna mikoa iliyosajiliwa katika kanda uliyochagua.\n";
-            }
-
-        } elseif (strpos($text, '1*5') === 0) {
-            $selectedZoneIndex = 5;
-
-            $regions = Region::where('zoneID', $selectedZoneIndex)->get();
-
-            $response = "CON Je, upo katika mkoa upi?\n";
-
-            if ($regions->count() > 0) {
-                foreach ($regions as $key => $region) {
-                    $response .= ($key + 1) . '. ' . $region->name . "\n";
-                }
-            } else {
-                $response .= "Hakuna mikoa iliyosajiliwa katika kanda uliyochagua.\n";
-            }
-
-        } elseif (strpos($text, '1*6') === 0) {
-            $selectedZoneIndex = 6;
-
-            $regions = Region::where('zoneID', $selectedZoneIndex)->get();
-
-            $response = "CON Je, upo katika mkoa upi?\n";
-
-            if ($regions->count() > 0) {
-                foreach ($regions as $key => $region) {
-                    $response .= ($key + 1) . '. ' . $region->name . "\n";
-                }
-            } else {
-                $response .= "Hakuna mikoa iliyosajiliwa katika kanda uliyochagua.\n";
-            }
-
-        } elseif (strpos($text, '1*7') === 0) {
-            $selectedZoneIndex = 7;
-
-            $regions = Region::where('zoneID', $selectedZoneIndex)->get();
-
-            $response = "CON Je, upo katika mkoa upi?\n";
-
-            if ($regions->count() > 0) {
-                foreach ($regions as $key => $region) {
-                    $response .= ($key + 1) . '. ' . $region->name . "\n";
-                }
-            } else {
-                $response .= "Hakuna mikoa iliyosajiliwa katika kanda uliyochagua.\n";
-            }
-
-        }  else {
-            $response = "END Taarifa uliyoomba haipo, tafadhali jaribu tena";
+            // ... (your existing code)
         }
-
 
         // Send the response back to the API
         return response($response)->header('Content-Type', 'text/plain');
     }
+
 
     private function sendSMS($phoneNumber, $message)
     {
