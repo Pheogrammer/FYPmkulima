@@ -28,14 +28,12 @@ class UsersController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|unique:users|max:255',
             'userType' => 'required|max:255',
-            'agencyID' => 'required|max:255',
             'phone' => ['required', 'numeric', 'unique:users', 'regex:/^(?:\+|0|255)\d{9}(?:\d{4})?$/'],
         ]);
 
         $user = new User();
         $user->name = $request->input('name');
         $user->userType = $request->input('userType');
-        $user->agencyID = $request->input('agencyID');
         $user->phone = $request->input('phone');
         $user->email = $request->input('email');
         $user->password = Hash::make($request->input('email'));
@@ -55,14 +53,12 @@ class UsersController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|max:255',
             'userType' => 'required|max:255',
-            'agencyID' => 'required|max:255',
-            'phone' => ['required', 'regex:/^(?:\+|0|255)\d{9}(?:\d{4})?$/'],
+            'phone' => ['required', 'numeric', 'unique:users', 'regex:/^(?:\+|0|255)\d{9}(?:\d{4})?$/'],
         ]);
 
         $user = User::where('id', $request->id)->first();
         $user->name = $request->input('name');
         $user->userType = $request->input('userType');
-        $user->agencyID = $request->input('agencyID');
         $user->phone = $request->input('phone');
         $user->save();
         return redirect()->route('users')->with('status', 'User ' . $request->input('name') . ' Updated Successfully');

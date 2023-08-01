@@ -340,7 +340,6 @@ class HomeController extends Controller
     {
         $user = User::where('id', $request->id)->first();
         $user->name = $request->name;
-        $user->agencyID = $request->agency;
         $user->save();
         return redirect()->back()->with(['message' => 'Profile Details Changed Successfully']);
     }

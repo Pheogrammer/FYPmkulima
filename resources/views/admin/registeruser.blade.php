@@ -72,18 +72,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="">Agency</label>
-                                    <select name="agencyID" id="" class="form-control" placeholder=""
-                                        aria-describedby="helpId">
-                                        <option value="">Select Agency</option>
-                                        @foreach ($agency as $agency)
-                                            <option value="{{ $agency->id }}">{{ $agency->agencyName }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
+                            
                         </div>
                         <br>
                         <div class="row">
