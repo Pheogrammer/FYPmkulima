@@ -44,7 +44,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form action="{{ route('saveRegisteredPrice') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('sendSMStoAll') }}" method="post" enctype="multipart/form-data">
                         @csrf
 
 
@@ -63,7 +63,7 @@
                         <div class="row">
                             <div class="col">
                                 <button type="submit" class="btn btn-primary">Send</button>
-                                <a href="{{ route('/') }}" class="btn btn-danger">Cancel</a>
+                                <a href="{{ route('home') }}" class="btn btn-danger">Cancel</a>
                             </div>
                             <div class="col">
                             </div>

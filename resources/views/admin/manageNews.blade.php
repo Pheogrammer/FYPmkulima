@@ -37,6 +37,9 @@
                             {{ __('Agencies') }}
                         </div>
                         <div class="col-md-3">
+                            <a href="{{route('sendSMS')}}" type="button" class="btn btn-primary" >Send SMS to Subscribers</a>
+                        </div>
+                        <div class="col-md-3">
                             <button type="button" class="btn btn-primary" data-toggle="modal"
                                 data-target=".bd-example-modal-lg">Publish News</button>
                         </div>
