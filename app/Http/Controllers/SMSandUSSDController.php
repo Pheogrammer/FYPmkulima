@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Region;
 use App\Models\Zone;
+use App\Models\Price;
 use AfricasTalking\SDK\AfricasTalking;
 
 class SMSandUSSDController extends Controller
@@ -38,8 +39,8 @@ class SMSandUSSDController extends Controller
                 $response .= "Hakuna kanda kwa sasa.\n";
             }
 
-        } elseif (strpos($text, '1*') === 0) {
-            $selectedZoneIndex = intval(substr($text, 2));
+        } elseif (strpos($text, '1*1') === 0) {
+            $selectedZoneIndex = 1;
 
             $regions = Region::where('zoneID', $selectedZoneIndex)->get();
 
@@ -50,66 +51,101 @@ class SMSandUSSDController extends Controller
                     $response .= ($key + 1) . '. ' . $region->name . "\n";
                 }
             } else {
-                $response .= "No regions available for the selected zone.\n";
+                $response .= "Hakuna mikoa iliyosajiliwa katika kanda uliyochagua.\n";
             }
 
-        } elseif ($text == '1*2') {
-            // Handle second level response for farming services
-            $response = "CON Je, upo katika kanda ipi?\n";
-            $response .= "1. Mashariki";
-        } elseif ($text == '1*1*1') {
-            // Handle third level response for farming services
-            $response = "END Kutokana na hali ya hewa, Mazao yafaayo kulimwa mwezi huu wa :\n";
-            $response .= "a) Nyanya\n";
-            $response .= "b) Mahindi\n";
-            $response .= "c) Mihogo\n";
-            $response .= "d) Maembe";
-        } elseif ($text == '1*2*1') {
-            // Handle third level response for farming services
-            $response = "END Kutokana na hali ya hewa, Magonjwa yawezayo tokea mwezi huu wa :\n";
-            $response .= "a) Ukungu\n";
-            $response .= "b) Viwavi\n";
-            $response .= "c) Minyoo\n\n";
-            $response .= "Jiandae kutafuta dawa kutoka kwa wauzaji walio karibu yako";
-        } elseif ($text == '1*1*2') {
-            $response = "END Kutokana na hali ya hewa, Mazao yafaayo kulimwa mwezi huu wa :\n";
-            $response .= "a) Ndizi\n";
-            $response .= "b) Mahindi\n";
-            $response .= "c) Maharage\n";
-            $response .= "d) Karoti\n";
-            $response .= "e) Vitunguu";
-        } elseif ($text == '1*1*3') {
-            $response = "END Kutokana na hali ya hewa, Mazao yafaayo kulimwa mwezi huu wa :\n";
-            $response .= "a) Ndizi\n";
-            $response .= "b) Mahindi\n";
-            $response .= "c) Maharage\n";
-            $response .= "d) Karoti\n";
-            $response .= "e) Vitunguu";
-        } elseif ($text == '1*1*4') {
-            $response = "END Kutokana na hali ya hewa, Mazao yafaayo kulimwa mwezi huu wa :\n";
-            $response .= "a) Alizeti\n";
-            $response .= "b) Viazi\n";
-            $response .= "c) Maharage\n";
-            $response .= "d) Mahindi\n";
-            $response .= "e) Mchele";
-        } elseif ($text == '2') {
-            $response = "CON Huduma ipi ya ufugaji unapenda kuipata?\n";
-            $response .= "1. Magonjwa yawezayo tokea mwezi huu\n";
-            $response .= "2. Kujiunga na huduma ya ujumbe mfupi";
-        } elseif ($text == '2*1') {
-            $response = "CON Je, upo katika kanda ipi?\n";
-            $response .= "1. Mashariki";
-        } elseif ($text == '1*3' || $text == '2*2') {
-            // Send SMS message
-            $this->sendSMS($phoneNumber, "Asante kwa kujiunga na huduma hii, utapata taarifa za kilimo na ufugaji kila wiki. Utakatwa shilingi 1 kwa kila ujumbe");
-            $response = "END Asante kwa kujiunga na huduma hii, utapata taarifa za kilimo na ufugaji kila wiki. Utakatwa shilingi 1 kwa kila ujumbe";
-        } elseif ($text == '2*1*1') {
-            $response = "END Magonjwa yanayoweza kutokea mwezi huu wa :\n";
-            $response .= "a) Mdondo\n";
-            $response .= "b) Kideri\n";
-            $response .= "c) Minyoo\n";
-            $response .= "d) Mafua\n\n";
-            $response .= "Hakikisha unawasiliana na daktari wa karibu haraka";
+        } elseif (strpos($text, '1*2') === 0) {
+            $selectedZoneIndex = 2;
+
+            $regions = Region::where('zoneID', $selectedZoneIndex)->get();
+
+            $response = "CON Je, upo katika mkoa upi?\n";
+
+            if ($regions->count() > 0) {
+                foreach ($regions as $key => $region) {
+                    $response .= ($key + 1) . '. ' . $region->name . "\n";
+                }
+            } else {
+                $response .= "Hakuna mikoa iliyosajiliwa katika kanda uliyochagua.\n";
+            }
+
+        } elseif (strpos($text, '1*3') === 0) {
+            $selectedZoneIndex = 3;
+
+            $regions = Region::where('zoneID', $selectedZoneIndex)->get();
+
+            $response = "CON Je, upo katika mkoa upi?\n";
+
+            if ($regions->count() > 0) {
+                foreach ($regions as $key => $region) {
+                    $response .= ($key + 1) . '. ' . $region->name . "\n";
+                }
+            } else {
+                $response .= "Hakuna mikoa iliyosajiliwa katika kanda uliyochagua.\n";
+            }
+
+        } elseif (strpos($text, '1*4') === 0) {
+            $selectedZoneIndex = 4;
+
+            $regions = Region::where('zoneID', $selectedZoneIndex)->get();
+
+            $response = "CON Je, upo katika mkoa upi?\n";
+
+            if ($regions->count() > 0) {
+                foreach ($regions as $key => $region) {
+                    $response .= ($key + 1) . '. ' . $region->name . "\n";
+                }
+            } else {
+                $response .= "Hakuna mikoa iliyosajiliwa katika kanda uliyochagua.\n";
+            }
+
+        } elseif (strpos($text, '1*5') === 0) {
+            $selectedZoneIndex = 5;
+
+            $regions = Region::where('zoneID', $selectedZoneIndex)->get();
+
+            $response = "CON Je, upo katika mkoa upi?\n";
+
+            if ($regions->count() > 0) {
+                foreach ($regions as $key => $region) {
+                    $response .= ($key + 1) . '. ' . $region->name . "\n";
+                }
+            } else {
+                $response .= "Hakuna mikoa iliyosajiliwa katika kanda uliyochagua.\n";
+            }
+
+        } elseif (strpos($text, '1*6') === 0) {
+            $selectedZoneIndex = 6;
+
+            $regions = Region::where('zoneID', $selectedZoneIndex)->get();
+
+            $response = "CON Je, upo katika mkoa upi?\n";
+
+            if ($regions->count() > 0) {
+                foreach ($regions as $key => $region) {
+                    $response .= ($key + 1) . '. ' . $region->name . "\n";
+                }
+            } else {
+                $response .= "Hakuna mikoa iliyosajiliwa katika kanda uliyochagua.\n";
+            }
+
+        } elseif (strpos($text, '1*7') === 0) {
+            $selectedZoneIndex = 7;
+
+            $regions = Region::where('zoneID', $selectedZoneIndex)->get();
+
+            $response = "CON Je, upo katika mkoa upi?\n";
+
+            if ($regions->count() > 0) {
+                foreach ($regions as $key => $region) {
+                    $response .= ($key + 1) . '. ' . $region->name . "\n";
+                }
+            } else {
+                $response .= "Hakuna mikoa iliyosajiliwa katika kanda uliyochagua.\n";
+            }
+
+        }  else {
+            $response = "END Taarifa uliyoomba haipo, tafadhali jaribu tena";
         }
 
 
