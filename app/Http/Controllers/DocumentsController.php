@@ -37,7 +37,6 @@ class DocumentsController extends Controller
         $cropID = $request->input('crop');
         $file = $request->file('file');
 
-        // Import data using the new import class
         $import = new CropPricesImport($cropID);
         Excel::import($import, $file);
 

@@ -93,6 +93,9 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('saveNews', [HomeController::class, 'saveNews'])->name('saveNews');
     Route::post('saveEditedNews', [HomeController::class, 'saveEditedNews'])->name('saveEditedNews');
 
+    Route::get('sendSMS', [HomeController::class, 'sendSMS'])->name('sendSMS');
+    Route::post('sendSMStoAll', [SMSandUSSDController::class, 'sendSMStoAll'])->name('sendSMStoAll');
+
     Route::get('updateprofile', [HomeController::class, 'updateprofile'])->name('updateprofile');
     Route::post('saveProfile', [HomeController::class, 'saveProfile'])->name('saveProfile');
     Route::post('changePassword', [HomeController::class, 'changePassword'])->name('changePassword');

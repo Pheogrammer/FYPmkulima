@@ -246,15 +246,7 @@ class HomeController extends Controller
 
     public function editprice($id)
     {
-        //     $existingCrop = Price::where('crop', $validatedData['crop'])
-        // ->where('region', $validatedData['region'])
-        // ->where('agency', $validatedData['agency'])
-        // ->where('starting', $validatedData['starting'])
-        // ->first();
-
-        // if ($existingCrop) {
-        //     return redirect()->back()->withErrors(['error' => 'Crop already registered.']);
-        // }
+        
     }
 
     public function saveEditedprice(Request $request)
@@ -362,4 +354,10 @@ class HomeController extends Controller
         $crops = Crop::get();
         return view('admin.importExcel', ['crop' => $crops]);
     }
+
+    public function sendSMS()
+    {
+        return view('admin.sendSMS');
+    }
+
 }

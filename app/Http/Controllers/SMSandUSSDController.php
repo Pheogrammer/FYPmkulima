@@ -85,7 +85,7 @@ class SMSandUSSDController extends Controller
 
                             if ($nextOffset <= $totalCrops) {
                                 $response .= "Bonyeza 0 kuona mazao mengine.\n";
-                            } 
+                            }
                         }
                     }
                 } elseif ((count($parts) === 4 && intval(end($parts)) === 0)) {
@@ -142,40 +142,67 @@ class SMSandUSSDController extends Controller
 
         }
 
-        // Send the response back to the API
         return response($response)->header('Content-Type', 'text/plain');
     }
 
 
     private function sendSMS($phoneNumber, $message)
     {
-        // Set your app credentials
         $credentials = [
             'apiKey' => env('App_APIKEY'),
             'username' => env('USERNAME', 'ForFarmer'),
         ];
 
-        // Initialize the SDK
         $AT = new \AfricasTalking\SDK\AfricasTalking($credentials);
 
 
-        // Get the SMS service
         $sms = $AT->sms();
 
-        // Set your shortCode or senderId
         $from = 'AgroInfo';
 
-        // Set the numbers you want to send to in international format
         $to = ['+' . $phoneNumber];
 
-        // Set the message
         $message = $message;
 
-        // Send the message
         $sms->send([
             'to' => $to,
             'message' => $message,
             'from' => $from,
         ]);
+    }
+
+    public function sendSMStoAll(Request $request)
+    {
+        $validatedData = $request->validate([
+            'message' => 'required',
+        ]);
+
+        $credentials = [
+            'apiKey' => env('App_APIKEY'),
+            'username' => env('USERNAME', 'ForFarmer'),
+        ];
+
+        $AT = new \AfricasTalking\SDK\AfricasTalking($credentials);
+
+
+        $sms = $AT->sms();
+
+        $from = 'AgroInfo';
+
+
+        $users = Subscription::get();
+        foreach ($users as $user) {
+            $to = [$user->mkulimaID];
+
+            $message = $request->message;
+
+            $sms->send([
+                'to' => $to,
+                'message' => $message,
+                'from' => $from,
+            ]);
+        }
+
+        return redirect()->back()->with(['message' => 'Message Sent Successfully']);
     }
 }
