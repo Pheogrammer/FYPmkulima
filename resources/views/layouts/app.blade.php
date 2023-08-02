@@ -42,9 +42,7 @@
                     <ul class="navbar-nav me-auto">
                         @guest
                         @else
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('settings') }}">{{ __('Settings') }}</a>
-                            </li>
+                           
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('prices') }}">{{ __('Crop Prices') }}</a>
 

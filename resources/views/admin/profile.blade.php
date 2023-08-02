@@ -55,23 +55,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row ">
-                            <div class="col  ">
-                                <div class="form-group">
-                                    <label for="name">Agency</label>
-                                    <select type="text" name="agency" required class="form-control" id="name"
-                                        aria-describedby="nameHelp">
-                                        <option value="{{ Auth::user()->agencyID }}">
-                                            {{ Auth::user()->agency->agencyName }}
-                                        </option>
-                                        @foreach ($agency as $agency)
-                                            <option value="{{ $agency->id }}">
-                                                {{ $agency->agencyName }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                        </div> <br>
+                       
 
                         <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
                             <div class="col">
