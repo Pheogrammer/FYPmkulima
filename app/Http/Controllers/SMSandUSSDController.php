@@ -64,26 +64,20 @@ class SMSandUSSDController extends Controller
 
                         if ($cropPrices->count() > 0) {
                             $totalCrops = $cropPrices->count();
-
-                            $currentOffset = intval(end($parts)) ?: intval($parts[3] ?? 0);
-
-                            if ($currentOffset === 0) {
-                                $currentOffset = intval($parts[4] ?? 1);
-                            }
-
+                            $currentOffset = intval($parts[3] ?? 0);
                             $nextOffset = $currentOffset + 5;
 
-                            $currentCropPrices = $cropPrices->slice($currentOffset - 1, 5);
+                            $currentCropPrices = $cropPrices->slice($currentOffset, 5);
 
                             $region = Region::find($selectedRegionID);
                             $response = "CON Bei za mazao " . $region['name'] . ":\n";
 
                             foreach ($currentCropPrices as $key => $price) {
-                                $displayNumber = $key - 1;
+                                $displayNumber = $currentOffset + $key + 1;
                                 $response .= $displayNumber . '. ' . $price->crop->name . " Tsh " . number_format($price->maxprice) . " \n";
                             }
 
-                            if ($nextOffset <= $totalCrops) {
+                            if ($nextOffset < $totalCrops) {
                                 $response .= "Bonyeza 0 kuona mazao mengine.\n";
                             }
                         }
