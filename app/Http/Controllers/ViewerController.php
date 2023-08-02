@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\News;
 use App\Models\Price;
 use GuzzleHttp\Client;
+use App\Models\Crop;
 
 class ViewerController extends Controller
 {
@@ -17,8 +18,8 @@ class ViewerController extends Controller
     }
     public function beimazao($id)
     {
-        $region = Price::where('regionID', $id)->first();
-        $beimazao = Price::where('regionID', $id)->orderBy('starting_at', 'desc')->get()->groupBy('starting_at');
+        $region = Price::where('regionID', $id)->with('crop')->first();
+        $beimazao = Price::where('regionID', $id)->with('crop')->get();
         return view('beimikoa', ['beimazao' => $beimazao, 'region' => $region,'id'=>$id]);
     }
 

@@ -14,12 +14,12 @@ class DocumentsController extends Controller
     //
     public function generatepdfforprice($id)
     {
-        $region = Price::where('regionID', $id)->first();
-        $beimazao = Price::where('regionID', $id)->orderBy('starting_at', 'desc')->get()->groupBy('starting_at');
+        $region = Price::where('regionID', $id)->with('crop')->first();
+        $beimazao = Price::where('regionID', $id)->with('crop')->get();
 
         $data = compact('region', 'beimazao');
         $pdf = Pdf::loadView('pricepdf', $data);
-        return $pdf->download("prices.pdf");
+        return $pdf->stream("prices.pdf");
 
 
 

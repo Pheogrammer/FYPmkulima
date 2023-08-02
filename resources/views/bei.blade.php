@@ -17,6 +17,12 @@
 <!-- /section -->
 <section class="wrapper bg-soft-primary">
     <div class="container py-2 py-md-10">
+        <br>
+        <center>
+            <h4>
+                Mikoa yenye bei za mazao
+            </h4>
+        </center>
         <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center bg-light">
             <div class="col">
                 <table class="table">
@@ -25,7 +31,7 @@
                             @if ($index % 5 === 0)
                                 <tr>
                             @endif
-                            <td scope="row">
+                            <td scope="row" class="hover-change-color">
                                 <a style="color: #000;"
                                     href="{{ route('beimazao', $bei->regionID) }}">{{ $bei->region->name }}</a>
                             </td>

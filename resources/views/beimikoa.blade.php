@@ -26,32 +26,30 @@
     <div class="container py-2 py-md-10">
         <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
             <div class="col bg-light">
-
-<a href="{{ route('generatepdfforprice',$id) }}" target="_blank"> Generate PDF</a>
+ <br>
+<a href="{{ route('generatepdfforprice',$id) }}" class="btn btn-success" target="_blank"> Generate PDF</a>
                 <table class="table table-striped table-inverse table-responsive">
                     <thead class="thead-inverse">
                         <tr>
-                            <th>Date</th>
+                            <th>SN</th>
                             <th>Crop</th>
-                            <th>Min Price</th>
-                            <th>Max Price</th>
+                            <th>Price</th>
                         </tr>
                     </thead>
                     <tbody class="text-dark">
-                        @foreach ($beimazao as $startingAt => $prices)
-                            <tr>
-                                <td colspan="4">{{ \Carbon\Carbon::parse($startingAt)->format('d/m/Y') }}
-                                </td>
-                            </tr>
-                            @foreach ($prices as $price)
+                        @php
+                            $x = 1;
+                        @endphp
+                            @foreach ($beimazao as $price)
                                 <tr>
-                                    <td scope="row"></td>
+                                    <td scope="row">{{$x}}</td>
                                     <td>{{ $price->crop->name }}</td>
-                                    <td>{{ $price->minprice }}</td>
                                     <td>{{ $price->maxprice }}</td>
                                 </tr>
+                                @php
+                                    $x++;
+                                @endphp
                             @endforeach
-                        @endforeach
                     </tbody>
                 </table>
 
