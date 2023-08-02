@@ -137,16 +137,13 @@ class SMSandUSSDController extends Controller
 
                     try {
                         $sms->send([
-                            'to' => '+255745909129',
-                            'message' => 'Hello World!',
+                            'to' => $phoneNumber,
+                            'message' => 'Hongera kwa kujiunga na huduma hii.  Utapokea dondoo za kilimo pamoja na taarifa za dharula za kilimo kwa ujumbe mfupi wa simu.',
                         ]);
 
                         $response = "END Namba yako " . $phoneNumber . " imefanikiwa kujiunga na huduma ya ujumbe mfupi kupata dondoo za kilimo.\n\nAsante kwa kujiunga na huduma hii.";
                     } catch (\Exception $e) {
-                        // Log the error for debugging purposes
-                        // Log::error($e->getMessage());
 
-                        // Inform the user that there was an error sending the SMS
                         $response = "END Samahani, kuna tatizo katika kutuma ujumbe. Tafadhali jaribu tena baadaye.";
                     }
                 }
@@ -159,23 +156,6 @@ class SMSandUSSDController extends Controller
     }
 
 
-    private function sendSMS(Request $request)
-    {
-
-        $username = env('AT_APIKEY');
-        $apiKey = env('AT_USERNAME');
-        $AT = new AfricasTalking($username, $apiKey);
-
-        $sms = $AT->sms();
-
-        $result = $sms->send([
-            'to' => $request->input('phoneNumber'),
-            'message' => 'Hello World!'
-        ]);
-
-        return $result;
-
-    }
 
     public function sendSMStoAll(Request $request)
     {
@@ -183,17 +163,12 @@ class SMSandUSSDController extends Controller
             'message' => 'required',
         ]);
 
-        $credentials = [
-            'apiKey' => env('App_APIKEY'),
-            'username' => env('USERNAME', 'ForFarmer'),
-        ];
-
-        $AT = new \AfricasTalking\SDK\AfricasTalking($credentials);
-
+        $username = env('AT_USERNAME');
+        $apiKey = env('AT_APIKEY');
+        $AT = new AfricasTalking($username, $apiKey);
 
         $sms = $AT->sms();
 
-        $from = 'AgroInfo';
 
 
         $users = Subscription::get();
@@ -202,11 +177,16 @@ class SMSandUSSDController extends Controller
 
             $message = $request->message;
 
-            $sms->send([
-                'to' => $to,
-                'message' => $message,
-                'from' => $from,
-            ]);
+            try {
+                $sms->send([
+                    'to' => $to,
+                    'message' => $message,
+                ]);
+
+            } catch (\Exception $e) {
+                return redirect()->back()->with(['message' => 'A problem occurred while sending the message. Please try again later.']);
+
+            }
         }
 
         return redirect()->back()->with(['message' => 'Message Sent Successfully']);

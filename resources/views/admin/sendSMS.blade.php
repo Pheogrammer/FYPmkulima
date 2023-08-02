@@ -34,12 +34,9 @@
                 <div class="card-header">
                     <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
                         <div class="col">
-                            {{ __('Price Registration') }}
+                            {{ __('Send SMS to Subscribed Users') }}
                         </div>
-                        <div class="col-md-4">
-                            <a href="{{ route('importfromExcel') }}" class="btn btn-primary">Import Prices From Excel
-                                File</a>
-                        </div>
+
                     </div>
                 </div>
 
@@ -51,7 +48,7 @@
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="">Region</label>
+                                    <label for="">Message</label>
                                     <textarea rows="10" required name="message" id="input_id" class="form-control" placeholder=""
                                         aria-describedby="helpId">{{ old('SMS') }}</textarea>
 
