@@ -9,6 +9,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }} / @yield('title') </title>
+    <link rel="shortcut icon" href="{{ asset('img/mkulima.png') }}">
+
     <script src="{{ asset('js/jquery.min.js') }}"></script>
 
     <!-- Scripts -->
@@ -42,7 +44,7 @@
                     <ul class="navbar-nav me-auto">
                         @guest
                         @else
-                           
+
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('prices') }}">{{ __('Crop Prices') }}</a>
 

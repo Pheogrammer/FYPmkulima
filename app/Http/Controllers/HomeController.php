@@ -12,7 +12,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use App\Models\News;
 use Illuminate\Support\Facades\Hash;
-
+use App\Models\Message;
 use DB;
 
 class HomeController extends Controller
@@ -246,7 +246,7 @@ class HomeController extends Controller
 
     public function editprice($id)
     {
-        
+
     }
 
     public function saveEditedprice(Request $request)
@@ -350,14 +350,16 @@ class HomeController extends Controller
         return redirect()->back()->with(['message' => 'Password Changed Successfully']);
     }
 
-    public function importfromExcel(){
+    public function importfromExcel()
+    {
         $crops = Crop::get();
         return view('admin.importExcel', ['crop' => $crops]);
     }
 
     public function sendSMS()
     {
-        return view('admin.sendSMS');
+        $messages = Message::orderby('created_at', 'desc')->get();
+        return view('admin.sendSMS', ['message' => $messages]);
     }
 
 }

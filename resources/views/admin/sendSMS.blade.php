@@ -68,6 +68,44 @@
                     </form>
                 </div>
             </div>
+            <br>
+            <div class="card">
+                <div class="card-header">
+                    <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+                        <div class="col">
+                            {{ __('Recent Messages') }}
+                        </div>
+
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped table-inverse table-responsive">
+                        <thead class="thead-inverse">
+                            <tr>
+                                <th>SN</th>
+                                <th>Message</th>
+                                <th>Receivers</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @php
+                                $x = 1;
+                            @endphp
+                            @foreach ($message as $item)
+                                <tr>
+                                    <td>{{ $x }}</td>
+                                    <td>{{ $item->message }}</td>
+                                    <td>{{ $item->sentTo }}</td>
+                                    @php
+                                        $x++;
+                                    @endphp
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 </div>

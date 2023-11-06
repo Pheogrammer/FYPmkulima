@@ -22,7 +22,7 @@
                             class="svg-inject icon-svg icon-svg-md text-yellow mb-3" alt="" />
                         <h4>Bei za mazao</h4>
                         <p class="mb-2">Angalia orodha ya bei elekezi ya mazao katika eneo ulilopo.</p>
-                        <a href="#" class="more hover link-yellow">Ingia zaidi</a>
+                        <a href="{{ route('bei') }}" class="more hover link-yellow">Ingia zaidi</a>
                     </div>
                     <!--/.card-body -->
                 </div>
@@ -36,7 +36,7 @@
                             class="svg-inject icon-svg icon-svg-md text-green mb-3" alt="" />
                         <h4>Habari za kilimo</h4>
                         <p class="mb-2">Angalia taarifa mbalimbali zinazohusu kilimo.</p>
-                        <a href="#" class="more hover link-green">Ingia zaidi </a>
+                        <a href="{{ route('news') }}" class="more hover link-green">Ingia zaidi </a>
                     </div>
                     <!--/.card-body -->
                 </div>
@@ -50,7 +50,7 @@
                             class="svg-inject icon-svg icon-svg-md text-orange mb-3" alt="" />
                         <h4>Mabadiliko ya hali ya hewa</h4>
                         <p class="mb-2">Ijue hali ya hewa katika maeneo tofauti.</p>
-                        <a href="#" class="more hover link-orange">Ingia zaidi</a>
+                        <a href="{{ route('weather') }}" class="more hover link-orange">Ingia zaidi</a>
                     </div>
                     <!--/.card-body -->
                 </div>
@@ -64,7 +64,7 @@
                             class="svg-inject icon-svg icon-svg-md text-orange mb-3" alt="" />
                         <h4>Jisajili</h4>
                         <p class="mb-2">Jisajili kupitia wavuti hii ili kupata dondoo za kilimo kwanjia ya SMS.</p>
-                        <a href="#" class="more hover link-green">Ingia zaidi</a>
+                        <a href="#enrolling" class="more hover link-green">Ingia zaidi</a>
                     </div>
                     <!--/.card-body -->
                 </div>
@@ -121,7 +121,7 @@
 
 <!-- /section -->
 <section class="wrapper bg-soft-primary">
-    <div class="container py-2 py-md-10">
+    <div class="container py-2 py-md-10" id="enrolling">
         <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
 
             <!--/column -->

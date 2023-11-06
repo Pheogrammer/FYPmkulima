@@ -7,6 +7,7 @@ use App\Models\Region;
 use App\Models\Zone;
 use App\Models\Price;
 use App\Models\Subscription;
+use App\Models\Message;
 use AfricasTalking\SDK\AfricasTalking;
 
 class SMSandUSSDController extends Controller
@@ -70,7 +71,7 @@ class SMSandUSSDController extends Controller
                             $currentCropPrices = $cropPrices->slice($currentOffset, 5);
 
                             $region = Region::find($selectedRegionID);
-                            $response = "CON Bei za mazao " . $region['name'] . ":\n";
+                            $response = "END Bei za mazao " . $region['name'] . ":\n";
 
                             foreach ($currentCropPrices as $key => $price) {
                                 $displayNumber = $currentOffset + $key + 1;
@@ -172,11 +173,15 @@ class SMSandUSSDController extends Controller
 
 
         $users = Subscription::get();
+        $message = $request->message;
+
+        $saveMessage = new Message();
+
+        $saveMessage->message = $message;
+        $receivers = '';
         foreach ($users as $user) {
             $to = [$user->mkulimaID];
-
-            $message = $request->message;
-
+            $receivers = $receivers . ', ' . $user->mkulimaID;
             try {
                 $sms->send([
                     'to' => $to,
@@ -188,6 +193,8 @@ class SMSandUSSDController extends Controller
 
             }
         }
+        $saveMessage->sentTo = $receivers;
+        $saveMessage->save();
 
         return redirect()->back()->with(['message' => 'Message Sent Successfully']);
     }

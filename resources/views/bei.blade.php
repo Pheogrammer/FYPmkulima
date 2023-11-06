@@ -20,7 +20,7 @@
         <br>
         <center>
             <h4>
-                Mikoa yenye bei za mazao
+               Bei za mazao kwa mikoa
             </h4>
         </center>
         <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center bg-light">
